@@ -1,0 +1,33 @@
+---
+api_key: 8o9g7WcfwnwbB*Qp4VsGsw((
+limit: 5
+lucky: true
+sites:
+  - academia
+  - ai
+  - askubuntu
+  - biology
+  - chemistry
+  - cs
+  - diy
+  - english
+  - math
+  - mathoverflow.net
+  - mattermodeling
+  - meta
+  - opensource
+  - physics
+  - pm
+  - quant
+  - scicomp
+  - serverfault
+  - stackapps
+  - stackoverflow
+  - stats
+  - superuser
+  - tex
+  - unix
+  - workplace
+  - writing
+search_engine: google
+copy_cmd: xclip -sel clip

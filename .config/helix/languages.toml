@@ -1,0 +1,115 @@
+[[language]]
+name = "json"
+formatter = { command = 'prettier', args = ["--parser", "json"] }
+auto-format = true
+
+[[language]]
+name = "toml"
+auto-format = true
+
+[[language]]
+name = "yaml"
+formatter = { command = 'prettier', args = ["--parser", "yaml"] }
+auto-format = true
+
+[[language]]
+name = "css"
+formatter = { command = 'prettier', args = ["--parser", "css"] }
+auto-format = true
+
+[[language]]
+name = "html"
+formatter = { command = 'prettier', args = ["--parser", "html"] }
+auto-format = true
+
+[[language]]
+name = "xml"
+formatter = { command = 'prettier', args = ["--parser", "xml"] }
+auto-format = true
+
+[[language]]
+name = "markdown"
+# NOTE: this conflicts with slidev, use <https://prettier.io/docs/en/ignore.html#range-ignore> to ignore blocks.
+formatter = { command = 'prettier', args = ["--parser", "markdown"] }
+auto-format = true
+
+[[language]]
+name = "latex"
+formatter = { command = 'latexindent', args = ["-m"] }
+auto-format = true
+
+[language.config.texlab.chktex]
+onEdit = true
+
+[[language]]
+name = "bibtex"
+scope = "source.bib"
+injection-regex = "bib"
+file-types = ["bib"]
+roots = []
+comment-token = "%"
+language-server = { command = "texlab" }
+indent = { tab-width = 4, unit = "\t" }
+auto-format = true
+
+[language.formatter]
+command = 'bibtex-tidy'
+args = [
+  "-",
+  "--curly",
+  "--drop-all-caps",
+  "--remove-empty-fields",
+  "--sort-fields",
+  "--sort=year,author,id",
+  "--strip-enclosing-braces",
+  "--trailing-commas",
+]
+
+[[grammar]]
+name = "bibtex"
+source = { git = "https://github.com/latex-lsp/tree-sitter-bibtex", rev = "ccfd77db0ed799b6c22c214fe9d2937f47bc8b34" }
+
+[[language]]
+name = "javascript"
+formatter = { command = 'prettier', args = ["--parser", "typescript"] }
+auto-format = true
+
+[[language]]
+name = "typescript"
+formatter = { command = 'prettier', args = ["--parser", "typescript"] }
+auto-format = true
+
+[[language]]
+name = "svelte"
+formatter = { command = 'prettier', args = ["--parser", "svelte"] }
+auto-format = true
+
+[[language]]
+name = "elm"
+formatter = { command = 'prettier', args = ["--parser", "elm"] }
+auto-format = true
+
+[[language]]
+name = "awk"
+auto-format = true
+
+[[language]]
+name = "bash"
+formatter = { command = 'prettier', args = ["--parser", "sh"] }
+auto-format = true
+
+[[language]]
+name = "python"
+# roots = ["pyproject.toml"]
+language-server = { command = "pyright-langserver", args = ["--stdio"] }
+# NOTE: the following is important even if config is empty.
+config = { }
+formatter = { command = "black", args = ["--quiet", "-"] }
+auto-format = true
+
+[[language]]
+name = "rust"
+auto-format = true
+
+[language.config]
+checkOnSave = { command = "clippy" }

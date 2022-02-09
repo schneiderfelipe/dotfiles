@@ -1,0 +1,48 @@
+[user]
+	name = Felipe S. S. Schneider
+	email = schneider.felipe.5@gmail.com
+[author]
+	name = Felipe S. S. Schneider
+	email = schneider.felipe.5@gmail.com
+[github]
+	user = schneiderfelipe
+[core]
+	quotepath = off
+	pager = delta
+[interactive]
+	diffFilter = delta --color-only
+[delta]
+	features = side-by-side line-numbers
+	syntax-theme = Monokai Extended
+	theme = Monokai Extended
+[merge]
+	conflictstyle = diff3
+[diff]
+	colorMoved = default
+[color]
+	ui = auto
+	branch = auto
+	diff = auto
+	interactive = auto
+	status = auto
+[init]
+	defaultBranch = main
+	templateDir = ~/.git-templates/git-secrets
+[alias]
+	# TODO: use a binary or a zsh plugin for this? 'ignore' conflicts with git-extras
+	ignore-all = "!gi() { curl -sL https://www.gitignore.io/api/$@ ;}; gi"
+[credential "https://github.com"]
+	helper =
+	helper = !/usr/bin/gh auth git-credential
+[credential "https://gist.github.com"]
+	helper =
+	helper = !/usr/bin/gh auth git-credential
+[secrets]
+	providers = git secrets --aws-provider
+	patterns = (A3T[A-Z0-9]|AKIA|AGPA|AIDA|AROA|AIPA|ANPA|ANVA|ASIA)[A-Z0-9]{16}
+	patterns = (\"|')?(AWS|aws|Aws)?_?(SECRET|secret|Secret)?_?(ACCESS|access|Access)?_?(KEY|key|Key)(\"|')?\\s*(:|=>|=)\\s*(\"|')?[A-Za-z0-9/\\+=]{40}(\"|')?
+	patterns = (\"|')?(AWS|aws|Aws)?_?(ACCOUNT|account|Account)_?(ID|id|Id)?(\"|')?\\s*(:|=>|=)\\s*(\"|')?[0-9]{4}\\-?[0-9]{4}\\-?[0-9]{4}(\"|')?
+	allowed = AKIAIOSFODNN7EXAMPLE
+	allowed = wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY
+[push]
+	autoSetupRemote = true

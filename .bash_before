@@ -1,0 +1,63 @@
+#!/bin/bash
+
+DROPBOX="$(jq -r '.personal.path' "$HOME/.dropbox/info.json")"
+export DROPBOX
+
+# Secrets such as API stuff, etc.
+SECRETS="$DROPBOX/.secrets"
+if [ -f "$SECRETS" ]; then
+  # shellcheck source=/dev/null
+  . "$SECRETS"
+fi
+unset SECRETS
+
+# Pyenv configuration
+# See <https://github.com/pyenv/pyenv#set-up-your-shell-environment-for-pyenv>.
+export PYENV_ROOT="$HOME/.pyenv"
+if ! command -v pyenv &> /dev/null; then
+  export PATH="$PYENV_ROOT/bin:$PATH"
+fi
+eval "$(pyenv init -)"
+
+# juliaup configuration
+export PATH=$HOME/.juliaup/bin:$PATH
+
+# You might have to change your $PATH.
+# We update $PATH first, as code down the road relies on it.
+export PATH=$HOME/.local/bin:$PATH
+
+# Alda binaries
+export PATH=/opt/alda:$PATH
+
+# Path configurations for Orca
+# export ORCA_PATH=/opt/orca420
+export ORCA_PATH=/opt/orca
+export PATH=$ORCA_PATH:$PATH
+export LD_LIBRARY_PATH=$ORCA_PATH:$LD_LIBRARY_PATH
+
+# Path configurations for xTB
+export PATH=/opt/xtb/bin:$PATH
+if command -v xtb &> /dev/null && [ ! -f $ORCA_PATH/otool_xtb ]; then
+  ln -s "$(which xtb)" $ORCA_PATH/otool_xtb
+fi
+
+export Multiwfnpath=/opt/Multiwfn/
+export PATH=$Multiwfnpath:$PATH
+
+# Golang
+export GOPATH="$HOME/.go"
+export PATH="$GOPATH/bin:/opt/go/bin:$PATH"
+
+# fnm/npm installed packages
+export PATH=$HOME/.fnm:$PATH
+
+# Before anything else, start tmux
+if command -v tmux &> /dev/null && [ -z "$TMUX" ] \
+  && [[ ! $TERM =~ tmux ]] && [[ ! $TERM =~ screen ]] \
+  && [ -n "$PS1" ]; then
+  if command -v names &> /dev/null; then
+    exec tmux new-session -s "$(names)"
+  else
+    exec tmux new-session -s unnamed-session
+  fi
+fi
