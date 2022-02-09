@@ -98,6 +98,9 @@ fi
 #    . /etc/bash_completion
 #fi
 
+# Completions for Alacritty
+source ~/.bash_completion/alacritty
+
 # Configurations for Orca
 export PATH=/opt/orca:$PATH
 export LD_LIBRARY_PATH=/opt/orca:$LD_LIBRARY_PATH

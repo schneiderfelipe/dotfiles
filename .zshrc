@@ -109,6 +109,9 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+# Completions for Alacritty
+fpath+=${ZDOTDIR:-~}/.zsh_functions
+
 # Configurations for Orca
 export PATH=/opt/orca:$PATH
 export LD_LIBRARY_PATH=/opt/orca:$LD_LIBRARY_PATH
