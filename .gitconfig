@@ -1,0 +1,14 @@
+[user]
+	name = Felipe S. S. Schneider
+	email = schneider.felipe.5@gmail.com
+[author]
+	name = Felipe S. S. Schneider
+	email = schneider.felipe.5@gmail.com
+[github]
+	user = schneiderfelipe
+[core]
+	quotepath = off
+[init]
+	defaultBranch = main
+[alias]
+	ignore = "!gi() { curl -sL https://www.gitignore.io/api/$@ ;}; gi"
