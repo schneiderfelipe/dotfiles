@@ -72,10 +72,14 @@ ZSH_THEME="robbyrussell"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
     git
+    zsh-completions
     zsh-autosuggestions
     zsh-history-substring-search
     zsh-syntax-highlighting
 )
+
+# Proper autocompletions
+autoload -U compinit && compinit
 
 source $ZSH/oh-my-zsh.sh
 
