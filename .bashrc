@@ -99,3 +99,6 @@ fi
 #fi
 
 eval "$(starship init bash)"
+
+# Show information about the computer at startup
+neofetch
