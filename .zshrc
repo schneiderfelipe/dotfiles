@@ -1,3 +1,10 @@
+# Before anything, start tmux
+if command -v tmux &> /dev/null && [ -z "$TMUX" ] \
+    && [[ ! "$TERM" =~ tmux ]] && [[ ! "$TERM" =~ screen ]] \
+    && [ -n "$PS1" ]; then
+  exec tmux new-session -A -s main
+fi
+
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 

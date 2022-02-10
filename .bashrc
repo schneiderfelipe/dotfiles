@@ -1,3 +1,10 @@
+# Before anything, start tmux
+if command -v tmux &> /dev/null && [ -z "$TMUX" ] \
+    && [[ ! "$TERM" =~ tmux ]] && [[ ! "$TERM" =~ screen ]] \
+    && [ -n "$PS1" ]; then
+  exec tmux new-session -A -s main
+fi
+
 # ~/.bashrc: executed by bash(1) for non-login shells.
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
