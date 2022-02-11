@@ -17,6 +17,7 @@ call plug#begin(data_dir . '/plugged')
   " Provide help for vim-plug itself.
   Plug 'junegunn/vim-plug'
   Plug 'tpope/vim-sensible'
+  Plug 'tpope/vim-sleuth'
 call plug#end()
 
 " Ensure autoload/plug.vim is a symlink to plugged/vim-plug/plug.vim.
