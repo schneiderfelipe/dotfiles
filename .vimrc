@@ -1,10 +1,11 @@
-" vim and neovim share the same configurations
+" vim and neovim share the same configuration
 let data_dir = '~/.vim'
 let autoload_plug = expand(data_dir . '/autoload/plug.vim')
 
 " Automatically install vim-plug if missing
 if empty(glob(autoload_plug))
-  silent execute '!rm ' . autoload_plug . '; curl -fLo ' . autoload_plug . ' --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+  silent execute '!rm ' . autoload_plug
+  silent execute '!curl -fLo ' . autoload_plug . ' --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 endif
 
 " Run PlugInstall if there are missing plugins
@@ -18,7 +19,9 @@ call plug#begin(data_dir . '/plugged')
   Plug 'tpope/vim-sensible'
 call plug#end()
 
-" Ensure autoload/plug.vim is a symlink to plugged/vim-plug/plug.vim
-if autoload_plug == resolve(autoload_plug)
-  silent execute '!rm ' . autoload_plug . ' && ln -s -t '.data_dir.'/autoload/ '.data_dir.'/plugged/vim-plug/plug.vim'
+" Ensure autoload/plug.vim is a symlink to plugged/vim-plug/plug.vim.
+" This should come after plug#end().
+if resolve(autoload_plug) == autoload_plug
+  silent execute '!rm ' . autoload_plug
+  silent execute '!ln -s -t ' . data_dir . '/autoload/ ' . data_dir . '/plugged/vim-plug/plug.vim'
 endif
