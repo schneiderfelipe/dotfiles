@@ -12,5 +12,7 @@ autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
 \| endif
 
 call plug#begin(data_dir . '/plugged')
+  " Provide help for vim-plug itself
+  Plug 'junegunn/vim-plug'
   Plug 'tpope/vim-sensible'
 call plug#end()
