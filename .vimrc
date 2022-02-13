@@ -4,8 +4,21 @@ if filereadable("/etc/vim/vimrc")
 endif
 
 " vim and neovim share the same configuration
-let data_dir = '~/.vim'
-let autoload_plug = expand(data_dir . '/autoload/plug.vim')
+let data_dir = expand('~/.vim')
+
+" Keep undo history across sessions by storing it in a file
+if has('persistent_undo')
+  set undofile
+  let &undodir = data_dir . '/undodir'
+  " Create directory if missing
+  if !isdirectory(&undodir)
+    silent execute '!mkdir -p ' . &undodir
+  endif
+endif
+
+
+" Path to vim-plug
+let autoload_plug = data_dir . '/autoload/plug.vim'
 
 " Automatically install vim-plug if missing
 if empty(glob(autoload_plug))
