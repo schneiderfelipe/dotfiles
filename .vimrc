@@ -1,3 +1,8 @@
+" Source a main configuration file if available
+if filereadable("/etc/vim/vimrc")
+  source /etc/vim/vimrc
+endif
+
 " vim and neovim share the same configuration
 let data_dir = '~/.vim'
 let autoload_plug = expand(data_dir . '/autoload/plug.vim')
