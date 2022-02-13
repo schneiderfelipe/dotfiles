@@ -21,10 +21,14 @@ autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
 call plug#begin(data_dir . '/plugged')
   " Provide help for vim-plug itself.
   Plug 'junegunn/vim-plug'
+  " Sensible default configuration
   Plug 'tpope/vim-sensible'
+  " Automatic indentation detection
   Plug 'tpope/vim-sleuth'
   " Restore sessions
   Plug 'tpope/vim-obsession'
+  " Remember positions
+  Plug 'farmergreg/vim-lastplace'
 call plug#end()
 
 " Ensure autoload/plug.vim is a symlink to plugged/vim-plug/plug.vim.
