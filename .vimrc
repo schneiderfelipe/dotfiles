@@ -42,6 +42,8 @@ call plug#begin(data_dir . '/plugged')
   Plug 'tpope/vim-obsession'
   " Remember positions
   Plug 'farmergreg/vim-lastplace'
+  " GitHub copilot
+  Plug 'github/copilot.vim'
 call plug#end()
 
 " Ensure autoload/plug.vim is a symlink to plugged/vim-plug/plug.vim.
