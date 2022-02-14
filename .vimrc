@@ -7,6 +7,11 @@ endif
 let data_dir = expand('~/.vim')
 
 
+" Show line numbers.
+" This, together with the vim-numbertoggle plugin, will relativize line
+" numbers in appropriate circumstances.
+set number
+
 " Emit 24-bit colors
 set termguicolors
 
@@ -55,6 +60,8 @@ call plug#begin(data_dir . '/plugged')
   Plug 'farmergreg/vim-lastplace'
   " GitHub copilot
   Plug 'github/copilot.vim'
+  " Toggle between hybrid and absolute line numbers automatically
+  Plug 'jeffkreeftmeijer/vim-numbertoggle'
 call plug#end()
 
 " Ensure autoload/plug.vim is a symlink to plugged/vim-plug/plug.vim.
