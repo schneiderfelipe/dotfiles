@@ -79,15 +79,16 @@ call plug#begin(data_dir . '/plugged')
   " GitHub copilot
   Plug 'github/copilot.vim'
 
-  " Icons
-  Plug 'ryanoasis/vim-devicons'
-  " GitHub color scheme
-  Plug 'projekt0n/github-nvim-theme'
-
   " Automatic indentation detection
   Plug 'tpope/vim-sleuth'
   " Indent guides
   Plug 'lukas-reineke/indent-blankline.nvim'
+
+  " GitHub color scheme
+  Plug 'projekt0n/github-nvim-theme'
+  " Icons.
+  " This should be the last plugin to be loaded.
+  Plug 'ryanoasis/vim-devicons'
 call plug#end()
 
 " Ensure autoload/plug.vim is a symlink to plugged/vim-plug/plug.vim.
