@@ -10,15 +10,15 @@ set encoding=UTF-8
 let data_dir = expand('~/.vim')
 
 
+" Keybindings are defined in a separate file.
+let map_file = data_dir . '/map.vim'
+if filereadable(map_file)
+  " Load the keybindings when Vim is started.
+  autocmd VimEnter * silent execute 'source ' . map_file
+endif
+
 " Allow using the mouse in all modes
 set mouse=a
-
-" Make Shift-Tab 'detab' both in command and insert modes
-nnoremap <S-Tab> <<
-inoremap <S-Tab> <C-d>
-
-" Toggle NERDTree visibility with Ctrl-B
-nnoremap <C-b> :NERDTreeToggle<CR>
 
 " Start NERDTree when Vim is started without file arguments.
 autocmd StdinReadPre * let s:std_in=1
