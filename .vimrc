@@ -3,12 +3,12 @@ if filereadable("/etc/vim/vimrc")
   source /etc/vim/vimrc
 endif
 
-" Not required by Neovim, but useful in Vim
-set encoding=UTF-8
-
 " vim and neovim share the same configuration
 let data_dir = expand('~/.vim')
 
+" Not required by Neovim, but useful in Vim.
+" It also ensures that the minimap works correctly.
+set encoding=UTF-8
 
 " Keybindings are defined in a separate file.
 let map_file = data_dir . '/map.vim'
@@ -17,24 +17,12 @@ if filereadable(map_file)
   autocmd VimEnter * silent execute 'source ' . map_file
 endif
 
-" Allow using the mouse in all modes
-set mouse=a
-
 " Start NERDTree when Vim is started without file arguments.
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists('s:std_in') | NERDTree | endif
 
 " Exit Vim if NERDTree is the only window remaining in the only tab.
 autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
-
-" Natural splitting
-set splitbelow
-set splitright
-
-" Show line numbers.
-" This, together with the vim-numbertoggle plugin, will relativize line
-" numbers in appropriate circumstances.
-set number
 
 " Keep undo history across sessions by storing it in a file
 if has('persistent_undo')
@@ -45,6 +33,18 @@ if has('persistent_undo')
     silent execute '!mkdir -p ' . &undodir
   endif
 endif
+
+" Natural splitting
+set splitbelow
+set splitright
+
+" Show line numbers.
+" This, together with the vim-numbertoggle plugin, will relativize line
+" numbers in appropriate circumstances.
+set number
+
+" Allow using the mouse in all modes
+set mouse=a
 
 
 " Path to vim-plug
@@ -121,8 +121,11 @@ set termguicolors
 
 " Use GitHub colorscheme
 colorscheme github_dark
+
+" Configurations requiring lua
 if has('nvim')
 lua << EOF
+  -- GitHub colorscheme settings for lualine
   require('lualine').setup {
     options = {
       theme = 'github',

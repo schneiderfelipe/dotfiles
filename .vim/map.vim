@@ -1,3 +1,5 @@
+" TODO: move this to .vimrc.mappings or something
+
 " Make Shift-Tab 'detab' both in command and insert modes
 nnoremap <S-Tab> <<
 inoremap <S-Tab> <C-d>
