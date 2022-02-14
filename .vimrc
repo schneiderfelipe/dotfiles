@@ -31,6 +31,13 @@ autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
   \| PlugInstall --sync | source $MYVIMRC
 \| endif
 
+" The list of vim-plug plugins.
+" It also executes the following commands:
+"
+" ```
+" syntax on
+" filetype plugin indent on
+" ```
 call plug#begin(data_dir . '/plugged')
   " Provide help for vim-plug itself.
   Plug 'junegunn/vim-plug'
