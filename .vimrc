@@ -64,6 +64,8 @@ call plug#begin(data_dir . '/plugged')
   Plug 'github/copilot.vim'
   " Toggle between hybrid and absolute line numbers automatically
   Plug 'jeffkreeftmeijer/vim-numbertoggle'
+  " Statusline
+  Plug 'nvim-lualine/lualine.nvim'
   " GitHub color scheme
   Plug 'projekt0n/github-nvim-theme'
 call plug#end()
@@ -79,5 +81,14 @@ endif
 " Emit 24-bit colors
 set termguicolors
 
-" Use GitHub colors
+" Use GitHub colorscheme
 colorscheme github_dark
+if has('nvim')
+lua << EOF
+  require('lualine').setup {
+    options = {
+      theme = 'github',
+    }
+  }
+EOF
+endif
