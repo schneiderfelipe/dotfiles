@@ -61,8 +61,6 @@ call plug#begin(data_dir . '/plugged')
   " Remember positions
   Plug 'farmergreg/vim-lastplace'
 
-  " Automatic indentation detection
-  Plug 'tpope/vim-sleuth'
   " Toggle between hybrid and absolute line numbers automatically
   Plug 'jeffkreeftmeijer/vim-numbertoggle'
   " Show git markers
@@ -77,6 +75,11 @@ call plug#begin(data_dir . '/plugged')
   Plug 'ryanoasis/vim-devicons'
   " GitHub color scheme
   Plug 'projekt0n/github-nvim-theme'
+
+  " Automatic indentation detection
+  Plug 'tpope/vim-sleuth'
+  " Indent guides
+  Plug 'lukas-reineke/indent-blankline.nvim'
 call plug#end()
 
 " Ensure autoload/plug.vim is a symlink to plugged/vim-plug/plug.vim.
