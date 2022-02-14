@@ -80,6 +80,8 @@ call plug#begin(data_dir . '/plugged')
   " Remember positions
   Plug 'farmergreg/vim-lastplace'
 
+  " Illuminate the current word
+  Plug 'RRethy/vim-illuminate'
   " Toggle between hybrid and absolute line numbers automatically
   Plug 'jeffkreeftmeijer/vim-numbertoggle'
   " Show git markers
