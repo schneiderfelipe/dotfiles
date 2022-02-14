@@ -12,9 +12,6 @@ let data_dir = expand('~/.vim')
 " numbers in appropriate circumstances.
 set number
 
-" Emit 24-bit colors
-set termguicolors
-
 " Keep undo history across sessions by storing it in a file
 if has('persistent_undo')
   set undofile
@@ -62,6 +59,8 @@ call plug#begin(data_dir . '/plugged')
   Plug 'github/copilot.vim'
   " Toggle between hybrid and absolute line numbers automatically
   Plug 'jeffkreeftmeijer/vim-numbertoggle'
+  " GitHub color scheme
+  Plug 'projekt0n/github-nvim-theme'
 call plug#end()
 
 " Ensure autoload/plug.vim is a symlink to plugged/vim-plug/plug.vim.
@@ -70,3 +69,10 @@ if resolve(autoload_plug) == autoload_plug
   silent execute '!rm ' . autoload_plug
   silent execute '!ln -s -t ' . data_dir . '/autoload/ ' . data_dir . '/plugged/vim-plug/plug.vim'
 endif
+
+
+" Emit 24-bit colors
+set termguicolors
+
+" Use GitHub colors
+colorscheme github_dark
