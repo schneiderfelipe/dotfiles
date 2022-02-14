@@ -11,6 +11,9 @@ let data_dir = expand('~/.vim')
 nnoremap <S-Tab> <<
 inoremap <S-Tab> <C-d>
 
+" Natural splitting
+set splitbelow
+set splitright
 
 " Show line numbers.
 " This, together with the vim-numbertoggle plugin, will relativize line
@@ -65,6 +68,8 @@ call plug#begin(data_dir . '/plugged')
   Plug 'jeffkreeftmeijer/vim-numbertoggle'
   " Show git markers
   Plug 'airblade/vim-gitgutter'
+  " Integration with tmux
+  Plug 'christoomey/vim-tmux-navigator'
   " Statusline
   Plug 'nvim-lualine/lualine.nvim'
 
