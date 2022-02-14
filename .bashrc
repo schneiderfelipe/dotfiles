@@ -110,6 +110,12 @@ fi
 # Completions for Alacritty
 source ~/.bash_completion/alacritty
 
+# Options, bindings and completions for fzf
+export FZF_DEFAULT_OPTS='--height 40% --info=inline --cycle'
+export FZF_TMUX_OPTS="-d 40%"
+source /usr/share/doc/fzf/examples/key-bindings.bash
+source /usr/share/doc/fzf/examples/completion.bash
+
 # Configurations for Orca
 export PATH=/opt/orca:$PATH
 export LD_LIBRARY_PATH=/opt/orca:$LD_LIBRARY_PATH

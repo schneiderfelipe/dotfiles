@@ -110,6 +110,10 @@ call plug#begin(data_dir . '/plugged')
   " File explorer
   Plug 'preservim/nerdtree'
 
+  " Fuzzy finder
+  Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+  Plug 'junegunn/fzf.vim'
+
   " GitHub copilot
   Plug 'github/copilot.vim'
 
