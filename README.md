@@ -6,6 +6,8 @@ Information about my dotfiles.
 
 I use [JetBrains Mono](https://www.jetbrains.com/lp/mono/) everywhere.
 Point size is 12.
+(I actually use it patched from
+[Nerd Fonts](https://www.nerdfonts.com/font-downloads).)
 
 ## Default terminal size
 

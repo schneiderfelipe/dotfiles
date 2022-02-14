@@ -52,20 +52,29 @@ autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
 call plug#begin(data_dir . '/plugged')
   " Provide help for vim-plug itself.
   Plug 'junegunn/vim-plug'
-  " Sensible default configuration
+
+  " Sensible defaults
   Plug 'tpope/vim-sensible'
-  " Automatic indentation detection
-  Plug 'tpope/vim-sleuth'
+
   " Restore sessions
   Plug 'tpope/vim-obsession'
   " Remember positions
   Plug 'farmergreg/vim-lastplace'
-  " GitHub copilot
-  Plug 'github/copilot.vim'
+
+  " Automatic indentation detection
+  Plug 'tpope/vim-sleuth'
   " Toggle between hybrid and absolute line numbers automatically
   Plug 'jeffkreeftmeijer/vim-numbertoggle'
+  " Show git markers
+  Plug 'airblade/vim-gitgutter'
   " Statusline
   Plug 'nvim-lualine/lualine.nvim'
+
+  " GitHub copilot
+  Plug 'github/copilot.vim'
+
+  " Icons
+  Plug 'ryanoasis/vim-devicons'
   " GitHub color scheme
   Plug 'projekt0n/github-nvim-theme'
 call plug#end()
