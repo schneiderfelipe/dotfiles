@@ -7,6 +7,11 @@ endif
 let data_dir = expand('~/.vim')
 
 
+" Make Shift-Tab 'detab' both in command and insert modes
+nnoremap <S-Tab> <<
+inoremap <S-Tab> <C-d>
+
+
 " Show line numbers.
 " This, together with the vim-numbertoggle plugin, will relativize line
 " numbers in appropriate circumstances.
