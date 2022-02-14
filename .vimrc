@@ -6,6 +6,10 @@ endif
 " vim and neovim share the same configuration
 let data_dir = expand('~/.vim')
 
+
+" Emit 24-bit colors
+set termguicolors
+
 " Keep undo history across sessions by storing it in a file
 if has('persistent_undo')
   set undofile
