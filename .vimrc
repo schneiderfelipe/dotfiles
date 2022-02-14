@@ -3,6 +3,9 @@ if filereadable("/etc/vim/vimrc")
   source /etc/vim/vimrc
 endif
 
+" Not required by Neovim, but useful in Vim
+set encoding=UTF-8
+
 " vim and neovim share the same configuration
 let data_dir = expand('~/.vim')
 
