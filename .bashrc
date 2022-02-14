@@ -113,6 +113,3 @@ export PATH=/opt/orca:$PATH
 export LD_LIBRARY_PATH=/opt/orca:$LD_LIBRARY_PATH
 
 eval "$(starship init bash)"
-
-# Show information about the computer at startup
-neofetch
