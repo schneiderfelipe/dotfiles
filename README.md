@@ -11,9 +11,14 @@ Point size is 12.
 
 ## Default terminal size
 
-I use at least 80x25 so that it fits
-[neofetch](https://github.com/dylanaraps/neofetch) together with the
-[starship prompt](https://starship.rs/).
+My requirements are:
+- at least 80x25 so that it fits
+  [neofetch](https://github.com/dylanaraps/neofetch) together with the
+  [starship prompt](https://starship.rs/).
+- at least 93x29 so that a Vim session contains at least 80x24 lines of text
+  (some of the screen is filled by status lines and minimap).
+- at least Nx35 for a given N, so that a Vim session contains at least 30
+  lines, the same number of lines as a ruled Moleskine notebook.
 
 ## License
 

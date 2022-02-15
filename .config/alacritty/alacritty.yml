@@ -30,16 +30,16 @@ window:
   # must be at least `2`, while using a value of `0` for columns and lines will
   # fall back to the window manager's recommended size.
   dimensions:
-    columns: 80
-    lines: 25
+    columns: 93
+    lines: 35
 
   # Window position (changes require restart)
   #
   # Specified in number of pixels.
   # If the position is not set, the window manager will handle the placement.
   position:
-    x: 1080
-    y: 453
+    x: 974
+    y: 255
 
   # Window padding (changes require restart)
   #
