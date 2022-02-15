@@ -34,6 +34,12 @@ if has('persistent_undo')
   endif
 endif
 
+" Minimap settings
+let g:minimap_width = 8
+let g:minimap_highlight_range = 1
+let g:minimap_highlight_search = 1
+let g:minimap_git_colors = 1
+
 " Natural splitting
 set splitbelow
 set splitright
@@ -90,6 +96,8 @@ call plug#begin(data_dir . '/plugged')
   Plug 'christoomey/vim-tmux-navigator'
   " Statusline
   Plug 'nvim-lualine/lualine.nvim'
+  " Minimap
+  Plug 'wfxr/minimap.vim', {'do': ':!cargo install code-minimap'}
   " File explorer
   Plug 'preservim/nerdtree'
 
