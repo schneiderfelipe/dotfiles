@@ -10,6 +10,15 @@ let data_dir = expand('~/.vim')
 " It also ensures that the minimap works correctly.
 set encoding=UTF-8
 
+" Wrapping settings.
+" This wraps long lines in all text modes and shows a visual
+" indicator.
+set textwidth=79
+autocmd VimEnter *
+  \ set formatoptions+=t |
+  \ set formatoptions-=l
+set colorcolumn=80
+
 " Keybindings are defined in a separate file.
 let map_file = data_dir . '/map.vim'
 if filereadable(map_file)
