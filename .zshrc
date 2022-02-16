@@ -119,6 +119,14 @@ source $ZSH/oh-my-zsh.sh
 # Completions for Alacritty
 fpath+=${ZDOTDIR:-~}/.zsh_functions
 
+# Uncomment the following line if you are using less version >= 551 and want to
+# enable mouse scrolling support in `bat` when running inside tmux. This might
+# disable text selection, unless you press shift.
+export LESS="--RAW-CONTROL-CHARS --quit-if-one-screen --mouse"
+
+# Use bat as the default man pager
+export MANPAGER="sh -c 'col -bx | bat -l man -p'"
+
 # Options, bindings and completions for fzf
 export FZF_DEFAULT_OPTS='--height 40% --info=inline --cycle'
 export FZF_TMUX_OPTS="-d 40%"
