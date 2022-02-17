@@ -12,3 +12,9 @@
 	defaultBranch = main
 [alias]
 	ignore = "!gi() { curl -sL https://www.gitignore.io/api/$@ ;}; gi"
+[color]
+	ui = auto
+	branch = auto
+	diff = auto
+	interactive = auto
+	status = auto
