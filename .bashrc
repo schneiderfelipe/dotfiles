@@ -1,15 +1,12 @@
-# Before anything, start tmux
-if command -v tmux &> /dev/null && [ -z "$TMUX" ] \
-    && [[ ! "$TERM" =~ tmux ]] && [[ ! "$TERM" =~ screen ]] \
-    && [ -n "$PS1" ]; then
-  exec tmux new-session -A -s main
-fi
-
 # ~/.bashrc: executed by bash(1) for non-login shells.
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
 
-export PATH=~/.local/bin:$PATH
+# Things shared between bash and zsh that should come before.
+# This includes changes to $PATH.
+if [ -f ~/.bash_before ]; then
+    . ~/.bash_before
+fi
 
 # If not running interactively, don't do anything
 [ -z "$PS1" ] && return
@@ -91,15 +88,6 @@ alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
 
-# Alias definitions.
-# You may want to put all your additions into a separate file like
-# ~/.bash_aliases, instead of adding them here directly.
-# See /usr/share/doc/bash-doc/examples in the bash-doc package.
-
-if [ -f ~/.bash_aliases ]; then
-    . ~/.bash_aliases
-fi
-
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
 # sources /etc/bash.bashrc).
@@ -110,22 +98,12 @@ fi
 # Completions for Alacritty
 source ~/.bash_completion/alacritty
 
-# Uncomment the following line if you are using less version >= 551 and want to
-# enable mouse scrolling support in `bat` when running inside tmux. This might
-# disable text selection, unless you press shift.
-export LESS="--RAW-CONTROL-CHARS --quit-if-one-screen --mouse"
-
-# Use bat as the default man pager
-export MANPAGER="sh -c 'col -bx | bat -l man -p'"
-
-# Options, bindings and completions for fzf
-export FZF_DEFAULT_OPTS='--height 40% --info=inline --cycle'
-export FZF_TMUX_OPTS="-d 40%"
+# Completions for fzf
 source /usr/share/doc/fzf/examples/key-bindings.bash
 source /usr/share/doc/fzf/examples/completion.bash
 
-# Configurations for Orca
-export PATH=/opt/orca:$PATH
-export LD_LIBRARY_PATH=/opt/orca:$LD_LIBRARY_PATH
-
-eval "$(starship init bash)"
+# Things shared between bash and zsh that should come after.
+# This includes almost all exports and aliases.
+if [ -f ~/.bash_after ]; then
+    . ~/.bash_after
+fi

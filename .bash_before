@@ -1,0 +1,15 @@
+#!/bin/sh
+
+# Before anything, start tmux
+if command -v tmux &> /dev/null && [ -z "$TMUX" ] \
+    && [[ ! "$TERM" =~ tmux ]] && [[ ! "$TERM" =~ screen ]] \
+    && [ -n "$PS1" ]; then
+  exec tmux new-session -A -s main
+fi
+
+# You might have to change your $PATH.
+export PATH=~/.local/bin:$PATH
+
+# Path configurations for Orca
+export PATH=/opt/orca:$PATH
+export LD_LIBRARY_PATH=/opt/orca:$LD_LIBRARY_PATH
