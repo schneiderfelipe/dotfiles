@@ -3,21 +3,13 @@ if filereadable("/etc/vim/vimrc")
   source /etc/vim/vimrc
 endif
 
-" vim and neovim share the same configuration
-let data_dir = expand('~/.vim')
-
 " Not required by Neovim, but useful in Vim.
 " It also ensures that the minimap works correctly.
 set encoding=UTF-8
 
-" Wrapping settings.
-" This wraps long lines in all text modes and shows a visual
-" indicator.
-set textwidth=79
-autocmd VimEnter *
-  \ set formatoptions+=t |
-  \ set formatoptions-=l
-set colorcolumn=80
+
+" vim and neovim share the same configuration
+let data_dir = expand('~/.vim')
 
 " Keybindings are defined in a separate file.
 let map_file = data_dir . '/map.vim'
@@ -25,14 +17,6 @@ if filereadable(map_file)
   " Load the keybindings when Vim is started.
   autocmd VimEnter * silent execute 'source ' . map_file
 endif
-
-" Start NERDTree when Vim is started without file arguments.
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 0 && !exists('s:std_in') | NERDTree | endif
-
-" Exit Vim if NERDTree is the only window remaining in the only tab.
-autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 &&
-  \ exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
 
 " Keep undo history across sessions by storing it in a file
 if has('persistent_undo')
@@ -43,6 +27,23 @@ if has('persistent_undo')
     silent execute '!mkdir -p ' . &undodir
   endif
 endif
+
+" Wrapping settings.
+" This wraps long lines in all text modes and shows a visual
+" indicator.
+set textwidth=79
+autocmd VimEnter *
+  \ set formatoptions+=t |
+  \ set formatoptions-=l
+set colorcolumn=80
+
+" Start NERDTree when Vim is started without file arguments.
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists('s:std_in') | NERDTree | endif
+
+" Exit Vim if NERDTree is the only window remaining in the only tab.
+autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 &&
+  \ exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
 
 " Minimap settings
 let g:minimap_width = 8
@@ -111,12 +112,6 @@ autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
 \| endif
 
 " The list of vim-plug plugins.
-" It also executes the following commands:
-"
-" ```
-" syntax on
-" filetype plugin indent on
-" ```
 call plug#begin(data_dir . '/plugged')
   " Provide help for vim-plug itself.
   Plug 'junegunn/vim-plug'
@@ -175,6 +170,10 @@ if resolve(autoload_plug) == autoload_plug
   silent execute '!ln -s -t ' . data_dir . '/autoload/ '
     \ . data_dir . '/plugged/vim-plug/plug.vim'
 endif
+
+" vim-plug already executes the following commands, but who knows.
+syntax on
+filetype plugin indent on
 
 
 " Emit 24-bit colors
