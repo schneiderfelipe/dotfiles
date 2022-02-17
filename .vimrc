@@ -45,6 +45,10 @@ autocmd VimEnter * if argc() == 0 && !exists('s:std_in') | NERDTree | endif
 autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 &&
   \ exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
 
+" Generate a tmuxline status bar to be loaded by tmux.
+autocmd VimEnter * execute ':Tmuxline' |
+  \ execute ':TmuxlineSnapshot ~/.tmuxline'
+
 " Minimap settings
 let g:minimap_width = 8
 let g:minimap_auto_start = 1
@@ -155,6 +159,9 @@ call plug#begin(data_dir . '/plugged')
   Plug 'tpope/vim-sleuth'
   " Indent guides
   Plug 'lukas-reineke/indent-blankline.nvim'
+
+  " Set tmux's statusline to match vim's
+  Plug 'edkolev/tmuxline.vim'
 
   " GitHub color scheme
   Plug 'projekt0n/github-nvim-theme'
