@@ -79,6 +79,7 @@ ZSH_CUSTOM=~/.oh-my-zsh-custom
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
     git
+    rust
     zsh-completions
     zsh-autosuggestions
     zsh-history-substring-search

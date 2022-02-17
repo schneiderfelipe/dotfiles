@@ -31,7 +31,8 @@ autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists('s:std_in') | NERDTree | endif
 
 " Exit Vim if NERDTree is the only window remaining in the only tab.
-autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
+autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 &&
+  \ exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
 
 " Keep undo history across sessions by storing it in a file
 if has('persistent_undo')
@@ -45,9 +46,41 @@ endif
 
 " Minimap settings
 let g:minimap_width = 8
+let g:minimap_auto_start = 1
+let g:minimap_auto_start_win_enter = 1
 let g:minimap_highlight_range = 1
 let g:minimap_highlight_search = 1
 let g:minimap_git_colors = 1
+
+" Commenting settings
+let g:NERDDefaultAlign = 'start'
+let g:NERDSpaceDelims = 1
+let g:NERDTrimTrailingWhitespace = 1
+let g:NERDCommentEmptyLines = 1
+let g:NERDCommentWholeLinesInVMode = 2
+
+" Show whitespace characters
+set listchars=tab:├─┤,eol:↵,space:·
+set list
+
+" Remove trailing whitespace and blank lines at the end of the file
+fun! TrimWhitespace()
+  let l:save = winsaveview()
+  keeppatterns %s/\s\+$//e
+  keeppatterns v/\_s*\S/d
+  call winrestview(l:save)
+endfun
+command! TrimWhitespace call TrimWhitespace()
+" Run the function when the file is saved
+autocmd BufWritePre * if !&binary && &ft !=# 'mail'
+  \|   call TrimWhitespace()
+  \| endif
+
+" Indentation guides settings
+let g:indent_blankline_show_end_of_line = v:true
+let g:indent_blankline_space_char_blankline = " "
+" let g:indent_blankline_show_current_context = v:true
+" let g:indent_blankline_show_current_context_start = v:true
 
 " Natural splitting
 set splitbelow
@@ -68,7 +101,8 @@ let autoload_plug = data_dir . '/autoload/plug.vim'
 " Automatically install vim-plug if missing
 if empty(glob(autoload_plug))
   silent execute '!rm ' . autoload_plug
-  silent execute '!curl -fLo ' . autoload_plug . ' --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+  silent execute '!curl -fLo ' . autoload_plug .
+    \ ' --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 endif
 
 " Run PlugInstall if there are missing plugins
@@ -114,8 +148,13 @@ call plug#begin(data_dir . '/plugged')
   Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
   Plug 'junegunn/fzf.vim'
 
+  " Interactive coding scratchpad
+  Plug 'metakirby5/codi.vim'
   " GitHub copilot
   Plug 'github/copilot.vim'
+
+  " Commenting
+  Plug 'preservim/nerdcommenter'
 
   " Automatic indentation detection
   Plug 'tpope/vim-sleuth'
@@ -133,7 +172,8 @@ call plug#end()
 " This should come after plug#end().
 if resolve(autoload_plug) == autoload_plug
   silent execute '!rm ' . autoload_plug
-  silent execute '!ln -s -t ' . data_dir . '/autoload/ ' . data_dir . '/plugged/vim-plug/plug.vim'
+  silent execute '!ln -s -t ' . data_dir . '/autoload/ '
+    \ . data_dir . '/plugged/vim-plug/plug.vim'
 endif
 
 

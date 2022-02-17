@@ -8,9 +8,12 @@ inoremap <S-Tab> <C-d>
 nnoremap <C-b> :NERDTreeToggle<CR>
 
 " Fuzzy search with Ctrl-P
-nnoremap <C-P> :FZF<CR>
+nnoremap <C-P> :Files<CR>
 
 " Split the current window vertically
-nnoremap <C-\> :vsplit<CR>
+nnoremap <M-\> :vsplit<CR>
 " Split the current window horizontally
-nnoremap <C-_> :split<CR>
+nnoremap <M--> :split<CR>
+
+" Toggle comment with Ctrl-/
+nmap <C-_> <plug>NERDCommenterToggle
