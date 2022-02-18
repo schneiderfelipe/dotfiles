@@ -47,7 +47,7 @@ autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 &&
 
 " Generate a tmuxline status bar to be loaded by tmux.
 autocmd VimEnter * execute ':Tmuxline' |
-  \ execute ':TmuxlineSnapshot ~/.tmuxline'
+  \ execute ':TmuxlineSnapshot! ~/.tmuxline'
 
 " Minimap settings
 let g:minimap_width = 8
@@ -136,8 +136,6 @@ call plug#begin(data_dir . '/plugged')
   Plug 'airblade/vim-gitgutter'
   " Integration with tmux
   Plug 'christoomey/vim-tmux-navigator'
-  " Statusline
-  Plug 'nvim-lualine/lualine.nvim'
   " Minimap
   Plug 'wfxr/minimap.vim', {'do': ':!cargo install code-minimap'}
   " File explorer
@@ -163,8 +161,9 @@ call plug#begin(data_dir . '/plugged')
   " Set tmux's statusline to match vim's
   Plug 'edkolev/tmuxline.vim'
 
-  " GitHub color scheme
-  Plug 'projekt0n/github-nvim-theme'
+  " Monokai-inspired colorscheme
+  Plug 'sainnhe/sonokai'
+
   " Icons.
   " This should be the last plugin to be loaded.
   Plug 'ryanoasis/vim-devicons'
@@ -186,17 +185,5 @@ filetype plugin indent on
 " Emit 24-bit colors
 set termguicolors
 
-" Use GitHub colorscheme
-colorscheme github_dark
-
-" Configurations requiring lua
-if has('nvim')
-lua << EOF
-  -- GitHub colorscheme settings for lualine
-  require('lualine').setup {
-    options = {
-      theme = 'github',
-    }
-  }
-EOF
-endif
+" Use Monokai colorscheme
+colorscheme sonokai
