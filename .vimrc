@@ -1,4 +1,8 @@
-" Source a main configuration file if available
+" vim:foldmethod=marker:foldlevel=0
+
+" GENERAL {{{
+
+" Source a main configuration file if available.
 if filereadable("/etc/vim/vimrc")
   source /etc/vim/vimrc
 endif
@@ -7,35 +11,20 @@ endif
 " It also ensures that the minimap works correctly.
 set encoding=UTF-8
 
+" vim-plug already executes the following commands, but who knows.
+syntax on
+filetype plugin indent on
 
-" vim and neovim share the same configuration
+" Vim and Neovim share the same configuration file.
 let data_dir = expand('~/.vim')
 
-" Keybindings are defined in a separate file.
-let map_file = data_dir . '/map.vim'
-if filereadable(map_file)
-  " Load the keybindings when Vim is started.
-  autocmd VimEnter * silent execute 'source ' . map_file
-endif
+" }}}
+" USER INTERFACE {{{
 
-" Keep undo history across sessions by storing it in a file
-if has('persistent_undo')
-  set undofile
-  let &undodir = data_dir . '/undodir'
-  " Create directory if missing
-  if !isdirectory(&undodir)
-    silent execute '!mkdir -p ' . &undodir
-  endif
-endif
-
-" Wrapping settings.
-" This wraps long lines in all text modes and shows a visual
-" indicator.
-set textwidth=79
-autocmd VimEnter *
-  \ set formatoptions+=t |
-  \ set formatoptions-=l
-set colorcolumn=80
+" Show line numbers.
+" This, together with the vim-numbertoggle plugin, will relativize line
+" numbers in appropriate circumstances.
+set number
 
 " Start NERDTree when Vim is started without file arguments.
 autocmd StdinReadPre * let s:std_in=1
@@ -44,10 +33,6 @@ autocmd VimEnter * if argc() == 0 && !exists('s:std_in') | NERDTree | endif
 " Exit Vim if NERDTree is the only window remaining in the only tab.
 autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 &&
   \ exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
-
-" Generate a tmuxline status bar to be loaded by tmux.
-autocmd VimEnter * execute ':Tmuxline' |
-  \ execute ':TmuxlineSnapshot! ~/.tmuxline'
 
 " Minimap settings
 let g:minimap_width = 8
@@ -58,11 +43,54 @@ let g:minimap_highlight_search = 1
 let g:minimap_git_colors = 1
 
 " Commenting settings
-let g:NERDDefaultAlign = 'start'
+" let g:NERDDefaultAlign = 'start'
 let g:NERDSpaceDelims = 1
 let g:NERDTrimTrailingWhitespace = 1
 let g:NERDCommentEmptyLines = 1
 let g:NERDCommentWholeLinesInVMode = 2
+
+" Natural splitting
+set splitbelow
+set splitright
+
+" Allow using the mouse in all modes
+set mouse=a
+
+" }}}
+" THEME {{{
+
+" Emit 24-bit colors
+set termguicolors
+
+" Use Monokai colorscheme
+autocmd VimEnter * colorscheme sonokai
+
+" }}}
+" SPACES AND TABS {{{
+
+" Number of visual spaces per tab character.
+set tabstop=4
+
+" Number of spaces per tab character when editing.
+set softtabstop=4
+
+" Use spaces instead of tabs.
+set expandtab
+
+" Wrapping settings.
+" This wraps long lines in all text modes and shows a visual
+" indicator.
+set textwidth=79
+autocmd VimEnter *
+  \ set formatoptions+=t |
+  \ set formatoptions-=l
+set colorcolumn=80
+
+" Indentation guides settings
+let g:indent_blankline_show_end_of_line = v:true
+let g:indent_blankline_space_char_blankline = " "
+" let g:indent_blankline_show_current_context = v:true
+" let g:indent_blankline_show_current_context_start = v:true
 
 " Show whitespace characters
 set listchars=tab:├─┤,eol:↵,space:·
@@ -81,24 +109,49 @@ autocmd BufWritePre * if !&binary && &ft !=# 'mail'
   \|   call TrimWhitespace()
   \| endif
 
-" Indentation guides settings
-let g:indent_blankline_show_end_of_line = v:true
-let g:indent_blankline_space_char_blankline = " "
-" let g:indent_blankline_show_current_context = v:true
-" let g:indent_blankline_show_current_context_start = v:true
+" Make Shift-Tab 'detab' both in command and insert modes
+nnoremap <S-Tab> <<
+inoremap <S-Tab> <C-d>
 
-" Natural splitting
-set splitbelow
-set splitright
+" }}}
+" UNDO {{{
 
-" Show line numbers.
-" This, together with the vim-numbertoggle plugin, will relativize line
-" numbers in appropriate circumstances.
-set number
+" Keep undo history across sessions by storing it in a file
+if has('persistent_undo')
+  set undofile
+  let &undodir = data_dir . '/undodir'
+  " Create directory if missing
+  if !isdirectory(&undodir)
+    silent execute '!mkdir -p ' . &undodir
+  endif
+endif
 
-" Allow using the mouse in all modes
-set mouse=a
+" }}}
+" KEYBINDINGS {{{
 
+" Toggle NERDTree visibility with Ctrl-B
+nnoremap <C-b> :NERDTreeToggle<CR>
+
+" Fuzzy search with Ctrl-P
+nnoremap <C-P> :Files<CR>
+
+" Split the current window vertically
+nnoremap <M-\> :vsplit<CR>
+" Split the current window horizontally
+nnoremap <M--> :split<CR>
+
+" Toggle comment with Ctrl-/
+nmap <C-_> <plug>NERDCommenterToggle
+
+" }}}
+" TMUX {{{
+
+" Generate a tmuxline status bar to be loaded by tmux.
+autocmd VimEnter * execute ':Tmuxline' |
+  \ execute ':TmuxlineSnapshot! ~/.tmuxline'
+
+" }}}
+" PLUGIN MANAGEMENT {{{
 
 " Path to vim-plug
 let autoload_plug = data_dir . '/autoload/plug.vim'
@@ -177,13 +230,4 @@ if resolve(autoload_plug) == autoload_plug
     \ . data_dir . '/plugged/vim-plug/plug.vim'
 endif
 
-" vim-plug already executes the following commands, but who knows.
-syntax on
-filetype plugin indent on
-
-
-" Emit 24-bit colors
-set termguicolors
-
-" Use Monokai colorscheme
-colorscheme sonokai
+" }}}
