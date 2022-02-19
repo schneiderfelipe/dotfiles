@@ -66,6 +66,25 @@ set termguicolors
 autocmd VimEnter * colorscheme sonokai
 
 " }}}
+" STATUS LINE {{{
+
+" Set the airline status line theme.
+let g:airline_theme = 'sonokai'
+
+" Enable a smarter tab line.
+let g:airline#extensions#tabline#enabled = 1
+
+" Generate a tmuxline status line to be loaded later by tmux.
+let g:airline#extensions#tmuxline#enabled = 1
+let g:airline#extensions#tmuxline#snapshot_file = '~/.tmuxline'
+
+" Select tmuxline preset.
+let g:tmuxline_preset = 'full'
+
+" No separators in tmuxline status line. This should match vim-airline.
+let g:tmuxline_powerline_separators = 0
+
+" }}}
 " SPACES AND TABS {{{
 
 " Number of visual spaces per tab character.
@@ -87,13 +106,13 @@ autocmd VimEnter *
 set colorcolumn=80
 
 " Indentation guides settings
-let g:indent_blankline_show_end_of_line = v:true
-let g:indent_blankline_space_char_blankline = " "
+" let g:indent_blankline_show_end_of_line = v:true
+" let g:indent_blankline_space_char_blankline = " "
 " let g:indent_blankline_show_current_context = v:true
 " let g:indent_blankline_show_current_context_start = v:true
 
 " Show whitespace characters
-set listchars=tab:├─┤,eol:↵,space:·
+set listchars=tab:├─┤,space:·
 set list
 
 " Remove trailing whitespace and blank lines at the end of the file
@@ -142,13 +161,6 @@ nnoremap <M--> :split<CR>
 
 " Toggle comment with Ctrl-/
 nmap <C-_> <plug>NERDCommenterToggle
-
-" }}}
-" TMUX {{{
-
-" Generate a tmuxline status bar to be loaded by tmux.
-autocmd VimEnter * execute ':Tmuxline' |
-  \ execute ':TmuxlineSnapshot! ~/.tmuxline'
 
 " }}}
 " PLUGIN MANAGEMENT {{{
@@ -211,7 +223,10 @@ call plug#begin(data_dir . '/plugged')
   " Indent guides
   Plug 'lukas-reineke/indent-blankline.nvim'
 
-  " Set tmux's statusline to match vim's
+  " Status line
+  Plug 'vim-airline/vim-airline'
+  Plug 'vim-airline/vim-airline-themes'
+  " Set tmux's status line to match vim's
   Plug 'edkolev/tmuxline.vim'
 
   " Monokai-inspired colorscheme
