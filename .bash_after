@@ -34,4 +34,5 @@ export FZF_DEFAULT_OPTS="$FZF_DEFAULT_OPTS \
   --color='info:#727072,prompt:#a9dc76,pointer:#fc9867' \
   --color='marker:#fc9867,spinner:#bcef8a,header:#fc9867'"
 
+# Last thing of this file, starship
 eval "$(starship init zsh)"
