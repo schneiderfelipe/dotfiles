@@ -111,21 +111,43 @@ if ! echo "$answer" | grep -iq "^y"; then
 fi
 
 echo
-echo
 
+echo
 info "Attempting to install zsh...\n"
 sudo apt install zsh -y
 
+echo
 info "Attempting to install tmux...\n"
 sudo apt install tmux -y
 
+echo
 info "Attempting to install fzf...\n"
 sudo apt install fzf -y
 
+echo
 info "Attempting to install ripgrep...\n"
 sudo apt install ripgrep -y
 
+echo
 info "Attempting to install neovim...\n"
 sudo add-apt-repository ppa:neovim-ppa/stable -y
 sudo apt update
 sudo apt install neovim -y
+
+
+echo
+info "Setting some default applications:\n\n"
+
+if command -v alacritty >/dev/null 2>&1; then
+    sudo update-alternatives --install /usr/bin/x-terminal-emulator x-terminal-emulator $(which alacritty) 50
+    sudo update-alternatives --config x-terminal-emulator
+fi
+
+if command -v nvim >/dev/null 2>&1; then
+    sudo update-alternatives --install /usr/bin/editor editor $(which nvim) 50
+    sudo update-alternatives --config editor
+fi
+
+
+echo
+success "Done!\n"
