@@ -42,6 +42,38 @@ else
     success "oh-my-zsh is already installed\n"
 fi
 
+zsh_completions=${ZSH_CUSTOM:-${ZSH:-~/.oh-my-zsh}/custom}/plugins/zsh-completions
+if [ ! -d $zsh_completions ]; then
+    info "Installing zsh-completions...\n"
+    git clone https://github.com/zsh-users/zsh-completions $zsh_completions
+else
+    success "zsh-completions is already installed\n"
+fi
+
+zsh_history_substring_search=${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-history-substring-search
+if [ ! -d $zsh_history_substring_search ]; then
+    info "Installing zsh-history-substring-search...\n"
+    git clone https://github.com/zsh-users/zsh-history-substring-search $zsh_history_substring_search
+else
+    success "zsh-history-substring-search is already installed\n"
+fi
+
+zsh_autosuggestions=${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+if [ ! -d $zsh_autosuggestions ]; then
+    info "Installing zsh-autosuggestions...\n"
+    git clone https://github.com/zsh-users/zsh-autosuggestions $zsh_autosuggestions
+else
+    success "zsh-autosuggestions is already installed\n"
+fi
+
+zsh_syntax_highlighting=${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+if [ ! -d $zsh_syntax_highlighting ]; then
+    info "Installing zsh-syntax-highlighting...\n"
+    git clone https://github.com/zsh-users/zsh-syntax-highlighting $zsh_syntax_highlighting
+else
+    success "zsh-syntax-highlighting is already installed\n"
+fi
+
 if ! command -v starship >/dev/null 2>&1; then
     info "Installing starship...\n"
     sh -c "$(curl -fsSL https://starship.rs/install.sh)"
