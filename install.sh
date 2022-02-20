@@ -98,7 +98,8 @@ info "alacritty:\n"
 code "https://github.com/alacritty/alacritty/blob/master/INSTALL.md#manual-installation\n\n"
 
 info "JetBrains Mono:\n"
-code "https://github.com/ryanoasis/nerd-fonts/releases\n\n"
+code "https://github.com/ryanoasis/nerd-fonts/releases\n"
+code "https://askubuntu.com/a/3706/361183\n\n"
 
 
 info "Some things require super user privileges... "
