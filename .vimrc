@@ -93,6 +93,9 @@ set tabstop=4
 " Number of spaces per tab character when editing.
 set softtabstop=4
 
+" Number of spaces to shift when indenting.
+set shiftwidth=4
+
 " Use spaces instead of tabs.
 set expandtab
 
