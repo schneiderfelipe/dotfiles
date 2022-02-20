@@ -76,6 +76,7 @@ zstyle ':omz:update' mode auto      # update automatically without asking
 plugins=(
     git
     rust
+    poetry
     zsh-completions
     zsh-autosuggestions
     zsh-history-substring-search
