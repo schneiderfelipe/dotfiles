@@ -75,7 +75,7 @@ info "ripgrep:\n"
 code "sudo apt install ripgrep\n\n"
 
 info "fd:\n"
-code "sudo apt install fd-find\n\n"
+code "https://github.com/sharkdp/fd/releases\n\n"
 
 info "JetBrains Mono:\n"
 code "https://github.com/ryanoasis/nerd-fonts/releases\n\n"
