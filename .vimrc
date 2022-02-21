@@ -60,7 +60,9 @@ set mouse=a
 " THEME {{{
 
 " Emit 24-bit colors
-set termguicolors
+if has('termguicolors')
+  set termguicolors
+endif
 
 " Use Monokai colorscheme
 autocmd VimEnter * colorscheme sonokai
