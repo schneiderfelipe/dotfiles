@@ -18,7 +18,17 @@ set encoding=UTF-8
 " Vim and Neovim share the same configuration file.
 let data_dir = expand('~/.vim')
 
+" Hard mode.
+for mode in ['n', 'v', 'i', 'c']
+  for modifier in ['<', '<C-', '<S-']
+      for key in ['Up>', 'Down>', 'Left>', 'Right>']
+      exec mode . 'noremap' modifier . key '<Nop>'
+    endfor
+  endfor
+endfor
+
 " }}}
+if !exists('g:vscode')
 " USER INTERFACE {{{
 
 " Show line numbers.
@@ -306,3 +316,4 @@ syntax on  " Enable syntax highlighting.
 filetype plugin indent on  " Load plugins according to detected filetype.
 
 " }}}
+endif

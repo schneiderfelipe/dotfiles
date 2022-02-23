@@ -1,0 +1,21 @@
+{
+  "vscode-neovim.neovimExecutablePaths.linux": "/usr/bin/vim",
+  "editor.scrollBeyondLastLine": false,
+  "editor.lineNumbers": "relative",
+  "workbench.colorTheme": "Monokai Pro",
+  "workbench.iconTheme": "Monokai Pro Icons",
+  "editor.formatOnType": true,
+  "editor.formatOnPaste": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSave": true,
+  "editor.formatOnSaveMode": "modificationsIfAvailable",
+  "editor.fontLigatures": true,
+  "editor.fontFamily": "'JetBrainsMono Nerd Font', 'Droid Sans Mono', 'monospace', monospace",
+  "github.copilot.enable": {
+    "*": true,
+    "markdown": true
+  },
+  "[rust]": {
+    "editor.defaultFormatter": "matklad.rust-analyzer"
+  }
+}
