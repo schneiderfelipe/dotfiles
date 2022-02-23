@@ -7,13 +7,13 @@ if filereadable("/etc/vim/vimrc")
   source /etc/vim/vimrc
 endif
 
+" I want Vim, not vi. This has been set at this point, but I want to
+" be *very* explicit.
+set nocompatible
+
 " Not required by Neovim, but useful in Vim.
 " It also ensures that the minimap works correctly.
 set encoding=UTF-8
-
-" vim-plug already executes the following commands, but who knows.
-syntax on
-filetype plugin indent on
 
 " Vim and Neovim share the same configuration file.
 let data_dir = expand('~/.vim')
@@ -26,9 +26,17 @@ let data_dir = expand('~/.vim')
 " numbers in appropriate circumstances.
 set number
 
-" Start NERDTree when Vim is started without file arguments.
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 0 && !exists('s:std_in') | NERDTree | endif
+" Find the current line quickly.
+set cursorline
+
+" Always report changed lines.
+set report=0
+
+" The fish shell is not POSIX compliant and unexpectedly breaks things that use
+" 'shell'.
+if &shell =~# 'fish$'
+  set shell=/bin/sh
+endif
 
 " Exit Vim if NERDTree is the only window remaining in the only tab.
 autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 &&
@@ -36,22 +44,19 @@ autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 &&
 
 " Minimap settings
 let g:minimap_width = 8
-let g:minimap_auto_start = 1
-let g:minimap_auto_start_win_enter = 1
 let g:minimap_highlight_range = 1
 let g:minimap_highlight_search = 1
 let g:minimap_git_colors = 1
 
 " Commenting settings
-" let g:NERDDefaultAlign = 'start'
 let g:NERDSpaceDelims = 1
 let g:NERDTrimTrailingWhitespace = 1
 let g:NERDCommentEmptyLines = 1
 let g:NERDCommentWholeLinesInVMode = 2
 
-" Natural splitting
-set splitbelow
-set splitright
+" More natural splitting
+set splitbelow  " Open new windows below current one.
+set splitright  " Open new windows right of current one.
 
 " Allow using the mouse in all modes
 set mouse=a
@@ -74,6 +79,18 @@ autocmd VimEnter * colorscheme sonokai
 " }}}
 " STATUS LINE {{{
 
+" Always show the status line.
+set laststatus=2
+
+" Show as much as possible in the status line.
+set display=lastline
+
+" Show the current mode in the status line.
+set showmode
+
+" Show the already typed keys when more are expected.
+set showcmd
+
 " Set the airline status line theme.
 let g:airline_theme = 'sonokai'
 
@@ -93,6 +110,9 @@ let g:tmuxline_powerline_separators = 0
 " }}}
 " SPACES AND TABS {{{
 
+" Use spaces instead of tabs.
+set expandtab
+
 " Number of visual spaces per tab character.
 set tabstop=4
 
@@ -102,8 +122,8 @@ set softtabstop=4
 " Number of spaces to shift when indenting.
 set shiftwidth=4
 
-" Use spaces instead of tabs.
-set expandtab
+" Indent to next multiple of shiftwidth.
+set shiftround
 
 " Wrapping settings.
 " This wraps long lines in all text modes and shows a visual
@@ -112,7 +132,7 @@ set textwidth=79
 autocmd VimEnter *
   \ set formatoptions+=t |
   \ set formatoptions-=l
-set colorcolumn=80
+set colorcolumn=+1
 
 " Indentation guides settings
 " let g:indent_blankline_show_end_of_line = v:true
@@ -120,34 +140,41 @@ set colorcolumn=80
 " let g:indent_blankline_show_current_context = v:true
 " let g:indent_blankline_show_current_context_start = v:true
 
-" Show whitespace characters
-set listchars=tab:├─┤,space:·
+" Show non-printable characters.
 set list
-
-" Remove trailing whitespace and blank lines at the end of the file
-fun! TrimWhitespace()
-  let l:save = winsaveview()
-  keeppatterns %s/\s\+$//e
-  keeppatterns v/\_s*\S/d
-  call winrestview(l:save)
-endfun
-command! TrimWhitespace call TrimWhitespace()
-" Run the function when the file is saved
-autocmd BufWritePre * if !&binary && &ft !=# 'mail'
-  \|   call TrimWhitespace()
-  \| endif
-
-" Make Shift-Tab 'detab' both in command and insert modes
-nnoremap <S-Tab> <<
-inoremap <S-Tab> <C-d>
+if has('multi_byte') && &encoding ==# 'utf-8'
+  let &listchars = 'tab:├─┤,space:·,extends:❯,precedes:❮,nbsp:±'
+else
+  let &listchars = 'tab:|-|,space:.,extends:>,precedes:<,nbsp:.'
+endif
 
 " }}}
-" UNDO {{{
+" TEMPORARY FILES {{{
+
+" Keep a backup across sessions by storing it in a file.
+set backup
+let &backupdir = data_dir . '/backup//'
+" Create directory if missing
+if !isdirectory(&backupdir)
+  silent execute '!mkdir -p ' . &backupdir
+endif
+
+" Never skip backups.
+set backupskip=
+
+
+" Keep swap files around.
+let &directory = data_dir . '/swap//'
+" Create directory if missing
+if !isdirectory(&directory)
+  silent execute '!mkdir -p ' . &directory
+endif
+
 
 " Keep undo history across sessions by storing it in a file
 if has('persistent_undo')
   set undofile
-  let &undodir = data_dir . '/undodir'
+  let &undodir = data_dir . '/undo//'
   " Create directory if missing
   if !isdirectory(&undodir)
     silent execute '!mkdir -p ' . &undodir
@@ -155,21 +182,34 @@ if has('persistent_undo')
 endif
 
 " }}}
-" KEYBINDINGS {{{
+" ASYNCHRONOUS LINT ENGINE {{{
 
-" Toggle NERDTree visibility with Ctrl-B
-nnoremap <C-b> :NERDTreeToggle<CR>
+" As-you-type autocomplete.
+set completeopt=preview,menu,menuone,noselect,noinsert
+let g:ale_completion_enabled = 1
 
-" Fuzzy search with Ctrl-P
-nnoremap <C-P> :Files<CR>
+" Fixers.
+let g:ale_fixers = {
+  \ 'rust': ['rustfmt', 'remove_trailing_lines', 'trim_whitespace'],
+  \ '*': ['remove_trailing_lines', 'trim_whitespace'],
+\ }
 
-" Split the current window vertically
-nnoremap <M-\> :vsplit<CR>
-" Split the current window horizontally
-nnoremap <M--> :split<CR>
+" Fix on save.
+let g:ale_fix_on_save = 1
 
-" Toggle comment with Ctrl-/
-nmap <C-_> <plug>NERDCommenterToggle
+" Install the latest rust-analyzer if missing.
+if !executable('rust-analyzer')
+  silent execute '!mkdir -p ' . '~/.local/bin'
+  silent execute '!curl -L
+    \ https://github.com/rust-analyzer/rust-analyzer/releases/latest/download/rust-analyzer-x86_64-unknown-linux-gnu.gz
+    \ | gunzip -c - > ~/.local/bin/rust-analyzer'
+  silent execute '!chmod +x ~/.local/bin/rust-analyzer'
+end
+
+" Linters.
+let g:ale_linters = {
+  \ 'rust': ['rls'],
+\ }
 
 " }}}
 " PLUGIN MANAGEMENT {{{
@@ -235,11 +275,16 @@ call plug#begin(data_dir . '/plugged')
   " Status line
   Plug 'vim-airline/vim-airline'
   Plug 'vim-airline/vim-airline-themes'
-  " Set tmux's status line to match vim's
+  " Set tmux's status line to match Vim's
   Plug 'edkolev/tmuxline.vim'
 
   " Monokai-inspired colorscheme
   Plug 'sainnhe/sonokai'
+
+  " Asynchronous lint engine
+  Plug 'dense-analysis/ale'
+  " Latest version of the official Rust language support
+  Plug 'rust-lang/rust.vim'
 
   " Icons.
   " This should be the last plugin to be loaded.
@@ -253,5 +298,11 @@ if resolve(autoload_plug) == autoload_plug
   silent execute '!ln -s -t ' . data_dir . '/autoload/ '
     \ . data_dir . '/plugged/vim-plug/plug.vim'
 endif
+
+" vim-plug already executes the following commands, but let's be *very*
+" explicit again. This is required after plugin management for most plugin
+" managers anyway.
+syntax on  " Enable syntax highlighting.
+filetype plugin indent on  " Load plugins according to detected filetype.
 
 " }}}

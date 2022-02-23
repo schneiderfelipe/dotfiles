@@ -94,6 +94,9 @@ code "https://github.com/sharkdp/bat/releases\n\n"
 info "fd:\n"
 code "https://github.com/sharkdp/fd/releases\n\n"
 
+info "vivid:\n"
+code "https://github.com/sharkdp/vivid/releases\n\n"
+
 info "alacritty:\n"
 code "https://github.com/alacritty/alacritty/blob/master/INSTALL.md#manual-installation\n\n"
 
