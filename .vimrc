@@ -141,7 +141,7 @@ set colorcolumn=+1
 " let g:indent_blankline_show_current_context_start = v:true
 
 " Show non-printable characters.
-set list
+" set list
 if has('multi_byte') && &encoding ==# 'utf-8'
   let &listchars = 'tab:├─┤,space:·,extends:❯,precedes:❮,nbsp:±'
 else
