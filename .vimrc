@@ -48,10 +48,6 @@ if &shell =~# 'fish$'
   set shell=/bin/sh
 endif
 
-" Exit Vim if NERDTree is the only window remaining in the only tab.
-autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 &&
-  \ exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
-
 " Minimap settings
 let g:minimap_width = 8
 let g:minimap_highlight_range = 1
@@ -262,8 +258,6 @@ call plug#begin(data_dir . '/plugged')
   Plug 'christoomey/vim-tmux-navigator'
   " Minimap
   Plug 'wfxr/minimap.vim', {'do': ':!cargo install code-minimap'}
-  " File explorer
-  Plug 'preservim/nerdtree'
 
   " Fuzzy finder
   Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
