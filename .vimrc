@@ -18,14 +18,15 @@ set encoding=UTF-8
 " Vim and Neovim share the same configuration file.
 let data_dir = expand('~/.vim')
 
-" Hard mode.
-for mode in ['n', 'v', 'i', 'c']
-  for modifier in ['<', '<C-', '<S-']
-      for key in ['Up>', 'Down>', 'Left>', 'Right>']
-      exec mode . 'noremap' modifier . key '<Nop>'
-    endfor
-  endfor
-endfor
+" Hard mode settings.
+let g:hardtime_default_on = 1
+let g:hardtime_maxcount = 2
+let g:hardtime_allow_different_key = 1
+let g:hardtime_showmsg = 1
+let g:list_of_disabled_keys = [
+  \ "<UP>", "<DOWN>", "<LEFT>", "<RIGHT>",
+  \ "<HOME>", "<END>", "<PAGEUP>", "<PAGEDOWN>"
+  \ ]
 
 " }}}
 if !exists('g:vscode')
@@ -242,6 +243,9 @@ call plug#begin(data_dir . '/plugged')
 
   " Sensible defaults
   Plug 'tpope/vim-sensible'
+
+  " Vim hard mode
+  Plug 'takac/vim-hardtime'
 
   " Restore sessions
   Plug 'tpope/vim-obsession'
