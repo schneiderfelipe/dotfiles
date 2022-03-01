@@ -40,5 +40,8 @@ export FZF_DEFAULT_OPTS="$FZF_DEFAULT_OPTS \
   --color='marker:#fc9867,spinner:#bcef8a,header:#fc9867'"
 
 
+. "$HOME/.cargo/env"
+
+
 # Last thing of this file, starship
 eval "$(starship init zsh)"
