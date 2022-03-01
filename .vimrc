@@ -132,6 +132,10 @@ set shiftwidth=4
 " Indent to next multiple of shiftwidth.
 set shiftround
 
+" Use smart case during searches.
+set ignorecase
+set smartcase
+
 " Wrapping settings.
 " This wraps long lines in all text modes and shows a visual
 " indicator.
