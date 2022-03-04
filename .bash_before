@@ -4,7 +4,7 @@
 if command -v tmux &> /dev/null && [ -z "$TMUX" ] \
     && [[ ! "$TERM" =~ tmux ]] && [[ ! "$TERM" =~ screen ]] \
     && [ -n "$PS1" ]; then
-  exec tmux new-session -A -s main
+  exec tmux new-session -s $(names)
 fi
 
 # You might have to change your $PATH.
