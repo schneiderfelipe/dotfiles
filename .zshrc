@@ -77,6 +77,7 @@ plugins=(
     vscode
     git
     rust
+    golang
     poetry
     zsh-completions
     zsh-autosuggestions
