@@ -25,7 +25,7 @@ let g:hardtime_allow_different_key = 1
 let g:hardtime_showmsg = 1
 let g:list_of_disabled_keys = [
   \ "<UP>", "<DOWN>", "<LEFT>", "<RIGHT>",
-  \ "<HOME>", "<END>", "<PAGEUP>", "<PAGEDOWN>"
+  \ "<PAGEUP>", "<PAGEDOWN>"
   \ ]
 
 " }}}
