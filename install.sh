@@ -82,6 +82,13 @@ else
     success "starship is already installed\n"
 fi
 
+if ! command -v names >/dev/null 2>&1; then
+    info "Installing names...\n"
+    curl -sSf https://fnichol.github.io/names/install.sh | sh -s -- -d ~/.local/bin
+else
+    success "names is already installed\n"
+fi
+
 echo
 sleep 0.5
 
