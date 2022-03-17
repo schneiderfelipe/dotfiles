@@ -28,3 +28,7 @@ case ":$PATH:" in *:$HOME/.juliaup/bin:*);; *)
     export PATH=$HOME/.juliaup/bin${PATH:+:${PATH}};;
 esac
 # <<< juliaup initialize <<<
+
+# fnm
+export PATH=/home/schneider/.fnm:$PATH
+eval "$(fnm env --use-on-cd)"

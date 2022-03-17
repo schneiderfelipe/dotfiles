@@ -79,6 +79,7 @@ plugins=(
     rust
     golang
     poetry
+    npm
     zsh-completions
     zsh-autosuggestions
     zsh-history-substring-search
