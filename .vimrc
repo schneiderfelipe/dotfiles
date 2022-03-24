@@ -20,7 +20,7 @@ let data_dir = expand('~/.vim')
 
 " Hard mode settings.
 let g:hardtime_default_on = 1
-let g:hardtime_maxcount = 10
+let g:hardtime_maxcount = 50
 let g:hardtime_allow_different_key = 1
 let g:hardtime_showmsg = 1
 
