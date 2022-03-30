@@ -22,6 +22,9 @@ if command -v xtb &> /dev/null && [ ! -f /opt/orca/otool_xtb ]; then
     ln -s $(which xtb) /opt/orca/otool_xtb
 fi
 
+export Multiwfnpath=/opt/Multiwfn/
+export PATH=$Multiwfnpath:$PATH
+
 # >>> juliaup initialize >>>
 # !! Contents within this block are managed by juliaup !!
 case ":$PATH:" in *:$HOME/.juliaup/bin:*);; *)
