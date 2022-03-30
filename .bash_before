@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 # Before anything, start tmux
 if command -v tmux &> /dev/null && [ -z "$TMUX" ] \
