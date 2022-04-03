@@ -74,14 +74,14 @@ zstyle ':omz:update' mode auto      # update automatically without asking
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-    vscode
     git
-    rust
     golang
-    poetry
     npm
-    zsh-completions
+    poetry
+    rust
+    vscode
     zsh-autosuggestions
+    zsh-completions
     zsh-history-substring-search
     zsh-syntax-highlighting
 )
