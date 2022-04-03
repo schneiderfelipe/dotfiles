@@ -32,6 +32,9 @@ case ":$PATH:" in *:$HOME/.juliaup/bin:*);; *)
 esac
 # <<< juliaup initialize <<<
 
+# Golang
+export PATH=/opt/go/bin:$PATH
+
 # fnm
 export PATH=/home/schneider/.fnm:$PATH
 eval "$(fnm env --use-on-cd)"
