@@ -11,8 +11,7 @@
   "editor.fontFamily": "'JetBrainsMono Nerd Font', 'Droid Sans Mono', 'monospace', monospace",
   "editor.inlineSuggest.enabled": true,
   "github.copilot.enable": {
-    "*": true,
-    "markdown": true
+    "*": true
   },
   "[rust]": {
     "editor.defaultFormatter": "matklad.rust-analyzer"
