@@ -15,11 +15,13 @@ fi
 export PATH=~/.local/bin:$PATH
 
 # Path configurations for Orca
-export PATH=/opt/orca:$PATH
-export LD_LIBRARY_PATH=/opt/orca:$LD_LIBRARY_PATH
+# export ORCA_PATH=/opt/orca420
+export ORCA_PATH=/opt/orca
+export PATH=$ORCA_PATH:$PATH
+export LD_LIBRARY_PATH=$ORCA_PATH:$LD_LIBRARY_PATH
 
-if command -v xtb &> /dev/null && [ ! -f /opt/orca/otool_xtb ]; then
-    ln -s $(which xtb) /opt/orca/otool_xtb
+if command -v xtb &> /dev/null && [ ! -f $ORCA_PATH/otool_xtb ]; then
+    ln -s $(which xtb) $ORCA_PATH/otool_xtb
 fi
 
 export Multiwfnpath=/opt/Multiwfn/
