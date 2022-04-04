@@ -1,6 +1,5 @@
 {
   "vscode-neovim.neovimExecutablePaths.linux": "/usr/bin/vim",
-  "editor.scrollBeyondLastLine": false,
   "editor.lineNumbers": "relative",
   "workbench.colorTheme": "One Monokai",
   "editor.formatOnType": true,
