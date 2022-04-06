@@ -27,13 +27,6 @@ fi
 export Multiwfnpath=/opt/Multiwfn/
 export PATH=$Multiwfnpath:$PATH
 
-# >>> juliaup initialize >>>
-# !! Contents within this block are managed by juliaup !!
-case ":$PATH:" in *:$HOME/.juliaup/bin:*);; *)
-    export PATH=$HOME/.juliaup/bin${PATH:+:${PATH}};;
-esac
-# <<< juliaup initialize <<<
-
 # Golang
 export GOPATH="$HOME/.go"
 export PATH="$GOPATH/bin:/opt/go/bin:$PATH"

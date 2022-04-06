@@ -94,3 +94,13 @@ source /usr/share/doc/fzf/examples/completion.bash
 if [ -f ~/.bash_after ]; then
     . ~/.bash_after
 fi
+
+# >>> juliaup initialize >>>
+
+# !! Contents within this block are managed by juliaup !!
+
+case ":$PATH:" in *:/home/schneider/.juliaup/bin:*);; *)
+    export PATH=/home/schneider/.juliaup/bin${PATH:+:${PATH}};;
+esac
+
+# <<< juliaup initialize <<<
