@@ -96,6 +96,9 @@ sleep 0.5
 
 warning "Things that need to be installed manually:\n\n"
 
+info "git-secrets:\n"
+code "https://github.com/awslabs/git-secrets#nix-linuxmacos\n\n"
+
 info "bat:\n"
 code "https://github.com/sharkdp/bat/releases\n\n"
 
