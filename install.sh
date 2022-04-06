@@ -90,6 +90,20 @@ else
     success "names is already installed\n"
 fi
 
+if ! command -v juliaup >/dev/null 2>&1; then
+    info "Installing juliaup...\n"
+    curl -fsSL https://install.julialang.org | sh
+else
+    success "juliaup is already installed\n"
+fi
+
+if ! command -v rustup >/dev/null 2>&1; then
+    info "Installing rustup...\n"
+    curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+else
+    success "rustup is already installed\n"
+fi
+
 echo
 sleep 0.5
 
@@ -114,6 +128,9 @@ code "https://github.com/alacritty/alacritty/blob/master/INSTALL.md#manual-insta
 info "JetBrains Mono:\n"
 code "https://github.com/ryanoasis/nerd-fonts/releases\n"
 code "https://askubuntu.com/a/3706/361183\n\n"
+
+info "Golang:\n"
+code "https://go.dev/doc/install\n\n"
 
 
 info "Some things require super user privileges... "
