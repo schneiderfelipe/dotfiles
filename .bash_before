@@ -35,7 +35,8 @@ esac
 # <<< juliaup initialize <<<
 
 # Golang
-export PATH=/opt/go/bin:$PATH
+export GOPATH="$HOME/.go"
+export PATH="$GOPATH/bin:/opt/go/bin:$PATH"
 
 # fnm
 export PATH=/home/schneider/.fnm:$PATH

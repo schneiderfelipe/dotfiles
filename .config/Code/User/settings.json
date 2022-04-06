@@ -15,7 +15,17 @@
     "plaintext": true,
     "yaml": true,
   },
+  "go.toolsManagement.autoUpdate": true,
   "[rust]": {
     "editor.defaultFormatter": "matklad.rust-analyzer"
+  },
+  "[go]": {
+    "editor.defaultFormatter": "golang.go"
+  },
+  "[go.mod]": {
+    "editor.defaultFormatter": "golang.go"
+  },
+  "[go.sum]": {
+    "editor.defaultFormatter": "golang.go"
   }
 }
