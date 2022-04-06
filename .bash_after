@@ -41,7 +41,7 @@ export FZF_DEFAULT_OPTS="$FZF_DEFAULT_OPTS \
 
 # Options for Multiwfn and xTB
 export OMP_STACKSIZE=200M
-ulimit -s unlimited
+# ulimit -s unlimited
 
 
 . "$HOME/.cargo/env"
