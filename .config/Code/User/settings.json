@@ -11,10 +11,12 @@
   "editor.inlineSuggest.enabled": true,
   "github.copilot.enable": {
     "*": true,
-    "markdown": true
+    "markdown": true,
     "plaintext": true,
-    "yaml": true,
+    "yaml": true
   },
+  "go.lintTool": "golangci-lint",
+  "go.lintFlags": ["--fast"],
   "go.toolsManagement.autoUpdate": true,
   "julia.enableTelemetry": true,
   "julia.symbolCacheDownload": true,
@@ -31,8 +33,23 @@
   "[go.sum]": {
     "editor.defaultFormatter": "golang.go"
   },
+  "[python]": {
+    "editor.defaultFormatter": "ms-python.python"
+  },
   "[julia]": {
     "editor.defaultFormatter": "julialang.language-julia"
   },
-  }
+  "[latex]": {
+    "editor.defaultFormatter": "James-Yu.latex-workshop"
+  },
+  "[bibtex]": {
+    "editor.defaultFormatter": "James-Yu.latex-workshop"
+  },
+  "[markdown]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "editor.formatOnSaveMode": "modifications"
 }
