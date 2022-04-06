@@ -16,6 +16,9 @@
     "yaml": true,
   },
   "go.toolsManagement.autoUpdate": true,
+  "julia.enableTelemetry": true,
+  "julia.symbolCacheDownload": true,
+  "terminal.integrated.commandsToSkipShell": ["language-julia.interrupt"],
   "[rust]": {
     "editor.defaultFormatter": "matklad.rust-analyzer"
   },
@@ -27,5 +30,9 @@
   },
   "[go.sum]": {
     "editor.defaultFormatter": "golang.go"
+  },
+  "[julia]": {
+    "editor.defaultFormatter": "julialang.language-julia"
+  },
   }
 }
