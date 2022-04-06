@@ -26,6 +26,17 @@ function code() {
     tput sgr0
 }
 
+function install() {
+    package=$1
+    code=$2
+    if ! command -v "$package" >/dev/null 2>&1; then
+        info "Installing $package...\n"
+        eval "$code"
+    else
+        success "$package is already installed\n"
+    fi
+}
+
 
 info "This will install most of what is needed for my dotfiles... "
 warning "proceed? [y/n]?"
@@ -77,33 +88,10 @@ else
     success "zsh-syntax-highlighting is already installed\n"
 fi
 
-if ! command -v starship >/dev/null 2>&1; then
-    info "Installing starship...\n"
-    sh -c "$(curl -fsSL https://starship.rs/install.sh)"
-else
-    success "starship is already installed\n"
-fi
-
-if ! command -v names >/dev/null 2>&1; then
-    info "Installing names...\n"
-    curl -sSf https://fnichol.github.io/names/install.sh | sh -s -- -d ~/.local/bin
-else
-    success "names is already installed\n"
-fi
-
-if ! command -v juliaup >/dev/null 2>&1; then
-    info "Installing juliaup...\n"
-    curl -fsSL https://install.julialang.org | sh
-else
-    success "juliaup is already installed\n"
-fi
-
-if ! command -v rustup >/dev/null 2>&1; then
-    info "Installing rustup...\n"
-    curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
-else
-    success "rustup is already installed\n"
-fi
+install "starship" 'sh -c "$(curl -fsSL https://starship.rs/install.sh)"'
+install "names" 'curl -sSf https://fnichol.github.io/names/install.sh | sh -s -- -d ~/.local/bin'
+install "juliaup" 'curl -fsSL https://install.julialang.org | sh'
+install "rustup" 'curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh'
 
 echo
 
@@ -142,22 +130,12 @@ if ! echo "$answer" | grep -iq "^y"; then
 fi
 
 echo
-
 echo
-info "Attempting to install zsh...\n"
-sudo apt install zsh -y
 
-echo
-info "Attempting to install tmux...\n"
-sudo apt install tmux -y
-
-echo
-info "Attempting to install fzf...\n"
-sudo apt install fzf -y
-
-echo
-info "Attempting to install ripgrep...\n"
-sudo apt install ripgrep -y
+install "zsh" 'sudo apt install zsh -y'
+install "tmux" 'sudo apt install tmux -y'
+install "fzf" 'sudo apt install fzf -y'
+install "rg" 'sudo apt install ripgrep -y'
 
 echo
 info "Attempting to install neovim...\n"
