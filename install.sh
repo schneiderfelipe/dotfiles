@@ -11,6 +11,7 @@ function warning() {
     tput bold
     echo -n "$@"
     tput sgr0
+    sleep 0.5
 }
 
 function success() {
@@ -105,7 +106,6 @@ else
 fi
 
 echo
-sleep 0.5
 
 
 warning "Things that need to be installed manually:\n\n"
