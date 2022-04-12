@@ -64,6 +64,10 @@ set splitright  " Open new windows right of current one.
 " Allow using the mouse in all modes
 set mouse=a
 
+" Allow inserting LaTeX symbols as Unicode everywhere, courtesy of the Julia
+" vim plugin.
+let g:latex_to_unicode_file_types = ".*"
+
 " }}}
 " THEME {{{
 
@@ -293,6 +297,8 @@ call plug#begin(data_dir . '/plugged')
   Plug 'dense-analysis/ale'
   " Latest version of the official Rust language support
   Plug 'rust-lang/rust.vim'
+  " Latest version of the official Julia language support
+  Plug 'JuliaEditorSupport/julia-vim'
 
   " Icons.
   " This should be the last plugin to be loaded.
