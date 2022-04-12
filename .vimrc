@@ -65,8 +65,33 @@ set splitright  " Open new windows right of current one.
 set mouse=a
 
 " Allow inserting LaTeX symbols as Unicode everywhere, courtesy of the Julia
-" vim plugin.
+" Vim plugin.
 let g:latex_to_unicode_file_types = ".*"
+
+" Syntax highlighting for Markdown fenced code blocks
+" MISSING:
+" - Svelte
+" - Jupyter notebooks?
+let g:markdown_fenced_languages = [
+  \ 'bash',
+  \ 'console=sh',
+  \ 'sh',
+  \ 'shell=sh',
+  \ 'zsh',
+  \ 'html',
+  \ 'javascript',
+  \ 'typescript',
+  \ 'css',
+  \ 'json',
+  \ 'c',
+  \ 'go',
+  \ 'rust',
+  \ 'julia',
+  \ 'python',
+  \ 'vim',
+  \ 'vimscript=vim',
+\ ]
+let g:markdown_syntax_conceal = 0
 
 " }}}
 " THEME {{{
@@ -299,6 +324,9 @@ call plug#begin(data_dir . '/plugged')
   Plug 'rust-lang/rust.vim'
   " Latest version of the official Julia language support
   Plug 'JuliaEditorSupport/julia-vim'
+
+  " Latest version of the default Vim Markdown runtime files
+  Plug 'tpope/vim-markdown'
 
   " Icons.
   " This should be the last plugin to be loaded.
