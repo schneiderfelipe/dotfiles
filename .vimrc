@@ -328,6 +328,9 @@ call plug#begin(data_dir . '/plugged')
   " Latest version of the default Vim Markdown runtime files
   Plug 'tpope/vim-markdown'
 
+  " Outline tags in the current line
+  Plug 'preservim/tagbar'
+
   " Icons.
   " This should be the last plugin to be loaded.
   Plug 'ryanoasis/vim-devicons'
