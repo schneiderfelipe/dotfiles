@@ -39,6 +39,9 @@ set cursorline
 " Always report changed lines.
 set report=0
 
+" Faster updates
+set updatetime=100
+
 " The fish shell is not POSIX compliant and unexpectedly breaks things that use
 " 'shell'.
 if &shell =~# 'fish$'
