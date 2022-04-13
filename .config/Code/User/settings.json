@@ -9,6 +9,7 @@
   "editor.fontLigatures": true,
   "editor.fontFamily": "'JetBrainsMono Nerd Font', 'Droid Sans Mono', 'monospace', monospace",
   "editor.inlineSuggest.enabled": true,
+  "editor.formatOnSaveMode": "modifications",
   "github.copilot.enable": {
     "*": true,
     "markdown": true,
@@ -20,7 +21,11 @@
   "go.toolsManagement.autoUpdate": true,
   "julia.enableTelemetry": true,
   "julia.symbolCacheDownload": true,
+  "python.linting.mypyEnabled": true,
   "terminal.integrated.commandsToSkipShell": ["language-julia.interrupt"],
+  "html.format.indentHandlebars": true,
+  "html.format.templating": true,
+  "html.format.indentInnerHtml": true,
   "[rust]": {
     "editor.defaultFormatter": "matklad.rust-analyzer"
   },
@@ -49,7 +54,6 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "[html]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "editor.formatOnSaveMode": "modifications"
+    "editor.defaultFormatter": "vscode.html-language-features"
+  }
 }
