@@ -140,6 +140,7 @@ install "tmux" 'sudo apt install tmux -y'
 install "fzf" 'sudo apt install fzf -y'
 install "rg" 'sudo apt install ripgrep -y'
 install "ctags" 'sudo apt install universal-ctags -y'
+install "shellcheck" 'sudo apt install shellcheck -y'
 
 echo
 info "Attempting to install neovim...\n"

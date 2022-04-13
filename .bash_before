@@ -34,3 +34,6 @@ export PATH="$GOPATH/bin:/opt/go/bin:$PATH"
 # fnm
 export PATH=/home/schneider/.fnm:$PATH
 eval "$(fnm env --use-on-cd)"
+
+# npm installed packages
+export PATH=~/.npm-global/bin:$PATH

@@ -192,7 +192,7 @@ set backup
 let &backupdir = data_dir . '/backup//'
 " Create directory if missing
 if !isdirectory(&backupdir)
-  silent execute '!mkdir -p ' . &backupdir
+  execute '!mkdir -p ' . &backupdir
 endif
 
 " Never skip backups.
@@ -203,7 +203,7 @@ set backupskip=
 let &directory = data_dir . '/swap//'
 " Create directory if missing
 if !isdirectory(&directory)
-  silent execute '!mkdir -p ' . &directory
+  execute '!mkdir -p ' . &directory
 endif
 
 
@@ -213,7 +213,7 @@ if has('persistent_undo')
   let &undodir = data_dir . '/undo//'
   " Create directory if missing
   if !isdirectory(&undodir)
-    silent execute '!mkdir -p ' . &undodir
+    execute '!mkdir -p ' . &undodir
   endif
 endif
 
@@ -224,23 +224,53 @@ endif
 set completeopt=preview,menu,menuone,noselect,noinsert
 let g:ale_completion_enabled = 1
 
-" Fixers.
-let g:ale_fixers = {
-  \ 'rust': ['rustfmt', 'remove_trailing_lines', 'trim_whitespace'],
-  \ '*': ['remove_trailing_lines', 'trim_whitespace'],
-\ }
-
 " Fix on save.
 let g:ale_fix_on_save = 1
 
 " Install the latest rust-analyzer if missing.
 if !executable('rust-analyzer')
-  silent execute '!mkdir -p ' . '~/.local/bin'
-  silent execute '!curl -L
+  execute '!mkdir -p ' . '~/.local/bin'
+  execute '!curl -L
     \ https://github.com/rust-analyzer/rust-analyzer/releases/latest/download/rust-analyzer-x86_64-unknown-linux-gnu.gz
     \ | gunzip -c - > ~/.local/bin/rust-analyzer'
-  silent execute '!chmod +x ~/.local/bin/rust-analyzer'
+  execute '!chmod +x ~/.local/bin/rust-analyzer'
 end
+
+" Style checker and lint tool for Markdown
+if !executable('markdownlint')
+  execute '!npm install -g markdownlint-cli'
+end
+
+" Natural language linter for text and markdown
+if !executable('textlint')
+  execute '!npm install -g textlint'
+end
+
+" A linter for prose
+if !executable('proselint')
+  execute '!pip install -U proselint'
+end
+
+" Catch insensitive, inconsiderate writing
+if !executable('alex')
+  execute '!npm install -g alex'
+end
+
+" Naive linter for English prose
+if !executable('write-good')
+  execute '!npm install -g write-good'
+end
+
+" A Spell Checker for Code!
+if !executable('cspell')
+  execute '!npm install -g cspell'
+end
+
+" Fixers.
+let g:ale_fixers = {
+  \ 'rust': ['rustfmt', 'remove_trailing_lines', 'trim_whitespace'],
+  \ '*': ['remove_trailing_lines', 'trim_whitespace'],
+\ }
 
 " Linters.
 let g:ale_linters = {
@@ -255,8 +285,8 @@ let autoload_plug = data_dir . '/autoload/plug.vim'
 
 " Automatically install vim-plug if missing
 if empty(glob(autoload_plug))
-  silent execute '!rm ' . autoload_plug
-  silent execute '!curl -fLo ' . autoload_plug .
+  execute '!rm ' . autoload_plug
+  execute '!curl -fLo ' . autoload_plug .
     \ ' --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 endif
 
@@ -339,8 +369,8 @@ call plug#end()
 " Ensure autoload/plug.vim is a symlink to plugged/vim-plug/plug.vim.
 " This should come after plug#end().
 if resolve(autoload_plug) == autoload_plug
-  silent execute '!rm ' . autoload_plug
-  silent execute '!ln -s -t ' . data_dir . '/autoload/ '
+  execute '!rm ' . autoload_plug
+  execute '!ln -s -t ' . data_dir . '/autoload/ '
     \ . data_dir . '/plugged/vim-plug/plug.vim'
 endif
 
