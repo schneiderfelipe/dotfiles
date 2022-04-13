@@ -239,6 +239,16 @@ if !executable('rust-analyzer')
   execute '!chmod +x ~/.local/bin/rust-analyzer'
 end
 
+" JavaScript Style Guide, with linter & automatic code fixer
+if !executable('standard')
+  execute '!npm install -g standard'
+end
+
+"
+if !executable('jsonlint')
+  execute '!npm install jsonlint -g'
+end
+
 " Style checker and lint tool for Markdown
 if !executable('markdownlint')
   execute '!npm install -g markdownlint-cli'
@@ -254,14 +264,14 @@ if !executable('proselint')
   execute '!pip install -U proselint'
 end
 
-" Catch insensitive, inconsiderate writing
-if !executable('alex')
-  execute '!npm install -g alex'
-end
-
 " Naive linter for English prose
 if !executable('write-good')
   execute '!npm install -g write-good'
+end
+
+" Catch insensitive, inconsiderate writing
+if !executable('alex')
+  execute '!npm install -g alex'
 end
 
 " A Spell Checker for Code!
