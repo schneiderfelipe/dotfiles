@@ -93,6 +93,9 @@ install "names" 'curl -sSf https://fnichol.github.io/names/install.sh | sh -s --
 install "juliaup" 'curl -fsSL https://install.julialang.org | sh'
 install "rustup" 'curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh'
 
+install "broot" 'cargo install broot'
+broot --install
+
 echo
 
 

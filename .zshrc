@@ -122,3 +122,6 @@ path=('/home/schneider/.juliaup/bin' $path)
 export PATH
 
 # <<< juliaup initialize <<<
+
+# Broot
+source /home/schneider/.config/broot/launcher/bash/br

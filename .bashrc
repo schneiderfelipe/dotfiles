@@ -104,3 +104,6 @@ case ":$PATH:" in *:/home/schneider/.juliaup/bin:*);; *)
 esac
 
 # <<< juliaup initialize <<<
+
+# Broot
+source /home/schneider/.config/broot/launcher/bash/br
