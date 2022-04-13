@@ -244,7 +244,7 @@ end
 
 " Linters.
 let g:ale_linters = {
-  \ 'rust': ['rls'],
+  \ 'rust': ['analyzer'],
 \ }
 
 " }}}
