@@ -91,7 +91,8 @@ fi
 install "starship" 'sh -c "$(curl -fsSL https://starship.rs/install.sh)"'
 install "names" 'curl -sSf https://fnichol.github.io/names/install.sh | sh -s -- -d ~/.local/bin'
 install "juliaup" 'curl -fsSL https://install.julialang.org | sh'
-install "rustup" 'curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh'
+install "rustup" "curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh"
+install "ghcup" "curl --proto '=https' --tlsv1.2 -sSf https://get-ghcup.haskell.org | sh"
 
 install "broot" 'cargo install broot'
 broot --install

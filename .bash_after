@@ -39,13 +39,18 @@ export FZF_DEFAULT_OPTS="$FZF_DEFAULT_OPTS \
   --color='info:#727072,prompt:#a9dc76,pointer:#fc9867' \
   --color='marker:#fc9867,spinner:#bcef8a,header:#fc9867'"
 
+# Set up Broot
+source /home/schneider/.config/broot/launcher/bash/br
+
 # Options for Multiwfn and xTB
 export OMP_STACKSIZE=200M
 # ulimit -s unlimited
 
-
+# Set up Rust environment
 . "$HOME/.cargo/env"
 
+# Set up Haskell environment
+[ -f "/home/schneider/.ghcup/env" ] && source "/home/schneider/.ghcup/env"
 
 # Last thing of this file, starship
 eval "$(starship init zsh)"
