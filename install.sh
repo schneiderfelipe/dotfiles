@@ -148,6 +148,14 @@ sudo add-apt-repository ppa:neovim-ppa/stable -y
 sudo apt update
 sudo apt install neovim -y
 
+echo
+info "Attempting to install github/cli...\n"
+curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | sudo dd of=/usr/share/keyrings/githubcli-archive-keyring.gpg
+echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | sudo tee /etc/apt/sources.list.d/github-cli.list > /dev/null
+sudo apt update
+sudo apt install gh -y
+gh extension install dlvhdr/gh-dash
+
 
 echo
 info "Setting some default applications:\n\n"
