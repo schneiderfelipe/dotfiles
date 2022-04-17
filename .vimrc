@@ -84,6 +84,12 @@ let g:markdown_fenced_languages = [
 let g:markdown_syntax_conceal = 0
 
 " }}}
+" WIKI {{{
+
+let g:vimwiki_list = [{'path': '~/Dropbox/notes',
+                      \ 'syntax': 'markdown', 'ext': '.md'}]
+
+" }}}
 " THEME {{{
 
 " Emit 24-bit colors
@@ -306,6 +312,9 @@ call plug#begin(data_dir . '/plugged')
   " Vim hard mode
   Plug 'takac/vim-hardtime'
 
+  " Surroundings
+  Plug 'tpope/vim-surround'
+
   " Restore sessions
   Plug 'tpope/vim-obsession'
   " Remember positions
@@ -352,6 +361,9 @@ call plug#begin(data_dir . '/plugged')
 
   " Latest version of the default Vim Markdown runtime files
   Plug 'tpope/vim-markdown'
+
+  " Personal Wiki
+  Plug 'vimwiki/vimwiki'
 
   " Outline tags in the current line
   Plug 'preservim/tagbar'
