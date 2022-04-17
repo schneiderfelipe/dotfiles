@@ -12,7 +12,6 @@ endif
 set nocompatible
 
 " Not required by Neovim, but useful in Vim.
-" It also ensures that the minimap works correctly.
 set encoding=UTF-8
 
 " Vim and Neovim share the same configuration file.
@@ -47,18 +46,6 @@ set updatetime=100
 if &shell =~# 'fish$'
   set shell=/bin/sh
 endif
-
-" Minimap settings
-let g:minimap_width = 8
-let g:minimap_highlight_range = 1
-let g:minimap_highlight_search = 1
-let g:minimap_git_colors = 1
-
-" Commenting settings
-let g:NERDSpaceDelims = 1
-let g:NERDTrimTrailingWhitespace = 1
-let g:NERDCommentEmptyLines = 1
-let g:NERDCommentWholeLinesInVMode = 2
 
 " More natural splitting
 set splitbelow  " Open new windows below current one.
@@ -332,8 +319,6 @@ call plug#begin(data_dir . '/plugged')
   Plug 'airblade/vim-gitgutter'
   " Integration with tmux
   Plug 'christoomey/vim-tmux-navigator'
-  " Minimap
-  Plug 'wfxr/minimap.vim', {'do': ':!cargo install code-minimap'}
 
   " Fuzzy finder
   Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
@@ -343,9 +328,6 @@ call plug#begin(data_dir . '/plugged')
   Plug 'metakirby5/codi.vim'
   " GitHub copilot
   Plug 'github/copilot.vim'
-
-  " Commenting
-  Plug 'preservim/nerdcommenter'
 
   " Automatic indentation detection
   Plug 'tpope/vim-sleuth'
@@ -390,8 +372,8 @@ endif
 " vim-plug already executes the following commands, but let's be *very*
 " explicit again. This is required after plugin management for most plugin
 " managers anyway.
-syntax on  " Enable syntax highlighting.
 filetype plugin indent on  " Load plugins according to detected filetype.
+syntax on  " Enable syntax highlighting.
 
 " }}}
 endif
