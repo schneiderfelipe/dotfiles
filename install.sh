@@ -142,20 +142,28 @@ install "rg" 'sudo apt install ripgrep -y'
 install "ctags" 'sudo apt install universal-ctags -y'
 install "shellcheck" 'sudo apt install shellcheck -y'
 
-echo
-info "Attempting to install neovim...\n"
-sudo add-apt-repository ppa:neovim-ppa/stable -y
-sudo apt update
-sudo apt install neovim -y
+if ! command -v "nvim" >/dev/null 2>&1; then
+    info "Installing neovim...\n"
+    sudo add-apt-repository ppa:neovim-ppa/stable -y
 
-echo
-info "Attempting to install github/cli...\n"
-curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | sudo dd of=/usr/share/keyrings/githubcli-archive-keyring.gpg
-echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | sudo tee /etc/apt/sources.list.d/github-cli.list > /dev/null
-sudo apt update
-sudo apt install gh -y
-gh extension install dlvhdr/gh-dash
+    sudo apt update
+    sudo apt install neovim -y
+else
+    success "neovim is already installed\n"
+fi
 
+if ! command -v "gh" >/dev/null 2>&1; then
+    info "Installing github/cli...\n"
+    curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | sudo dd of=/usr/share/keyrings/githubcli-archive-keyring.gpg
+    echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | sudo tee /etc/apt/sources.list.d/github-cli.list > /dev/null
+
+    sudo apt update
+    sudo apt install gh -y
+
+    gh extension install dlvhdr/gh-dash
+else
+    success "github/cli is already installed\n"
+fi
 
 echo
 info "Setting some default applications:\n\n"
