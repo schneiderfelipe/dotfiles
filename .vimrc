@@ -18,7 +18,7 @@ set encoding=UTF-8
 let data_dir = expand('~/.vim')
 
 " }}}
-if !exists('g:vscode')
+" if !exists('g:vscode')
 " USER INTERFACE {{{
 
 " Show line numbers.
@@ -75,7 +75,6 @@ let g:markdown_fenced_languages = [
   \ 'vim',
   \ 'vimscript=vim',
 \ ]
-let g:markdown_syntax_conceal = 0
 
 " }}}
 " WIKI {{{
@@ -347,6 +346,9 @@ call plug#begin(data_dir . '/plugged')
   " Remember positions
   Plug 'farmergreg/vim-lastplace'
 
+  " Repeat stuff
+  Plug 'tpope/vim-repeat'
+
   " Illuminate the current word
   Plug 'RRethy/vim-illuminate'
   " Toggle between hybrid and absolute line numbers automatically
@@ -362,8 +364,6 @@ call plug#begin(data_dir . '/plugged')
 
   " Interactive coding scratchpad
   Plug 'metakirby5/codi.vim'
-  " GitHub copilot
-  Plug 'github/copilot.vim'
 
   " Automatic indentation detection
   Plug 'tpope/vim-sleuth'
@@ -395,6 +395,9 @@ call plug#begin(data_dir . '/plugged')
   " Outline tags in the current line
   Plug 'preservim/tagbar'
 
+  " GitHub copilot
+  Plug 'github/copilot.vim'
+
   " Icons.
   " This should be the last plugin to be loaded.
   Plug 'ryanoasis/vim-devicons'
@@ -415,4 +418,4 @@ filetype plugin indent on  " Load plugins according to detected filetype.
 syntax on  " Enable syntax highlighting.
 
 " }}}
-endif
+" endif
