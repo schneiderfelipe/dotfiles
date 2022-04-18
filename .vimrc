@@ -17,12 +17,6 @@ set encoding=UTF-8
 " Vim and Neovim share the same configuration file.
 let data_dir = expand('~/.vim')
 
-" Hard mode settings.
-let g:hardtime_default_on = 1
-let g:hardtime_maxcount = 50
-let g:hardtime_allow_different_key = 1
-let g:hardtime_showmsg = 1
-
 " }}}
 if !exists('g:vscode')
 " USER INTERFACE {{{
@@ -344,9 +338,6 @@ call plug#begin(data_dir . '/plugged')
 
   " Sensible defaults
   Plug 'tpope/vim-sensible'
-
-  " Vim hard mode
-  Plug 'takac/vim-hardtime'
 
   " Surroundings
   Plug 'tpope/vim-surround'
