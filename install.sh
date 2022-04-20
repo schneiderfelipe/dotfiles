@@ -159,11 +159,11 @@ if ! command -v "gh" >/dev/null 2>&1; then
 
     sudo apt update
     sudo apt install gh -y
-
-    gh extension install dlvhdr/gh-dash
 else
     success "github/cli is already installed\n"
 fi
+gh auth login
+gh extension install dlvhdr/gh-dash
 
 echo
 info "Setting some default applications:\n\n"
