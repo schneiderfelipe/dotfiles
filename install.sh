@@ -93,8 +93,10 @@ install "names" 'curl -sSf https://fnichol.github.io/names/install.sh | sh -s --
 install "juliaup" 'curl -fsSL https://install.julialang.org | sh'
 install "rustup" "curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh"
 install "ghcup" "curl --proto '=https' --tlsv1.2 -sSf https://get-ghcup.haskell.org | sh"
+install "tsc" "npm install -g typescript@latest"
 
 install "broot" 'cargo install broot && broot --install'
+install "just" 'cargo install just'
 
 echo
 
@@ -123,6 +125,8 @@ code "https://askubuntu.com/a/3706/361183\n\n"
 info "Golang:\n"
 code "https://go.dev/doc/install\n\n"
 
+info "Pop!_OS Shell:\n"
+code "https://github.com/pop-os/shell\n\n"
 
 info "Some things require super user privileges... "
 warning "proceed? [y/n]?"
