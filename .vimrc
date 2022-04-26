@@ -346,6 +346,9 @@ call plug#begin(data_dir . '/plugged')
   " Remember positions
   Plug 'farmergreg/vim-lastplace'
 
+  " Increment dates, times and more
+  Plug 'tpope/vim-speeddating'
+
   " Repeat stuff
   Plug 'tpope/vim-repeat'
 
