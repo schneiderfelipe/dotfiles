@@ -9,7 +9,7 @@
   "editor.fontLigatures": true,
   "editor.fontFamily": "'JetBrainsMono Nerd Font', 'Droid Sans Mono', 'monospace', monospace",
   "editor.inlineSuggest.enabled": true,
-  "editor.formatOnSaveMode": "modifications",
+  "editor.formatOnSaveMode": "modificationsIfAvailable",
   "github.copilot.enable": {
     "*": true,
     "markdown": true,
@@ -22,11 +22,14 @@
   "julia.enableTelemetry": true,
   "julia.symbolCacheDownload": true,
   "python.formatting.provider": "black",
+  "python.formatting.blackArgs": ["--line-length=100"],
   "python.linting.mypyEnabled": true,
   "python.linting.prospectorEnabled": true,
+  "python.testing.pytestEnabled": true,
   "html.format.indentHandlebars": true,
   "html.format.indentInnerHtml": true,
   "html.format.templating": true,
+  "terminal.integrated.commandsToSkipShell": ["language-julia.interrupt"],
   "[rust]": {
     "editor.defaultFormatter": "matklad.rust-analyzer"
   },
