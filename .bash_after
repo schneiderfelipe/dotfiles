@@ -52,5 +52,8 @@ export OMP_STACKSIZE=200M
 # Set up Haskell environment
 [ -f "/home/schneider/.ghcup/env" ] && source "/home/schneider/.ghcup/env"
 
+# Correct errors in previous console commands
+eval "$(thefuck --alias)"
+
 # Last thing of this file, starship
 eval "$(starship init zsh)"

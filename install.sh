@@ -97,6 +97,7 @@ install "tsc" "npm install -g typescript@latest"
 
 install "broot" 'cargo install broot && broot --install'
 install "just" 'cargo install just'
+install "fuck" 'pip install -U thefuck'
 
 echo
 
