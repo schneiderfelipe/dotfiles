@@ -79,8 +79,16 @@ let g:markdown_fenced_languages = [
 " }}}
 " WIKI {{{
 
+" General configuration
 let g:vimwiki_list = [{'path': '~/Dropbox/notes',
+                      \ 'diary_index': 'index', 'auto_diary_index': 1,
                       \ 'syntax': 'markdown', 'ext': '.md'}]
+
+" Add a header automatically when a new note is created
+let g:vimwiki_auto_header = 1
+
+" Use a simpler set of markers in tasks
+let g:vimwiki_listsyms = ' x'
 
 " }}}
 " THEME {{{
