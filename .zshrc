@@ -85,6 +85,7 @@ plugins=(
     fd
     fzf
     ripgrep
+    thefuck
     tmux
     vscode
     web-search
