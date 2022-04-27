@@ -147,8 +147,6 @@ install "rg" 'sudo apt install ripgrep -y'
 install "ctags" 'sudo apt install universal-ctags -y'
 install "shellcheck" 'sudo apt install shellcheck -y'
 
-install "atuin" 'bash <(curl https://raw.githubusercontent.com/ellie/atuin/main/install.sh) && atuin import auto'
-
 if ! command -v "nvim" >/dev/null 2>&1; then
     info "Installing neovim...\n"
     sudo add-apt-repository ppa:neovim-ppa/stable -y
