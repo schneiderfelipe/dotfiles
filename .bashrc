@@ -106,3 +106,6 @@ case ":$PATH:" in *:/home/schneider/.juliaup/bin:*);; *)
 esac
 
 # <<< juliaup initialize <<<
+
+[[ -f ~/.bash-preexec.sh ]] && source ~/.bash-preexec.sh
+eval "$(atuin init bash)"

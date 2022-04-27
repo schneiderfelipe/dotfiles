@@ -88,16 +88,16 @@ else
     success "zsh-syntax-highlighting is already installed\n"
 fi
 
-install "starship" 'sh -c "$(curl -fsSL https://starship.rs/install.sh)"'
-install "names" 'curl -sSf https://fnichol.github.io/names/install.sh | sh -s -- -d ~/.local/bin'
+install "ghcup" "curl --proto '=https' --tlsv1.2 -sSf https://get-ghcup.haskell.org | sh"
 install "juliaup" 'curl -fsSL https://install.julialang.org | sh'
 install "rustup" "curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh"
-install "ghcup" "curl --proto '=https' --tlsv1.2 -sSf https://get-ghcup.haskell.org | sh"
 install "tsc" "npm install -g typescript@latest"
 
 install "broot" 'cargo install broot && broot --install'
-install "just" 'cargo install just'
 install "fuck" 'pip install -U thefuck'
+install "just" 'cargo install just'
+install "names" 'curl -sSf https://fnichol.github.io/names/install.sh | sh -s -- -d ~/.local/bin'
+install "starship" 'sh -c "$(curl -fsSL https://starship.rs/install.sh)"'
 
 echo
 
@@ -146,6 +146,8 @@ install "fzf" 'sudo apt install fzf -y'
 install "rg" 'sudo apt install ripgrep -y'
 install "ctags" 'sudo apt install universal-ctags -y'
 install "shellcheck" 'sudo apt install shellcheck -y'
+
+install "atuin" 'bash <(curl https://raw.githubusercontent.com/ellie/atuin/main/install.sh) && atuin import auto'
 
 if ! command -v "nvim" >/dev/null 2>&1; then
     info "Installing neovim...\n"
