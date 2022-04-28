@@ -96,6 +96,7 @@ install "tsc" "npm install -g typescript@latest"
 install "broot" 'cargo install broot && broot --install'
 install "fuck" 'pip install -U thefuck'
 install "just" 'cargo install just'
+install "lazygit" 'go install github.com/jesseduffield/lazygit@latest'
 install "names" 'curl -sSf https://fnichol.github.io/names/install.sh | sh -s -- -d ~/.local/bin'
 install "starship" 'sh -c "$(curl -fsSL https://starship.rs/install.sh)"'
 

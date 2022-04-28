@@ -29,5 +29,8 @@ alias l='ls -CF'
 # Use bat as a replacement for cat
 alias cat="bat --paging=never"
 
+# I was gonna type 'lazygit', but then I got high.
+alias lg='lazygit'
+
 # Use Chemcraft in a more ergonomic way.
 alias chemcraft="wine /opt/Chemcraft/Chemcraft.exe"
