@@ -340,78 +340,56 @@ autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
 
 " The list of vim-plug plugins.
 call plug#begin(data_dir . '/plugged')
-  " Provide help for vim-plug itself.
-  Plug 'junegunn/vim-plug'
-
-  " Sensible defaults
-  Plug 'tpope/vim-sensible'
-
-  " Surroundings
-  Plug 'tpope/vim-surround'
-
-  " Restore sessions
-  Plug 'tpope/vim-obsession'
-  " Remember positions
-  Plug 'farmergreg/vim-lastplace'
-
-  " Increment dates, times and more
-  Plug 'tpope/vim-speeddating'
-
-  " Repeat stuff
-  Plug 'tpope/vim-repeat'
-
-  " Illuminate the current word
-  Plug 'RRethy/vim-illuminate'
-  " Toggle between hybrid and absolute line numbers automatically
-  Plug 'jeffkreeftmeijer/vim-numbertoggle'
-  " Show git markers
-  Plug 'airblade/vim-gitgutter'
-  " Integration with tmux
-  Plug 'christoomey/vim-tmux-navigator'
-
-  " Fuzzy finder
+  " {{{ Basic plugins
+  Plug 'junegunn/vim-plug'  " Help for vim-plug itself.
+  Plug 'tpope/vim-sensible' " Sensible defaults
+  " }}}
+  " {{{ Basic enhancements
+  Plug 'tpope/vim-obsession'   " Restore sessions
+  Plug 'tpope/vim-repeat'      " Repeat stuff
+  Plug 'tpope/vim-sleuth'      " Automatic indentation detection
+  Plug 'tpope/vim-speeddating' " Increment dates, times and more
+  Plug 'tpope/vim-surround'    " Surroundings
+  " }}}
+  " {{{ Language support
+  Plug 'JuliaEditorSupport/julia-vim'
+  Plug 'rust-lang/rust.vim'
+  Plug 'tpope/vim-markdown'
+  " }}}
+  " {{{ User interface
+  Plug 'RRethy/vim-illuminate'               " Illuminate the current word
+  Plug 'airblade/vim-gitgutter'              " Show git markers
+  Plug 'christoomey/vim-tmux-navigator'      " Integration with tmux
+  Plug 'farmergreg/vim-lastplace'            " Remember positions
+  Plug 'jeffkreeftmeijer/vim-numbertoggle'   " Toggle between hybrid and absolute line numbers automatically
+  Plug 'lukas-reineke/indent-blankline.nvim' " Indent guides
+  Plug 'preservim/tagbar'                    " Outline tags in the current line
+  " }}}
+  " {{{ Status line
+  Plug 'vim-airline/vim-airline'             " Status line
+  Plug 'vim-airline/vim-airline-themes'      " Themes for the status line
+  Plug 'edkolev/tmuxline.vim'                " Set tmux's status line to match Vim's
+  " }}}
+  " {{{ Fuzzy finder
   Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
   Plug 'junegunn/fzf.vim'
-
-  " Interactive coding scratchpad
-  Plug 'metakirby5/codi.vim'
-
-  " Automatic indentation detection
-  Plug 'tpope/vim-sleuth'
-  " Indent guides
-  Plug 'lukas-reineke/indent-blankline.nvim'
-
-  " Status line
-  Plug 'vim-airline/vim-airline'
-  Plug 'vim-airline/vim-airline-themes'
-  " Set tmux's status line to match Vim's
-  Plug 'edkolev/tmuxline.vim'
-
-  " Monokai-inspired colorscheme
-  Plug 'sainnhe/sonokai'
-
-  " Asynchronous lint engine
-  Plug 'dense-analysis/ale'
-  " Latest version of the official Rust language support
-  Plug 'rust-lang/rust.vim'
-  " Latest version of the official Julia language support
-  Plug 'JuliaEditorSupport/julia-vim'
-
-  " Latest version of the default Vim Markdown runtime files
-  Plug 'tpope/vim-markdown'
-
-  " Personal Wiki
+  " }}}
+  " {{{ Snippet engine
+  Plug 'SirVer/ultisnips'
+  Plug 'honza/vim-snippets'  " A collection of snippets.
+  " }}}
+  " {{{ Coding enhancements
+  Plug 'dense-analysis/ale'  " Asynchronous lint engine
+  Plug 'metakirby5/codi.vim' " Interactive coding scratchpad
+  Plug 'github/copilot.vim'  " GitHub copilot
+  " }}}
+  " {{{ Personal Wiki
   Plug 'vimwiki/vimwiki'
-
-  " Outline tags in the current line
-  Plug 'preservim/tagbar'
-
-  " GitHub copilot
-  Plug 'github/copilot.vim'
-
-  " Icons.
-  " This should be the last plugin to be loaded.
-  Plug 'ryanoasis/vim-devicons'
+  " }}}
+  " {{{ Colors and icons
+  Plug 'sainnhe/sonokai'        " Monokai-inspired colorscheme
+  Plug 'ryanoasis/vim-devicons' " Icons (this should be the last plugin to be loaded)
+  " }}}
 call plug#end()
 
 " Ensure autoload/plug.vim is a symlink to plugged/vim-plug/plug.vim.
