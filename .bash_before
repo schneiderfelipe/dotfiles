@@ -10,6 +10,8 @@ export ORCA_PATH=/opt/orca
 export PATH=$ORCA_PATH:$PATH
 export LD_LIBRARY_PATH=$ORCA_PATH:$LD_LIBRARY_PATH
 
+# Path configurations for xTB
+export PATH=/opt/xtb/bin:$PATH
 if command -v xtb &> /dev/null && [ ! -f $ORCA_PATH/otool_xtb ]; then
     ln -s "$(which xtb)" $ORCA_PATH/otool_xtb
 fi
