@@ -4,6 +4,15 @@ if [ -f ~/.bash_before ]; then
     . ~/.bash_before
 fi
 
+# >>> juliaup initialize >>>
+
+# !! Contents within this block are managed by juliaup !!
+
+path=('/home/schneider/.juliaup/bin' $path)
+export PATH
+
+# <<< juliaup initialize <<<
+
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
@@ -122,12 +131,3 @@ source /usr/share/doc/fzf/examples/completion.zsh
 if [ -f ~/.bash_after ]; then
     . ~/.bash_after
 fi
-
-# >>> juliaup initialize >>>
-
-# !! Contents within this block are managed by juliaup !!
-
-path=('/home/schneider/.juliaup/bin' $path)
-export PATH
-
-# <<< juliaup initialize <<<

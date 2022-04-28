@@ -1,17 +1,7 @@
 #!/bin/bash
 
-# Before anything, start tmux
-if command -v tmux &> /dev/null && [ -z "$TMUX" ] \
-    && [[ ! "$TERM" =~ tmux ]] && [[ ! "$TERM" =~ screen ]] \
-    && [ -n "$PS1" ]; then
-  if command -v names &> /dev/null; then
-    exec tmux new-session -s "$(names)"
-  else
-    exec tmux new-session -s unnamed-session
-  fi
-fi
-
 # You might have to change your $PATH.
+# We update $PATH first, as code down the road relies on it.
 export PATH=~/.local/bin:$PATH
 
 # Path configurations for Orca
@@ -37,3 +27,14 @@ eval "$(fnm env --use-on-cd)"
 
 # npm installed packages
 export PATH=~/.npm-global/bin:$PATH
+
+# Before anything else, start tmux
+if command -v tmux &> /dev/null && [ -z "$TMUX" ] \
+    && [[ ! "$TERM" =~ tmux ]] && [[ ! "$TERM" =~ screen ]] \
+    && [ -n "$PS1" ]; then
+  if command -v names &> /dev/null; then
+    exec tmux new-session -s "$(names)"
+  else
+    exec tmux new-session -s unnamed-session
+  fi
+fi
