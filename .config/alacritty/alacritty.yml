@@ -745,8 +745,8 @@ colors:
 #
 # If the same trigger is assigned to multiple actions, all of them are executed
 # in the order they were defined in.
-key_bindings:
-  - { key: 83,                                       chars: "\x1b[3~"          }
+# key_bindings:
+  # - { key: 83,                                       chars: "\x1b[3~"          }
   #- { key: Paste,                                       action: Paste          }
   #- { key: Copy,                                        action: Copy           }
   #- { key: L,         mods: Control,                    action: ClearLogNotice }
