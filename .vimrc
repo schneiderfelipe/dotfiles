@@ -374,10 +374,6 @@ call plug#begin(data_dir . '/plugged')
   Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
   Plug 'junegunn/fzf.vim'
   " }}}
-  " {{{ Snippet engine
-  Plug 'SirVer/ultisnips'
-  Plug 'honza/vim-snippets'  " A collection of snippets.
-  " }}}
   " {{{ Coding enhancements
   Plug 'dense-analysis/ale'  " Asynchronous lint engine
   Plug 'metakirby5/codi.vim' " Interactive coding scratchpad
