@@ -16,9 +16,6 @@
     "plaintext": true,
     "yaml": true
   },
-  "go.lintFlags": ["--fast"],
-  "go.lintTool": "golangci-lint",
-  "go.toolsManagement.autoUpdate": true,
   "julia.enableTelemetry": true,
   "julia.symbolCacheDownload": true,
   "python.formatting.provider": "black",
