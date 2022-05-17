@@ -157,6 +157,7 @@ if ! command -v "nvim" >/dev/null 2>&1; then
 else
     success "neovim is already installed\n"
 fi
+pip install -U pynvim
 
 if ! command -v "gh" >/dev/null 2>&1; then
     info "Installing github/cli...\n"
