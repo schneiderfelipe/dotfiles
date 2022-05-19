@@ -79,6 +79,9 @@ let g:markdown_fenced_languages = [
   \ 'vimscript=vim',
 \ ]
 
+" Syntax highlighting for Prolog
+let g:filetype_pl="prolog"
+
 " }}}
 " WIKI {{{
 
