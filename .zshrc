@@ -119,7 +119,7 @@ source $ZSH/oh-my-zsh.sh
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
-# Completions for Alacritty
+# Completions
 fpath+=${ZDOTDIR:-~}/.zsh_functions
 
 # Completions for fzf

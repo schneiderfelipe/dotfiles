@@ -94,8 +94,9 @@ esac
 #    . /etc/bash_completion
 #fi
 
-# Completions for Alacritty
+# Completions
 source ~/.bash_completion/alacritty
+source ~/.bash_completion/poetry
 
 # Completions for fzf
 source /usr/share/doc/fzf/examples/key-bindings.bash
