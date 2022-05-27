@@ -9,12 +9,11 @@ if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
 
-
 # Preferred editor for local and remote sessions
 if [[ -n $SSH_CONNECTION ]]; then
-  export EDITOR='vim'
+    export EDITOR='vim'
 else
-  export EDITOR='vim'
+    export EDITOR='vim'
 fi
 
 # Uncomment the following line if you are using less version >= 551 and want to
@@ -24,7 +23,6 @@ export LESS="--RAW-CONTROL-CHARS --quit-if-one-screen --mouse"
 
 # Use bat as the default man pager
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
-
 
 # Directory colors
 export LS_COLORS=$(vivid generate monokai-pro)

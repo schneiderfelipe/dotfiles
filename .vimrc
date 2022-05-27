@@ -20,6 +20,11 @@ let data_dir = expand('~/.vim')
 " Set Python executable path
 let g:python3_host_prog = "/usr/bin/python3"
 
+" Set Leader to Space (with \ and , as aliases)
+let mapleader = " "
+nmap <bslash> <space>
+nmap , <space>
+
 " }}}
 " if !exists('g:vscode')
 " USER INTERFACE {{{
@@ -48,12 +53,31 @@ endif
 set splitbelow  " Open new windows below current one.
 set splitright  " Open new windows right of current one.
 
-" Allow using the mouse in all modes
+" Turn on mouse support in all modes.
 set mouse=a
+" Keep copy-on-select and other GUI options.
+" set clipboard+=autoselect
+set guioptions+=a
+" Enter insert mode on left-click.
+nnoremap <LeftMouse> <LeftMouse>i
+
+" Turn on spellcheck.
+set spell
+" Set spellcheck highlight to underline.
+hi clear SpellBad
+hi SpellBad cterm=underline
 
 " Allow inserting LaTeX symbols as Unicode everywhere, courtesy of the Julia
 " Vim plugin.
 let g:latex_to_unicode_file_types = ".*"
+
+" Configure what file types to ignore.
+let g:lastplace_ignore = "gitcommit,gitrebase,svn,hgcommit"
+" Configure buffer types to ignore.
+let g:lastplace_ignore_buftype = "quickfix,nofile,help"
+" Automatically open folds when jumping to the last edit position.
+let g:lastplace_open_folds = 0
+
 
 " Syntax highlighting for Markdown fenced code blocks
 " MISSING:
@@ -81,6 +105,22 @@ let g:markdown_fenced_languages = [
 
 " Syntax highlighting for Prolog
 let g:filetype_pl="prolog"
+
+
+" Four indents, space between redirects, indented case statements, simplified.
+let g:shfmt_extra_args = '-i 4 -sr -ci -s'
+let g:shfmt_fmt_on_save = 1
+augroup LocalShell
+    autocmd!
+
+    autocmd BufWritePre *.sh,*.bash Shfmt
+augroup END
+
+" Format as-you-type is quite annoying, so we turn it off.
+let g:prettier#autoformat = 0
+
+" List all of the extensions for which prettier should run.
+autocmd BufWritePre .babelrc,.eslintrc,.jshintrc,*.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html PrettierAsync
 
 " }}}
 " WIKI {{{
@@ -160,6 +200,9 @@ set shiftwidth=4
 " Indent to next multiple of shiftwidth.
 set shiftround
 
+" Be smart about inserting tabs.
+set smarttab
+
 " Use smart case during searches.
 set ignorecase
 set smartcase
@@ -186,6 +229,9 @@ if has('multi_byte') && &encoding ==# 'utf-8'
 else
   let &listchars = 'tab:|-|,space:.,extends:>,precedes:<,nbsp:.'
 endif
+
+" Remove trailing whitespace on save.
+autocmd BufWritePre * :%s/\s\+$//e
 
 " }}}
 " TEMPORARY FILES {{{
@@ -220,15 +266,52 @@ if has('persistent_undo')
   endif
 endif
 
+
+" Tell vim to remember certain things when we exit
+"  '100  :  marks will be remembered for up to 100 previously edited files
+"  "20000:  will save up to 20,000 lines for each register
+"  :200  :  up to 200 lines of command-line history will be remembered
+"  %     :  saves and restores the buffer list
+"  n...  :  where to save the viminfo files
+set viminfo='100,\"20000,:200,%,n~/.viminfo
+
 " }}}
 " ASYNCHRONOUS LINT ENGINE {{{
+
+" Don't check immediately on open (or quit).
+let g:ale_fix_on_enter = 0
+let g:ale_lint_on_enter = 0
+" Check and fix on save.
+let g:ale_fix_on_save = 1
+let g:ale_lint_on_save = 1
 
 " As-you-type autocomplete.
 set completeopt=preview,menu,menuone,noselect,noinsert
 let g:ale_completion_enabled = 1
 
-" Fix on save.
-let g:ale_fix_on_save = 1
+" These emojis go in the sidebar for errors and warnings.
+let g:ale_sign_error = '☢️'
+let g:ale_sign_warning = '⚡'
+
+" Show error count.
+function! LinterStatus() abort
+    let l:counts = ale#statusline#Count(bufnr(''))
+    let l:all_errors = l:counts.error + l:counts.style_error
+    let l:all_non_errors = l:counts.total - l:all_errors
+    return l:counts.total == 0 ? 'OK' : printf(
+        \   '%d⨉ %d⚠ ',
+        \   all_non_errors,
+        \   all_errors
+        \)
+endfunction
+set statusline+=%=
+set statusline+=\ %{LinterStatus()}
+
+" How to show error messages.
+let g:ale_echo_msg_error_str = 'E'
+let g:ale_echo_msg_warning_str = 'W'
+let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
+
 
 " Install the latest rust-analyzer if missing.
 if !executable('rust-analyzer')
@@ -414,7 +497,7 @@ endif
 " explicit again. This is required after plugin management for most plugin
 " managers anyway.
 filetype plugin indent on  " Load plugins according to detected filetype.
-syntax on  " Enable syntax highlighting.
+syntax on  " Turn on the syntax checker
 
 " }}}
 " endif
