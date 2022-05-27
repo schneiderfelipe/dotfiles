@@ -18,8 +18,8 @@
   },
   "julia.enableTelemetry": true,
   "julia.symbolCacheDownload": true,
-  "python.formatting.provider": "black",
   "python.formatting.blackArgs": ["--line-length=100"],
+  "python.formatting.provider": "black",
   "python.linting.mypyEnabled": true,
   "python.linting.prospectorEnabled": true,
   "python.testing.pytestEnabled": true,
@@ -28,7 +28,7 @@
   "html.format.templating": true,
   "terminal.integrated.commandsToSkipShell": ["language-julia.interrupt"],
   "[rust]": {
-    "editor.defaultFormatter": "matklad.rust-analyzer"
+    "editor.defaultFormatter": "rust-lang.rust-analyzer"
   },
   "[go]": {
     "editor.defaultFormatter": "golang.go"

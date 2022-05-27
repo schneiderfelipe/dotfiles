@@ -55,5 +55,8 @@ export OMP_STACKSIZE=200M
 # Correct errors in previous console commands
 eval "$(thefuck --alias)"
 
+# Generated for envman. Do not edit.
+[ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
+
 # Last thing of this file, starship
 eval "$(starship init zsh)"

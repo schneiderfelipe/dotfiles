@@ -106,13 +106,15 @@ echo
 
 warning "Things that need to be installed manually:\n\n"
 
+info "Golang:\n"
+code "https://go.dev/doc/install\n\n"
+
+info "Pypoetry:\n"
+code "https://python-poetry.org/docs/master/#installation\n"
+code "https://python-poetry.org/docs/master/#enable-tab-completion-for-bash-fish-or-zsh\n\n"
+
 info "alacritty:\n"
 code "https://github.com/alacritty/alacritty/blob/master/INSTALL.md#manual-installation\n\n"
-
-info "Pop!_OS Shell:\n"
-code "https://github.com/pop-os/shell#installation\n"
-code "https://github.com/pop-os/shell-shortcuts#dependencies\n"
-code "https://github.com/pop-os/launcher#installation\n\n"
 
 info "git-secrets:\n"
 code "https://github.com/awslabs/git-secrets#nix-linuxmacos\n\n"
@@ -130,12 +132,11 @@ code "https://github.com/sharkdp/fd/releases\n\n"
 info "vivid:\n"
 code "https://github.com/sharkdp/vivid/releases\n\n"
 
-info "Golang:\n"
-code "https://go.dev/doc/install\n\n"
 
-info "Pypoetry:\n"
-code "https://python-poetry.org/docs/master/#installation\n"
-code "https://python-poetry.org/docs/master/#enable-tab-completion-for-bash-fish-or-zsh\n\n"
+info "Pop!_OS Shell:\n"
+code "https://github.com/pop-os/shell#installation\n"
+code "https://github.com/pop-os/shell-shortcuts#dependencies\n"
+code "https://github.com/pop-os/launcher#installation\n\n"
 
 info "Some things require super user privileges... "
 warning "proceed? [y/n]?"
