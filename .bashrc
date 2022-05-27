@@ -102,6 +102,9 @@ source ~/.bash_completion/poetry
 source /usr/share/doc/fzf/examples/key-bindings.bash
 source /usr/share/doc/fzf/examples/completion.bash
 
+# Smarter cd command
+eval "$(zoxide init bash)"
+
 # Things shared between bash and zsh that should come after.
 # This includes almost all exports and aliases.
 if [ -f ~/.bash_after ]; then

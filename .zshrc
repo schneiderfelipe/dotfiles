@@ -126,6 +126,9 @@ fpath+=${ZDOTDIR:-~}/.zsh_functions
 source /usr/share/doc/fzf/examples/key-bindings.zsh
 source /usr/share/doc/fzf/examples/completion.zsh
 
+# Smarter cd command
+eval "$(zoxide init zsh)"
+
 # Things shared between bash and zsh that should come after.
 # This includes almost all exports and aliases.
 if [ -f ~/.bash_after ]; then
