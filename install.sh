@@ -101,6 +101,7 @@ install "lazygit" 'go install github.com/jesseduffield/lazygit@latest'
 install "names" 'curl -sSf https://fnichol.github.io/names/install.sh | sh -s -- -d ~/.local/bin'
 install "starship" 'sh -c "$(curl -fsSL https://starship.rs/install.sh)"'
 install "zoxide" 'curl -sS https://webinstall.dev/zoxide | bash'
+install "xxh" 'pip install -U xxh-xxh'
 
 echo
 
