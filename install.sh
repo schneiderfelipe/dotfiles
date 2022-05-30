@@ -29,7 +29,7 @@ function code() {
 function install() {
     package=$1
     code=$2
-    if ! command -v "$package" >/dev/null 2>&1; then
+    if ! command -v "$package" > /dev/null 2>&1; then
         info "Installing $package...\n"
         eval "$code"
     else
@@ -37,13 +37,14 @@ function install() {
     fi
 }
 
-
 info "This will install most of what is needed for my dotfiles... "
 warning "proceed? [y/n]?"
 old_stty_cfg=$(stty -g)
-stty raw -echo ; answer=$(head -c 1) ; stty "$old_stty_cfg"
+stty raw -echo
+answer=$(head -c 1)
+stty "$old_stty_cfg"
 if ! echo "$answer" | grep -iq "^y"; then
-    [[ "$0" = "${BASH_SOURCE[0]}" ]] && exit 1 || return 1
+    [[ $0 == "${BASH_SOURCE[0]}" ]] && exit 1 || return 1
 fi
 
 echo
@@ -57,7 +58,7 @@ else
 fi
 
 zsh_completions=${ZSH_CUSTOM:-${ZSH:-~/.oh-my-zsh}/custom}/plugins/zsh-completions
-if [[ ! -d "$zsh_completions" ]]; then
+if [[ ! -d $zsh_completions ]]; then
     info "Installing zsh-completions...\n"
     git clone https://github.com/zsh-users/zsh-completions "$zsh_completions"
 else
@@ -65,7 +66,7 @@ else
 fi
 
 zsh_history_substring_search=${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-history-substring-search
-if [[ ! -d "$zsh_history_substring_search" ]]; then
+if [[ ! -d $zsh_history_substring_search ]]; then
     info "Installing zsh-history-substring-search...\n"
     git clone https://github.com/zsh-users/zsh-history-substring-search "$zsh_history_substring_search"
 else
@@ -73,7 +74,7 @@ else
 fi
 
 zsh_autosuggestions=${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
-if [[ ! -d "$zsh_autosuggestions" ]]; then
+if [[ ! -d $zsh_autosuggestions ]]; then
     info "Installing zsh-autosuggestions...\n"
     git clone https://github.com/zsh-users/zsh-autosuggestions "$zsh_autosuggestions"
 else
@@ -81,7 +82,7 @@ else
 fi
 
 zsh_syntax_highlighting=${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
-if [[ ! -d "$zsh_syntax_highlighting" ]]; then
+if [[ ! -d $zsh_syntax_highlighting ]]; then
     info "Installing zsh-syntax-highlighting...\n"
     git clone https://github.com/zsh-users/zsh-syntax-highlighting "$zsh_syntax_highlighting"
 else
@@ -103,7 +104,6 @@ install "zoxide" 'curl -sS https://webinstall.dev/zoxide | bash'
 
 echo
 
-
 warning "Things that need to be installed manually:\n\n"
 
 info "Golang:\n"
@@ -112,7 +112,6 @@ code "https://go.dev/doc/install\n\n"
 info "Pypoetry:\n"
 code "https://python-poetry.org/docs/master/#installation\n"
 code "https://python-poetry.org/docs/master/#enable-tab-completion-for-bash-fish-or-zsh\n\n"
-
 
 info "Pop!_OS Shell:\n"
 code "https://github.com/pop-os/shell#installation\n"
@@ -143,9 +142,11 @@ code "https://github.com/sharkdp/vivid/releases\n\n"
 info "Some things require super user privileges... "
 warning "proceed? [y/n]?"
 old_stty_cfg=$(stty -g)
-stty raw -echo ; answer=$(head -c 1) ; stty "$old_stty_cfg"
+stty raw -echo
+answer=$(head -c 1)
+stty "$old_stty_cfg"
 if ! echo "$answer" | grep -iq "^y"; then
-    [[ "$0" = "${BASH_SOURCE[0]}" ]] && exit 1 || return 1
+    [[ $0 == "${BASH_SOURCE[0]}" ]] && exit 1 || return 1
 fi
 
 echo
@@ -158,7 +159,7 @@ install "rg" 'sudo apt install ripgrep -y'
 install "ctags" 'sudo apt install universal-ctags -y'
 install "shellcheck" 'sudo apt install shellcheck -y'
 
-if ! command -v "nvim" >/dev/null 2>&1; then
+if ! command -v "nvim" > /dev/null 2>&1; then
     info "Installing neovim...\n"
     sudo add-apt-repository ppa:neovim-ppa/stable -y
 
@@ -169,7 +170,7 @@ else
 fi
 pip install -U pynvim
 
-if ! command -v "gh" >/dev/null 2>&1; then
+if ! command -v "gh" > /dev/null 2>&1; then
     info "Installing github/cli...\n"
     curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | sudo dd of=/usr/share/keyrings/githubcli-archive-keyring.gpg
     echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | sudo tee /etc/apt/sources.list.d/github-cli.list > /dev/null
@@ -185,16 +186,15 @@ gh extension install dlvhdr/gh-dash
 echo
 info "Setting some default applications:\n\n"
 
-if command -v alacritty >/dev/null 2>&1; then
+if command -v alacritty > /dev/null 2>&1; then
     sudo update-alternatives --install /usr/bin/x-terminal-emulator x-terminal-emulator "$(which alacritty)" 50
     sudo update-alternatives --config x-terminal-emulator
 fi
 
-if command -v nvim >/dev/null 2>&1; then
+if command -v nvim > /dev/null 2>&1; then
     sudo update-alternatives --install /usr/bin/editor editor "$(which nvim)" 50
     sudo update-alternatives --config editor
 fi
-
 
 echo
 success "Done!\n"
