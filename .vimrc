@@ -439,14 +439,6 @@ call plug#begin(data_dir . '/plugged')
   Plug 'tpope/vim-sleuth'      " Automatic indentation detection
   Plug 'tpope/vim-speeddating' " Increment dates, times and more
   Plug 'tpope/vim-surround'    " Surroundings
-
-  " Find shortest motion sequences
-  if has('python3') && has('timers')
-    Plug 'danth/pathfinder.vim'
-  else
-    echoerr 'pathfinder.vim is not supported on this Vim installation'
-  endif
-
   " }}}
   " {{{ Language support
   Plug 'JuliaEditorSupport/julia-vim'
