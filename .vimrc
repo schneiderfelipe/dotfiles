@@ -439,6 +439,7 @@ call plug#begin(data_dir . '/plugged')
   Plug 'tpope/vim-sleuth'      " Automatic indentation detection
   Plug 'tpope/vim-speeddating' " Increment dates, times and more
   Plug 'tpope/vim-surround'    " Surroundings
+  Plug 'andymass/vim-matchup'  " Improved matchit and matchparen
   " }}}
   " {{{ Language support
   Plug 'JuliaEditorSupport/julia-vim'
