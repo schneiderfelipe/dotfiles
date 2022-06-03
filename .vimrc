@@ -122,6 +122,9 @@ let g:prettier#autoformat = 0
 " List all of the extensions for which prettier should run.
 autocmd BufWritePre .babelrc,.eslintrc,.jshintrc,*.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html PrettierAsync
 
+" Avoid hanging when opening files with too many changes
+let g:gitgutter_max_signs = 1000
+
 " }}}
 " WIKI {{{
 
