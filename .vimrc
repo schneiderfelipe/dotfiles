@@ -25,6 +25,9 @@ let mapleader = " "
 nmap <bslash> <space>
 nmap , <space>
 
+" Do not redraw screen while executing macros
+set lazyredraw
+
 " }}}
 " if !exists('g:vscode')
 " USER INTERFACE {{{
