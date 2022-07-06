@@ -119,11 +119,8 @@ augroup LocalShell
     autocmd BufWritePre *.sh,*.bash Shfmt
 augroup END
 
-" Format as-you-type is quite annoying, so we turn it off.
-let g:prettier#autoformat = 0
-
 " List all of the extensions for which prettier should run.
-autocmd BufWritePre .babelrc,.eslintrc,.jshintrc,*.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html PrettierAsync
+autocmd BufWritePre *.css,*.graphql,*.html,*.js,*.json,*.jsx,*.less,*.md,*.mjs,*.scss,*.svelte,*.ts,*.tsx,*.vue,*.yaml,.babelrc,.eslintrc,.jshintrc PrettierAsync
 
 " Avoid hanging when opening files with too many changes
 let g:gitgutter_max_signs = 1000
@@ -474,6 +471,7 @@ call plug#begin(data_dir . '/plugged')
   Plug 'dense-analysis/ale'  " Asynchronous lint engine
   Plug 'metakirby5/codi.vim' " Interactive coding scratchpad
   Plug 'github/copilot.vim'  " GitHub copilot
+  Plug 'prettier/vim-prettier', { 'do': 'npm install' }  " Format with Prettier
   " }}}
   " {{{ Personal Wiki
   Plug 'vimwiki/vimwiki'
