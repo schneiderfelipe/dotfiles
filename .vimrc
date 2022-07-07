@@ -125,6 +125,9 @@ autocmd BufWritePre *.css,*.graphql,*.html,*.js,*.json,*.jsx,*.less,*.md,*.mjs,*
 " Avoid hanging when opening files with too many changes
 let g:gitgutter_max_signs = 1000
 
+" Use evince as the PDF viewer for VimTeX
+let g:vimtex_view_general_viewer = 'evince'
+
 " }}}
 " WIKI {{{
 
@@ -448,6 +451,7 @@ call plug#begin(data_dir . '/plugged')
   Plug 'JuliaEditorSupport/julia-vim'
   Plug 'rust-lang/rust.vim'
   Plug 'tpope/vim-markdown'
+  Plug 'lervag/vimtex'
   " }}}
   " {{{ User interface
   Plug 'RRethy/vim-illuminate'               " Illuminate the current word
@@ -457,6 +461,7 @@ call plug#begin(data_dir . '/plugged')
   Plug 'jeffkreeftmeijer/vim-numbertoggle'   " Toggle between hybrid and absolute line numbers automatically
   Plug 'lukas-reineke/indent-blankline.nvim' " Indent guides
   Plug 'preservim/tagbar'                    " Outline tags in the current line
+  Plug 'peterbjorgensen/sved'                " Synctex support for Vim and Evince through DBus
   " }}}
   " {{{ Status line
   Plug 'vim-airline/vim-airline'             " Status line
@@ -495,6 +500,9 @@ endif
 " managers anyway.
 filetype plugin indent on  " Load plugins according to detected filetype.
 syntax on  " Turn on the syntax checker
+
+" Redefine the keybinding for Synctex forward synchronization
+nmap \lv :call SVED_Sync()<CR>
 
 " }}}
 " endif
