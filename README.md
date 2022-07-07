@@ -2,9 +2,12 @@
 
 Information about my dotfiles.
 
+I use [yadm](https://yadm.io/) to manage dotfiles.
+Take a look there to see how to set this up.
+
 ## `install.sh`
 
-The script attempts to install most of the things needed.
+The script attempts to install most of what I need.
 It will tell you what you have to install manually.
 
 ## License
