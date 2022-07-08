@@ -118,9 +118,6 @@ code "https://python-poetry.org/docs/master/#installation\n"
 code "https://python-poetry.org/docs/master/#enable-tab-completion-for-bash-fish-or-zsh\n\n"
 
 
-info "Espanso:\n"
-code "https://espanso.org/docs/install/linux/#deb-wayland\n\n"
-
 info "Pop!_OS Shell:\n"
 info "(might be installed automatically in the future)\n"
 code "https://github.com/pop-os/shell#installation\n"
