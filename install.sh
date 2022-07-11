@@ -159,12 +159,13 @@ fi
 echo
 echo
 
-install "zsh" 'sudo apt install zsh -y'
-install "tmux" 'sudo apt install tmux -y'
-install "fzf" 'sudo apt install fzf -y'
-install "rg" 'sudo apt install ripgrep -y'
 install "ctags" 'sudo apt install universal-ctags -y'
+install "fzf" 'sudo apt install fzf -y'
+install "jq" 'sudo apt install jq -y'
+install "rg" 'sudo apt install ripgrep -y'
 install "shellcheck" 'sudo apt install shellcheck -y'
+install "tmux" 'sudo apt install tmux -y'
+install "zsh" 'sudo apt install zsh -y'
 
 if ! command -v "nvim" > /dev/null 2>&1; then
     info "Installing neovim...\n"
