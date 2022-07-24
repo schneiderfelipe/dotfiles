@@ -452,6 +452,7 @@ call plug#begin(data_dir . '/plugged')
   Plug 'rust-lang/rust.vim'
   Plug 'tpope/vim-markdown'
   Plug 'lervag/vimtex'
+  Plug 'freitass/todo.txt-vim'
   " }}}
   " {{{ User interface
   Plug 'RRethy/vim-illuminate'               " Illuminate the current word
