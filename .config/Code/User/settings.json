@@ -1,6 +1,4 @@
 {
-  "vscode-neovim.neovimExecutablePaths.linux": "/usr/bin/vim",
-  "workbench.colorTheme": "One Monokai",
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.fontFamily": "'JetBrainsMono Nerd Font', 'Droid Sans Mono', 'monospace', monospace",
   "editor.fontLigatures": true,
@@ -11,6 +9,8 @@
   "editor.inlineSuggest.enabled": true,
   "editor.lineNumbers": "relative",
   "editor.wordWrap": "off",
+  "vscode-neovim.neovimExecutablePaths.linux": "/usr/bin/vim",
+  "workbench.colorTheme": "One Monokai",
   "github.copilot.enable": {
     "*": true,
     "markdown": true,
