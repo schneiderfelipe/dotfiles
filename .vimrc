@@ -405,12 +405,14 @@ if !executable('cspell')
 end
 
 " Fixers.
+" TODO: add more
 let g:ale_fixers = {
   \ 'rust': ['rustfmt', 'remove_trailing_lines', 'trim_whitespace'],
   \ '*': ['remove_trailing_lines', 'trim_whitespace'],
 \ }
 
 " Linters.
+" TODO: add more
 let g:ale_linters = {
   \ 'rust': ['analyzer'],
 \ }

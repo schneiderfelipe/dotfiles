@@ -89,6 +89,7 @@ else
     success "zsh-syntax-highlighting is already installed\n"
 fi
 
+# TODO: add node/npm/fnm
 install "ghcup" "curl --proto '=https' --tlsv1.2 -sSf https://get-ghcup.haskell.org | sh"
 install "juliaup" 'curl -fsSL https://install.julialang.org | sh'
 install "rustup" "curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh"
@@ -132,7 +133,7 @@ info "JetBrains Mono:\n"
 code "https://github.com/ryanoasis/nerd-fonts/releases\n"
 code "https://askubuntu.com/a/3706/361183\n\n"
 
-
+# TODO: this can be made automatic
 info "alacritty:\n"
 code "https://github.com/alacritty/alacritty/blob/master/INSTALL.md#manual-installation\n\n"
 
@@ -145,6 +146,7 @@ code "https://github.com/sharkdp/fd/releases\n\n"
 info "vivid:\n"
 code "https://github.com/sharkdp/vivid/releases\n\n"
 
+# TODO: add a Prolog interpreter (scryer-prolog)
 
 info "Some things require super user privileges... "
 warning "proceed? [y/n]?"
