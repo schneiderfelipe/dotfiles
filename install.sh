@@ -98,6 +98,7 @@ install "tsc" "npm install -g typescript@latest"
 install "broot" 'cargo install broot && broot --install'
 install "dust" 'cargo install du-dust'
 install "dym" 'cargo install didyoumean'
+install "grip" 'pip install -U grip'
 install "just" 'cargo install just'
 install "lazygit" 'go install github.com/jesseduffield/lazygit@latest'
 install "names" 'curl -sSf https://fnichol.github.io/names/install.sh | sh -s -- -d ~/.local/bin'
