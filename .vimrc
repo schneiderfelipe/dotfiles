@@ -292,9 +292,11 @@ endif
 "  '100  :  marks will be remembered for up to 100 previously edited files
 "  "20000:  will save up to 20,000 lines for each register
 "  :200  :  up to 200 lines of command-line history will be remembered
+"  s20   :  up to 20 kilobytes will be saved for each register
 "  %     :  saves and restores the buffer list
+"  h     :  disables search highlighting when Vim starts
 "  n...  :  where to save the viminfo files
-set viminfo='100,\"20000,:200,%,n~/.viminfo
+set viminfo='100,\"20000,:200,s20,%,h,n~/.viminfo
 
 " }}}
 " ASYNCHRONOUS LINT ENGINE {{{
