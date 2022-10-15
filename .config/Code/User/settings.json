@@ -1,93 +1,98 @@
 {
-  "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "editor.fontFamily": "'JetBrainsMono Nerd Font', 'Droid Sans Mono', 'monospace', monospace",
-  "editor.fontLigatures": true,
-  "editor.formatOnPaste": true,
-  "editor.formatOnSave": true,
-  "editor.formatOnSaveMode": "modificationsIfAvailable",
-  "editor.formatOnType": true,
-  "editor.inlineSuggest.enabled": true,
-  "editor.lineNumbers": "relative",
-  "editor.wordWrap": "off",
-  "vscode-neovim.neovimExecutablePaths.linux": "/usr/bin/vim",
-  "workbench.colorTheme": "One Monokai",
-  "github.copilot.enable": {
-    "*": true,
-    "markdown": true,
-    "plaintext": true,
-    "yaml": true
-  },
-  "go.toolsManagement.autoUpdate": true,
-  "python.formatting.blackArgs": ["--line-length=100"],
-  "python.formatting.provider": "black",
-  "python.linting.mypyEnabled": true,
-  "python.linting.prospectorEnabled": true,
-  "python.testing.pytestEnabled": true,
-  "julia.NumThreads": 6,
-  "julia.enableCrashReporter": true,
-  "julia.enableTelemetry": true,
-  "julia.symbolCacheDownload": true,
-  "terminal.integrated.commandsToSkipShell": ["language-julia.interrupt"],
-  "latex-workshop.bibtex-fields.sort.enabled": true,
-  "latex-workshop.bibtex-format.sort.enabled": true,
-  "latex-workshop.bibtex-format.trailingComma": true,
-  "latex-workshop.chktex.delay": 1000,
-  "latex-workshop.chktex.enabled": true,
-  "latex-workshop.latex.autoBuild.run": "never",
-  "latex-workshop.latex.autoClean.run": "onFailed",
-  "latex-workshop.texcount.autorun": "onSave",
-  "ltex.additionalRules.enablePickyRules": true,
-  "ltex.additionalRules.motherTongue": "pt-BR",
-  "ltex.completionEnabled": true,
-  "html.format.indentHandlebars": true,
-  "html.format.indentInnerHtml": true,
-  "html.format.templating": true,
-  "svelte.enable-ts-plugin": true,
-  "svelte.plugin.svelte.defaultScriptLanguage": "ts",
-  "svelte.plugin.svelte.format.config.singleQuote": true,
-  "svelte.plugin.svelte.format.config.svelteStrictMode": true,
-  "svelte.plugin.svelte.useNewTransformation": true,
-  "tailwindCSS.emmetCompletions": true,
-  "tailwindCSS.includeLanguages": {
-    "svelte": "html"
-  },
-  "files.associations": {
-    "*.css": "tailwindcss"
-  },
-  "[rust]": {
-    "editor.defaultFormatter": "rust-lang.rust-analyzer"
-  },
-  "[go]": {
-    "editor.defaultFormatter": "golang.go"
-  },
-  "[go.mod]": {
-    "editor.defaultFormatter": "golang.go"
-  },
-  "[go.sum]": {
-    "editor.defaultFormatter": "golang.go"
-  },
-  "[cpp]": {
-    "editor.defaultFormatter": "ms-vscode.cpptools"
-  },
-  "[python]": {
-    "editor.defaultFormatter": "ms-python.python"
-  },
-  "[julia]": {
-    "editor.defaultFormatter": "julialang.language-julia"
-  },
-  "[latex]": {
-    "editor.defaultFormatter": "James-Yu.latex-workshop"
-  },
-  "[bibtex]": {
-    "editor.defaultFormatter": "James-Yu.latex-workshop"
-  },
-  "[markdown]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[html]": {
-    "editor.defaultFormatter": "vscode.html-language-features"
-  },
-  "[svelte]": {
-    "editor.defaultFormatter": "svelte.svelte-vscode"
-  }
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.fontFamily": "'JetBrainsMono Nerd Font', 'Droid Sans Mono', 'monospace', monospace",
+    "editor.fontLigatures": true,
+    "editor.formatOnPaste": true,
+    "editor.formatOnSave": true,
+    "editor.formatOnSaveMode": "modificationsIfAvailable",
+    "editor.formatOnType": true,
+    "editor.inlineSuggest.enabled": true,
+    "editor.lineNumbers": "relative",
+    "editor.minimap.renderCharacters": false,
+    "editor.minimap.showSlider": "always",
+    "editor.minimap.size": "fill",
+    "editor.wordWrap": "off",
+    "prettier.tabWidth": 4,
+    "vscode-neovim.neovimExecutablePaths.linux": "/usr/bin/vim",
+    "workbench.colorTheme": "One Monokai",
+    "github.copilot.enable": {
+        "*": true,
+        "markdown": true,
+        "plaintext": true,
+        "yaml": true
+    },
+    "go.toolsManagement.autoUpdate": true,
+    "python.formatting.blackArgs": ["--line-length=100"],
+    "python.formatting.provider": "black",
+    "python.linting.mypyEnabled": true,
+    "python.linting.prospectorEnabled": true,
+    "python.testing.pytestEnabled": true,
+    "julia.NumThreads": 6,
+    "julia.enableCrashReporter": true,
+    "julia.enableTelemetry": true,
+    "julia.symbolCacheDownload": true,
+    "terminal.integrated.commandsToSkipShell": ["language-julia.interrupt"],
+    "latex-workshop.bibtex-fields.sort.enabled": true,
+    "latex-workshop.bibtex-format.sort.enabled": true,
+    "latex-workshop.bibtex-format.trailingComma": true,
+    "latex-workshop.chktex.delay": 1000,
+    "latex-workshop.chktex.enabled": true,
+    "latex-workshop.latex.autoBuild.run": "never",
+    "latex-workshop.latex.autoClean.run": "onFailed",
+    "latex-workshop.texcount.autorun": "onSave",
+    "ltex.additionalRules.enablePickyRules": true,
+    "ltex.additionalRules.motherTongue": "pt-BR",
+    "ltex.completionEnabled": true,
+    "html.format.indentHandlebars": true,
+    "html.format.indentInnerHtml": true,
+    "html.format.templating": true,
+    "svelte.enable-ts-plugin": true,
+    "svelte.plugin.svelte.defaultScriptLanguage": "ts",
+    "svelte.plugin.svelte.format.config.singleQuote": true,
+    "svelte.plugin.svelte.format.config.svelteStrictMode": true,
+    "svelte.plugin.svelte.note-new-transformation": false,
+    "svelte.plugin.svelte.useNewTransformation": true,
+    "tailwindCSS.emmetCompletions": true,
+    "tailwindCSS.includeLanguages": {
+        "svelte": "html"
+    },
+    "files.associations": {
+        "*.css": "tailwindcss"
+    },
+    "[rust]": {
+        "editor.defaultFormatter": "rust-lang.rust-analyzer"
+    },
+    "[go]": {
+        "editor.defaultFormatter": "golang.go"
+    },
+    "[go.mod]": {
+        "editor.defaultFormatter": "golang.go"
+    },
+    "[go.sum]": {
+        "editor.defaultFormatter": "golang.go"
+    },
+    "[cpp]": {
+        "editor.defaultFormatter": "ms-vscode.cpptools"
+    },
+    "[python]": {
+        "editor.defaultFormatter": "ms-python.python"
+    },
+    "[julia]": {
+        "editor.defaultFormatter": "julialang.language-julia"
+    },
+    "[latex]": {
+        "editor.defaultFormatter": "James-Yu.latex-workshop"
+    },
+    "[bibtex]": {
+        "editor.defaultFormatter": "James-Yu.latex-workshop"
+    },
+    "[markdown]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[html]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[svelte]": {
+        "editor.defaultFormatter": "svelte.svelte-vscode"
+    }
 }
