@@ -472,6 +472,7 @@ call plug#begin(data_dir . '/plugged')
   Plug 'tpope/vim-markdown'
   Plug 'lervag/vimtex'
   Plug 'freitass/todo.txt-vim'
+  Plug 'daveyarwood/vim-alda'
   " }}}
   " {{{ User interface
   Plug 'RRethy/vim-illuminate'               " Illuminate the current word

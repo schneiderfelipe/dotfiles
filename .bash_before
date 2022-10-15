@@ -4,6 +4,9 @@
 # We update $PATH first, as code down the road relies on it.
 export PATH=~/.local/bin:$PATH
 
+# Alda binaries
+export PATH=/opt/alda:$PATH
+
 # Path configurations for Orca
 # export ORCA_PATH=/opt/orca420
 export ORCA_PATH=/opt/orca
