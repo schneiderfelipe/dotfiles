@@ -467,12 +467,18 @@ call plug#begin(data_dir . '/plugged')
   Plug 'andymass/vim-matchup'  " Improved matchit and matchparen
   " }}}
   " {{{ Language support
+  Plug 'neovim/nvim-lspconfig'
+
   Plug 'JuliaEditorSupport/julia-vim'
   Plug 'rust-lang/rust.vim'
-  Plug 'tpope/vim-markdown'
   Plug 'lervag/vimtex'
   Plug 'freitass/todo.txt-vim'
   Plug 'daveyarwood/vim-alda'
+
+  Plug 'tpope/vim-markdown'
+  Plug 'vim-pandoc/vim-pandoc-syntax'
+  Plug 'quarto-dev/quarto-vim'
+  Plug 'quarto-dev/quarto-nvim'
   " }}}
   " {{{ User interface
   Plug 'RRethy/vim-illuminate'               " Illuminate the current word
