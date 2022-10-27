@@ -92,6 +92,7 @@ fi
 # TODO: add node/npm/fnm
 install "ghcup" "curl --proto '=https' --tlsv1.2 -sSf https://get-ghcup.haskell.org | sh"
 install "juliaup" 'curl -fsSL https://install.julialang.org | sh'
+install "pyenv" 'curl https://pyenv.run | bash'
 install "rustup" "curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh"
 install "tsc" "npm install -g typescript@latest"
 

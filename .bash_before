@@ -1,5 +1,13 @@
 #!/bin/bash
 
+# Pyenv configuration
+# See <https://github.com/pyenv/pyenv#set-up-your-shell-environment-for-pyenv>.
+export PYENV_ROOT="$HOME/.pyenv"
+if ! command -v pyenv &> /dev/null; then
+    export PATH="$PYENV_ROOT/bin:$PATH"
+fi
+eval "$(pyenv init -)"
+
 # You might have to change your $PATH.
 # We update $PATH first, as code down the road relies on it.
 export PATH=~/.local/bin:$PATH
@@ -34,12 +42,12 @@ eval "$(fnm env --use-on-cd)"
 export PATH=~/.npm-global/bin:$PATH
 
 # Before anything else, start tmux
-if command -v tmux &> /dev/null && [ -z "$TMUX" ] \
-    && [[ ! "$TERM" =~ tmux ]] && [[ ! "$TERM" =~ screen ]] \
-    && [ -n "$PS1" ]; then
-  if command -v names &> /dev/null; then
-    exec tmux new-session -s "$(names)"
-  else
-    exec tmux new-session -s unnamed-session
-  fi
+if command -v tmux &> /dev/null && [ -z "$TMUX" ] &&
+    [[ ! $TERM =~ tmux ]] && [[ ! $TERM =~ screen ]] &&
+    [ -n "$PS1" ]; then
+    if command -v names &> /dev/null; then
+        exec tmux new-session -s "$(names)"
+    else
+        exec tmux new-session -s unnamed-session
+    fi
 fi
