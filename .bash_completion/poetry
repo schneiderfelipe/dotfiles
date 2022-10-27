@@ -21,7 +21,7 @@ _poetry_596bbf7c262849f4_complete()
 
     # completing for an option
     if [[ ${cur} == --* ]] ; then
-        opts="--ansi --help --no-ansi --no-interaction --no-plugins --quiet --verbose --version"
+        opts="--ansi --help --no-ansi --no-cache --no-interaction --no-plugins --quiet --verbose --version"
 
         case "$com" in
 
@@ -78,7 +78,7 @@ _poetry_596bbf7c262849f4_complete()
             ;;
 
             (export)
-            opts="${opts} --dev --extras --format --output --with-credentials --without-hashes --without-urls"
+            opts="${opts} --dev --extras --format --only --output --with --with-credentials --without --without-hashes --without-urls"
             ;;
 
             (help)
@@ -90,7 +90,7 @@ _poetry_596bbf7c262849f4_complete()
             ;;
 
             (install)
-            opts="${opts} --default --dev-only --dry-run --extras --no-dev --no-root --only --remove-untracked --sync --with --without"
+            opts="${opts} --all-extras --dry-run --extras --no-dev --no-root --only --only-root --remove-untracked --sync --with --without"
             ;;
 
             (list)
@@ -105,20 +105,8 @@ _poetry_596bbf7c262849f4_complete()
             opts="${opts} --name --readme --src"
             ;;
 
-            (plugin add)
-            opts="${opts} --dry-run"
-            ;;
-
-            (plugin remove)
-            opts="${opts} --dry-run"
-            ;;
-
-            (plugin show)
-            opts="${opts} "
-            ;;
-
             (publish)
-            opts="${opts} --build --cert --client-cert --dry-run --password --repository --username"
+            opts="${opts} --build --cert --client-cert --dry-run --password --repository --skip-existing --username"
             ;;
 
             (remove)
@@ -133,6 +121,30 @@ _poetry_596bbf7c262849f4_complete()
             opts="${opts} "
             ;;
 
+            (self add)
+            opts="${opts} --allow-prereleases --dry-run --editable --extras --source"
+            ;;
+
+            (self install)
+            opts="${opts} --dry-run --sync"
+            ;;
+
+            (self lock)
+            opts="${opts} --check --no-update"
+            ;;
+
+            (self remove)
+            opts="${opts} --dry-run"
+            ;;
+
+            (self show)
+            opts="${opts} --addons --latest --outdated --tree"
+            ;;
+
+            (self show plugins)
+            opts="${opts} "
+            ;;
+
             (self update)
             opts="${opts} --dry-run --preview"
             ;;
@@ -142,7 +154,7 @@ _poetry_596bbf7c262849f4_complete()
             ;;
 
             (show)
-            opts="${opts} --all --default --latest --no-dev --only --outdated --tree --with --without"
+            opts="${opts} --all --latest --no-dev --only --outdated --tree --why --with --without"
             ;;
 
             (source add)
@@ -158,11 +170,11 @@ _poetry_596bbf7c262849f4_complete()
             ;;
 
             (update)
-            opts="${opts} --dry-run --lock --no-dev"
+            opts="${opts} --dry-run --lock --no-dev --only --with --without"
             ;;
 
             (version)
-            opts="${opts} --short"
+            opts="${opts} --dry-run --short"
             ;;
 
         esac
@@ -175,7 +187,7 @@ _poetry_596bbf7c262849f4_complete()
 
     # completing for a command
     if [[ $cur == $com ]]; then
-        coms="about add build cache clear cache list check config debug info debug resolve env info env list env remove env use export help init install list lock new plugin add plugin remove plugin show publish remove run search self update shell show source add source remove source show update version"
+        coms="about add build cache clear cache list check config debug info debug resolve env info env list env remove env use export help init install list lock new publish remove run search self add self install self lock self remove self show self show plugins self update shell show source add source remove source show update version"
 
         COMPREPLY=($(compgen -W "${coms}" -- ${cur}))
         __ltrim_colon_completions "$cur"

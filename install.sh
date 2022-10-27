@@ -92,6 +92,7 @@ fi
 # TODO: add node/npm/fnm
 install "ghcup" "curl --proto '=https' --tlsv1.2 -sSf https://get-ghcup.haskell.org | sh"
 install "juliaup" 'curl -fsSL https://install.julialang.org | sh'
+install "poetry" 'curl -sSL https://install.python-poetry.org | python3 -'
 install "pyenv" 'curl https://pyenv.run | bash'
 install "rustup" "curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh"
 install "tsc" "npm install -g typescript@latest"
@@ -115,11 +116,6 @@ warning "Things that need to be installed manually:\n\n"
 
 info "Golang:\n"
 code "https://go.dev/doc/install\n\n"
-
-info "Pypoetry:\n"
-code "https://python-poetry.org/docs/master/#installation\n"
-code "https://python-poetry.org/docs/master/#enable-tab-completion-for-bash-fish-or-zsh\n\n"
-
 
 info "Pop!_OS Shell:\n"
 info "(might be installed automatically in the future)\n"

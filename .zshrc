@@ -105,7 +105,7 @@ plugins=(
 )
 
 # Proper autocompletions
-autoload -U compinit && compinit
+autoload -Uz compinit && compinit
 
 source $ZSH/oh-my-zsh.sh
 
