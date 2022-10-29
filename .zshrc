@@ -89,6 +89,7 @@ plugins=(
     golang
     npm
     python
+    pyenv
     poetry
     rust
     fd
