@@ -17,9 +17,6 @@ set encoding=UTF-8
 " Vim and Neovim share the same configuration file.
 let data_dir = expand('~/.vim')
 
-" Set Python executable path
-let g:python3_host_prog = "/usr/bin/python3"
-
 " Set Leader to Space (with \ and , as aliases)
 let mapleader = " "
 nmap <bslash> <space>
