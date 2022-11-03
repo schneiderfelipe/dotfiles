@@ -22,8 +22,7 @@
         "yaml": true
     },
     "go.toolsManagement.autoUpdate": true,
-    "python.formatting.blackArgs": ["--line-length=100"],
-    "python.formatting.provider": "black",
+    "python.analysis.typeCheckingMode": "strict",
     "python.linting.mypyEnabled": true,
     "python.linting.prospectorEnabled": true,
     "python.testing.pytestEnabled": true,
