@@ -23,6 +23,7 @@
     },
     "go.toolsManagement.autoUpdate": true,
     "python.analysis.typeCheckingMode": "strict",
+    "python.formatting.provider": "black"
     "python.linting.mypyEnabled": true,
     "python.linting.prospectorEnabled": true,
     "python.testing.pytestEnabled": true,
