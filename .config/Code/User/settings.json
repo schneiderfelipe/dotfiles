@@ -13,7 +13,6 @@
     "editor.minimap.size": "fill",
     "editor.wordWrap": "off",
     "prettier.tabWidth": 4,
-    "vscode-neovim.neovimExecutablePaths.linux": "/usr/bin/vim",
     "workbench.colorTheme": "One Monokai",
     "github.copilot.enable": {
         "*": true,
@@ -23,7 +22,7 @@
     },
     "go.toolsManagement.autoUpdate": true,
     "python.analysis.typeCheckingMode": "strict",
-    "python.formatting.provider": "black"
+    "python.formatting.provider": "black",
     "python.linting.mypyEnabled": true,
     "python.linting.prospectorEnabled": true,
     "python.testing.pytestEnabled": true,
@@ -38,10 +37,10 @@
     "latex-workshop.bibtex-fields.sort.enabled": true,
     "latex-workshop.bibtex-format.sort.enabled": true,
     "latex-workshop.bibtex-format.trailingComma": true,
-    "latex-workshop.chktex.delay": 1000,
-    "latex-workshop.chktex.enabled": true,
     "latex-workshop.latex.autoBuild.run": "never",
     "latex-workshop.latex.autoClean.run": "onFailed",
+    "latex-workshop.linting.chktex.enabled": true,
+    "latex-workshop.linting.delay": 1000,
     "latex-workshop.texcount.autorun": "onSave",
     "ltex.additionalRules.enablePickyRules": true,
     "ltex.additionalRules.motherTongue": "pt-BR",
@@ -73,9 +72,6 @@
     },
     "[go.sum]": {
         "editor.defaultFormatter": "golang.go"
-    },
-    "[cpp]": {
-        "editor.defaultFormatter": "ms-vscode.cpptools"
     },
     "[python]": {
         "editor.defaultFormatter": "ms-python.python"
