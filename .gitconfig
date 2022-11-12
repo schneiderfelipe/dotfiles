@@ -8,17 +8,28 @@
 	user = schneiderfelipe
 [core]
 	quotepath = off
-[init]
-	defaultBranch = main
-	templateDir = /home/schneider/.git-templates/git-secrets
-[alias]
-	ignore = "!gi() { curl -sL https://www.gitignore.io/api/$@ ;}; gi"
+	pager = delta
+[interactive]
+	diffFilter = delta --color-only
+[delta]
+	features = side-by-side line-numbers
+	syntax-theme = Monokai Extended
+	theme = Monokai Extended
+[merge]
+	conflictstyle = diff3
+[diff]
+	colorMoved = default
 [color]
 	ui = auto
 	branch = auto
 	diff = auto
 	interactive = auto
 	status = auto
+[init]
+	defaultBranch = main
+	templateDir = /home/schneider/.git-templates/git-secrets
+[alias]
+	ignore = "!gi() { curl -sL https://www.gitignore.io/api/$@ ;}; gi"
 [credential "https://github.com"]
 	helper =
 	helper = !/usr/bin/gh auth git-credential

@@ -98,6 +98,7 @@ install "rustup" "curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 install "tsc" "npm install -g typescript@latest"
 
 install "broot" 'cargo install broot && broot --install'
+install "delta" 'cargo install git-delta'
 install "dust" 'cargo install du-dust'
 install "dym" 'cargo install didyoumean'
 install "grip" 'pip install -U grip'
