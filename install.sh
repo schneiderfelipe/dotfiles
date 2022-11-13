@@ -132,6 +132,9 @@ info "JetBrains Mono:\n"
 code "https://github.com/ryanoasis/nerd-fonts/releases\n"
 code "https://askubuntu.com/a/3706/361183\n\n"
 
+info "Helix editor:\n"
+code "https://docs.helix-editor.com/install.html#build-from-source\n\n"
+
 # TODO: this can be made automatic
 info "alacritty:\n"
 code "https://github.com/alacritty/alacritty/blob/master/INSTALL.md#manual-installation\n\n"
