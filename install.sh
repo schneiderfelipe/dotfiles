@@ -95,21 +95,24 @@ install "juliaup" 'curl -fsSL https://install.julialang.org | sh'
 install "poetry" 'curl -sSL https://install.python-poetry.org | python3 -'
 install "pyenv" 'curl https://pyenv.run | bash'
 install "rustup" "curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh"
+install "texlab" "cargo install texlab"
 install "tsc" "npm install -g typescript@latest"
 
 install "broot" 'cargo install broot && broot --install'
+install "chktex" "sudo apt install chktex"
 install "delta" 'cargo install git-delta'
 install "dust" 'cargo install du-dust'
 install "dym" 'cargo install didyoumean'
+install "fuck" 'pip install -U thefuck'
 install "grip" 'pip install -U grip'
 install "just" 'cargo install just'
 install "lazygit" 'go install github.com/jesseduffield/lazygit@latest'
 install "names" 'curl -sSf https://fnichol.github.io/names/install.sh | sh -s -- -d ~/.local/bin'
 install "starship" 'sh -c "$(curl -fsSL https://starship.rs/install.sh)"'
+install "tectonic" 'cargo install tectonic'
+install "watchexec" 'cargo install watchexec-cli'
 install "xxh" 'pip install -U xxh-xxh'
-install "zoxide" 'curl -sS https://webinstall.dev/zoxide | bash'
-
-pip install -U thefuck
+install "zoxide" 'curl -sS https://webinstall.dev/zoxide | bash' 
 
 echo
 
@@ -134,6 +137,10 @@ code "https://askubuntu.com/a/3706/361183\n\n"
 
 info "Helix editor:\n"
 code "https://docs.helix-editor.com/install.html#build-from-source\n\n"
+
+# TODO: this has to do solely with the editor!
+info "Marksman:\n"
+code "https://github.com/artempyanykh/marksman#option-1-use-pre-built-binary\n\n"
 
 # TODO: this can be made automatic
 info "alacritty:\n"
