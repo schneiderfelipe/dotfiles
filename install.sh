@@ -198,15 +198,18 @@ gh extension install dlvhdr/gh-dash
 echo
 info "Setting some default applications:\n\n"
 
+# Possible terminal emulators.
 if command -v alacritty > /dev/null 2>&1; then
     sudo update-alternatives --install /usr/bin/x-terminal-emulator x-terminal-emulator "$(which alacritty)" 50
-    sudo update-alternatives --config x-terminal-emulator
 fi
+sudo update-alternatives --config x-terminal-emulator
 
+# Possible text editors.
 if command -v nvim > /dev/null 2>&1; then
+    sudo update-alternatives --install /usr/bin/editor editor "$(which hx)" 60
     sudo update-alternatives --install /usr/bin/editor editor "$(which nvim)" 50
-    sudo update-alternatives --config editor
 fi
+sudo update-alternatives --config editor
 
 echo
 success "Done!\n"
