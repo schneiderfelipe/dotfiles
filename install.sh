@@ -148,7 +148,6 @@ install "names" 'curl -sSf https://fnichol.github.io/names/install.sh | sh -s --
 install "starship" 'sh -c "$(curl -fsSL https://starship.rs/install.sh)"'
 install "tectonic" 'cargo install tectonic'
 install "watchexec" 'cargo install watchexec-cli'
-install "xxh" 'pip install -U xxh-xxh'
 install "zoxide" 'curl -sS https://webinstall.dev/zoxide | bash' 
 
 echo
