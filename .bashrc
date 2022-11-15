@@ -6,20 +6,9 @@
 
 # Things shared between bash and zsh that should come before.
 # This includes changes to $PATH.
-if [ -f ~/.bash_before ]; then
-    . ~/.bash_before
+if [ -f "$HOME/.bash_before" ]; then
+    . "$HOME/.bash_before"
 fi
-
-# >>> juliaup initialize >>>
-
-# !! Contents within this block are managed by juliaup !!
-
-case ":$PATH:" in *:/home/schneider/.juliaup/bin:*) ;; *)
-    export PATH=/home/schneider/.juliaup/bin${PATH:+:${PATH}}
-    ;;
-esac
-
-# <<< juliaup initialize <<<
 
 # If not running interactively, don't do anything
 [ -z "$PS1" ] && return
@@ -96,18 +85,13 @@ esac
 #fi
 
 # Completions
-source ~/.bash_completion/alacritty
-source ~/.bash_completion/poetry
-
-# Completions for fzf
-source /usr/share/doc/fzf/examples/key-bindings.bash
-source /usr/share/doc/fzf/examples/completion.bash
+source $HOME/.bash_completion/alacritty
 
 # Smarter cd command
 eval "$(zoxide init bash)"
 
 # Things shared between bash and zsh that should come after.
 # This includes almost all exports and aliases.
-if [ -f ~/.bash_after ]; then
-    . ~/.bash_after
+if [ -f "$HOME/.bash_after" ]; then
+    . "$HOME/.bash_after"
 fi

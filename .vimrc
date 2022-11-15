@@ -103,9 +103,6 @@ let g:markdown_fenced_languages = [
   \ 'vimscript=vim',
 \ ]
 
-" Syntax highlighting for Prolog
-let g:filetype_pl="prolog"
-
 
 " Four indents, space between redirects, indented case statements, simplified.
 let g:shfmt_extra_args = '-i 4 -sr -ci -s'
@@ -333,101 +330,13 @@ let g:ale_echo_msg_warning_str = 'W'
 let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
 
 
-" TODO: transfer some or most of those installs to install.sh
-" Install the latest rust-analyzer if missing.
-if !executable('rust-analyzer')
-  execute '!mkdir -p ' . '~/.local/bin'
-  execute '!curl -L
-    \ https://github.com/rust-analyzer/rust-analyzer/releases/latest/download/rust-analyzer-x86_64-unknown-linux-gnu.gz
-    \ | gunzip -c - > ~/.local/bin/rust-analyzer'
-  execute '!chmod +x ~/.local/bin/rust-analyzer'
-end
-
-" Optional static typing for Python
-if !executable('mypy')
-  execute '!pip install -U mypy'
-end
-
-" Static type checker for Python
-if !executable('pyright')
-  execute '!pip install -U pyright'
-end
-
-" Performant type-checking for python
-if !executable('pyre')
-  execute '!pip install -U pyre-check'
-end
-
-" Check the style and quality of some python code.
-" It glues together pycodestyle, pyflakes, mccabe, and third-party plugins.
-if !executable('flake8')
-  execute '!pip install -U flake8'
-end
-
-" Provide information about type and location of classes, methods and more
-if !executable('prospector')
-  execute '!pip install -U prospector'
-end
-
-" Bandit is a tool designed to find common security issues in Python code
-if !executable('bandit')
-  execute '!pip install -U bandit'
-end
-
-" Find dead Python code
-if !executable('vulture')
-  execute '!pip install -U vulture'
-end
-
-" JavaScript Style Guide, with linter & automatic code fixer
-if !executable('standard')
-  execute '!npm install -g standard'
-end
-
-" A JSON parser and validator with a CLI
-if !executable('jsonlint')
-  execute '!npm install jsonlint -g'
-end
-
-" Style checker and lint tool for Markdown
-if !executable('markdownlint')
-  execute '!npm install -g markdownlint-cli'
-end
-
-" Natural language linter for text and markdown
-if !executable('textlint')
-  execute '!npm install -g textlint'
-end
-
-" A linter for prose
-if !executable('proselint')
-  execute '!pip install -U proselint'
-end
-
-" Naive linter for English prose
-if !executable('write-good')
-  execute '!npm install -g write-good'
-end
-
-" Catch insensitive, inconsiderate writing
-if !executable('alex')
-  execute '!npm install -g alex'
-end
-
-" A Spell Checker for Code!
-if !executable('cspell')
-  execute '!npm install -g cspell'
-end
-
 " Fixers.
-" TODO: add more
 let g:ale_fixers = {
   \ 'rust': ['rustfmt', 'remove_trailing_lines', 'trim_whitespace'],
   \ '*': ['remove_trailing_lines', 'trim_whitespace'],
 \ }
 
 " Linters.
-" TODO: add more
 let g:ale_linters = {
   \ 'rust': ['analyzer'],
 \ }
@@ -501,7 +410,6 @@ call plug#begin(data_dir . '/plugged')
   Plug 'dense-analysis/ale'  " Asynchronous lint engine
   Plug 'metakirby5/codi.vim' " Interactive coding scratchpad
   Plug 'github/copilot.vim'  " GitHub copilot
-  Plug 'prettier/vim-prettier', { 'do': 'npm install' }  " Format with Prettier
   " }}}
   " {{{ Personal Wiki
   Plug 'vimwiki/vimwiki'

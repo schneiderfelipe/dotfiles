@@ -27,7 +27,7 @@
 	status = auto
 [init]
 	defaultBranch = main
-	templateDir = /home/schneider/.git-templates/git-secrets
+	templateDir = ~/.git-templates/git-secrets
 [alias]
 	ignore = "!gi() { curl -sL https://www.gitignore.io/api/$@ ;}; gi"
 [credential "https://github.com"]

@@ -192,4 +192,4 @@ _poetry_596bbf7c262849f4_complete()
 }
 
 _poetry_596bbf7c262849f4_complete "$@"
-compdef _poetry_596bbf7c262849f4_complete /home/schneider/.local/share/pypoetry/venv/bin/poetry
+compdef _poetry_596bbf7c262849f4_complete ~/.local/share/pypoetry/venv/bin/poetry

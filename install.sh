@@ -90,7 +90,7 @@ fi
 echo
 echo
 
-if [[ ! -d ~/.oh-my-zsh ]]; then
+if [[ ! -d "$HOME/.oh-my-zsh" ]]; then
     info "Installing oh-my-zsh...\n"
     sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 else
@@ -129,11 +129,25 @@ else
     success "zsh-syntax-highlighting is already installed\n"
 fi
 
-# TODO: add node/npm/fnm
+install "fnm" 'curl -fsSL https://fnm.vercel.app/install | bash'
 install "ghcup" "curl --proto '=https' --tlsv1.2 -sSf https://get-ghcup.haskell.org | sh"
 install "poetry" 'curl -sSL https://install.python-poetry.org | python3 -'
-install "texlab" "cargo install texlab"
 install "tsc" "npm install -g typescript@latest"
+
+# Language servers
+install "awk-language-server" "npm install -g \"awk-language-server@>=0.5.2\""
+install "bash-language-server" "npm install -g bash-language-server"
+install "pylsp" "pip install -U 'python-lsp-server[all]'"
+install "rust-analyzer" "rustup component add rust-analyzer"
+install "svelteserver" "npm install -g svelte-language-server"
+install "taplo" "cargo install taplo-cli --features lsp"
+install "texlab" "cargo install texlab"
+install "typescript-language-server" "npm install -g typescript typescript-language-server"
+install "vscode-css-language-server" "npm install -g vscode-langservers-extracted" # works with SCSS too
+install "vscode-html-language-server" "npm install -g vscode-langservers-extracted"
+install "vscode-json-language-server" "npm install -g vscode-langservers-extracted"
+install "yaml-language-server" "npm install -g yaml-language-server"
+julia -e "using Pkg; Pkg.add(\"LanguageServer\")"
 
 install "broot" 'cargo install broot && broot --install'
 install "chktex" "sudo apt install chktex -y"
@@ -191,8 +205,6 @@ code "https://github.com/sharkdp/fd/releases\n\n"
 
 info "vivid:\n"
 code "https://github.com/sharkdp/vivid/releases\n\n"
-
-# TODO: add a Prolog interpreter (scryer-prolog)
 
 echo
 echo

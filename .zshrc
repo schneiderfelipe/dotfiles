@@ -1,17 +1,8 @@
 # Things shared between bash and zsh that should come before.
 # This includes changes to $PATH.
-if [ -f ~/.bash_before ]; then
-    . ~/.bash_before
+if [ -f "$HOME/.bash_before" ]; then
+    . "$HOME/.bash_before"
 fi
-
-# >>> juliaup initialize >>>
-
-# !! Contents within this block are managed by juliaup !!
-
-path=('/home/schneider/.juliaup/bin' $path)
-export PATH
-
-# <<< juliaup initialize <<<
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
@@ -87,6 +78,7 @@ plugins=(
     git
     gh
     golang
+    fnm
     npm
     python
     pyenv
@@ -123,15 +115,11 @@ source $ZSH/oh-my-zsh.sh
 # Completions
 fpath+=${ZDOTDIR:-~}/.zsh_functions
 
-# Completions for fzf
-source /usr/share/doc/fzf/examples/key-bindings.zsh
-source /usr/share/doc/fzf/examples/completion.zsh
-
 # Smarter cd command
 eval "$(zoxide init zsh)"
 
 # Things shared between bash and zsh that should come after.
 # This includes almost all exports and aliases.
-if [ -f ~/.bash_after ]; then
-    . ~/.bash_after
+if [ -f "$HOME/.bash_after" ]; then
+    . "$HOME/.bash_after"
 fi

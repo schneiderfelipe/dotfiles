@@ -8,9 +8,12 @@ if ! command -v pyenv &> /dev/null; then
 fi
 eval "$(pyenv init -)"
 
+# juliaup configuration
+export PATH=$HOME/.juliaup/bin:$PATH
+
 # You might have to change your $PATH.
 # We update $PATH first, as code down the road relies on it.
-export PATH=~/.local/bin:$PATH
+export PATH=$HOME/.local/bin:$PATH
 
 # Alda binaries
 export PATH=/opt/alda:$PATH
@@ -34,12 +37,8 @@ export PATH=$Multiwfnpath:$PATH
 export GOPATH="$HOME/.go"
 export PATH="$GOPATH/bin:/opt/go/bin:$PATH"
 
-# fnm
-export PATH=/home/schneider/.fnm:$PATH
-eval "$(fnm env --use-on-cd)"
-
-# npm installed packages
-export PATH=~/.npm-global/bin:$PATH
+# fnm/npm installed packages
+export PATH=$HOME/.fnm:$PATH
 
 # Before anything else, start tmux
 if command -v tmux &> /dev/null && [ -z "$TMUX" ] &&
