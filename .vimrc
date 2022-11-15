@@ -333,6 +333,7 @@ let g:ale_echo_msg_warning_str = 'W'
 let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
 
 
+" TODO: transfer some or most of those installs to install.sh
 " Install the latest rust-analyzer if missing.
 if !executable('rust-analyzer')
   execute '!mkdir -p ' . '~/.local/bin'
