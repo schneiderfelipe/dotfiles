@@ -37,7 +37,47 @@ function install() {
     fi
 }
 
-info "This will install most of what is needed for my dotfiles... "
+
+info "First, some updates... "
+warning "proceed? [y/n]?"
+# TODO: make checking answers a function for reuse
+old_stty_cfg=$(stty -g)
+stty raw -echo
+answer=$(head -c 1)
+stty "$old_stty_cfg"
+if ! echo "$answer" | grep -iq "^y"; then
+    [[ $0 == "${BASH_SOURCE[0]}" ]] && exit 1 || return 1
+fi
+
+echo
+echo
+
+info "Updating apt...\n"
+sudo apt update \
+    && sudo apt upgrade \
+    && sudo apt dist-upgrade \
+    && sudo apt autoremove \
+    && sudo apt autoclean \
+    && sudo apt clean \
+    && deborphan | xargs sudo apt purge
+
+info "Updating pyenv (installing if needed)...\n"
+install "pyenv" 'curl https://pyenv.run | bash'
+pyenv update
+
+info "Updating juliaup (installing if needed)...\n"
+install "juliaup" 'curl -fsSL https://install.julialang.org | sh'
+juliaup update
+julia -e "using Pkg; Pkg.update()"
+
+info "Updating rustup (installing if needed)...\n"
+install "rustup" "curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh"
+rustup update
+
+echo
+echo
+
+info "The following will install most of what is needed for my dotfiles... "
 warning "proceed? [y/n]?"
 old_stty_cfg=$(stty -g)
 stty raw -echo
@@ -91,15 +131,12 @@ fi
 
 # TODO: add node/npm/fnm
 install "ghcup" "curl --proto '=https' --tlsv1.2 -sSf https://get-ghcup.haskell.org | sh"
-install "juliaup" 'curl -fsSL https://install.julialang.org | sh'
 install "poetry" 'curl -sSL https://install.python-poetry.org | python3 -'
-install "pyenv" 'curl https://pyenv.run | bash'
-install "rustup" "curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh"
 install "texlab" "cargo install texlab"
 install "tsc" "npm install -g typescript@latest"
 
 install "broot" 'cargo install broot && broot --install'
-install "chktex" "sudo apt install chktex"
+install "chktex" "sudo apt install chktex -y"
 install "delta" 'cargo install git-delta'
 install "dust" 'cargo install du-dust'
 install "dym" 'cargo install didyoumean'
@@ -114,6 +151,7 @@ install "watchexec" 'cargo install watchexec-cli'
 install "xxh" 'pip install -U xxh-xxh'
 install "zoxide" 'curl -sS https://webinstall.dev/zoxide | bash' 
 
+echo
 echo
 
 warning "Things that need to be installed manually:\n\n"
@@ -157,6 +195,9 @@ code "https://github.com/sharkdp/vivid/releases\n\n"
 
 # TODO: add a Prolog interpreter (scryer-prolog)
 
+echo
+echo
+
 info "Some things require super user privileges... "
 warning "proceed? [y/n]?"
 old_stty_cfg=$(stty -g)
@@ -182,7 +223,6 @@ if ! command -v "nvim" > /dev/null 2>&1; then
     info "Installing neovim...\n"
     sudo add-apt-repository ppa:neovim-ppa/stable -y
 
-    sudo apt update
     sudo apt install neovim -y
 else
     success "neovim is already installed\n"
@@ -194,7 +234,6 @@ if ! command -v "gh" > /dev/null 2>&1; then
     curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | sudo dd of=/usr/share/keyrings/githubcli-archive-keyring.gpg
     echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | sudo tee /etc/apt/sources.list.d/github-cli.list > /dev/null
 
-    sudo apt update
     sudo apt install gh -y
 else
     success "github/cli is already installed\n"
@@ -203,6 +242,8 @@ gh auth login
 gh extension install dlvhdr/gh-dash
 
 echo
+echo
+
 info "Setting some default applications:\n\n"
 
 # Possible terminal emulators.
@@ -219,4 +260,6 @@ fi
 sudo update-alternatives --config editor
 
 echo
+echo
+
 success "Done!\n"
