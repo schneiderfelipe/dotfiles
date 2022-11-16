@@ -59,7 +59,7 @@ sudo apt update \
     && sudo apt autoremove \
     && sudo apt autoclean \
     && sudo apt clean \
-    && deborphan | xargs sudo apt purge
+    && deborphan | grep -v amdgpu | xargs sudo apt purge
 
 info "Updating pyenv (installing if needed)...\n"
 install "pyenv" 'curl https://pyenv.run | bash'
