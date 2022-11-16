@@ -137,6 +137,7 @@ install "tsc" "npm install -g typescript@latest"
 # Language servers
 install "awk-language-server" "npm install -g \"awk-language-server@>=0.5.2\""
 install "bash-language-server" "npm install -g bash-language-server"
+install "elm-language-server" "npm install -g elm-test elm-format elm-review @elm-tooling/elm-language-server" # elm is manually installed
 install "pylsp" "pip install -U 'python-lsp-server[all]'"
 install "rust-analyzer" "rustup component add rust-analyzer"
 install "svelteserver" "npm install -g svelte-language-server"
@@ -171,6 +172,9 @@ warning "Things that need to be installed manually:\n\n"
 
 info "Golang:\n"
 code "https://go.dev/doc/install\n\n"
+
+info "Elm:\n"
+code "https://github.com/elm/compiler/blob/master/installers/linux/README.md#install-instructions\n\n"
 
 info "Pop!_OS Shell:\n"
 info "(might be installed automatically in the future)\n"
