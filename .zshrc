@@ -1,3 +1,5 @@
+#!/bin/zsh
+
 # Things shared between bash and zsh that should come before.
 # This includes changes to $PATH.
 if [ -f "$HOME/.bash_before" ]; then
@@ -11,7 +13,7 @@ export ZSH="$HOME/.oh-my-zsh"
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="robbyrussell"
+export ZSH_THEME="robbyrussell"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -24,7 +26,7 @@ ZSH_THEME="robbyrussell"
 
 # Uncomment the following line to use hyphen-insensitive completion.
 # Case-sensitive completion must be off. _ and - will be interchangeable.
-HYPHEN_INSENSITIVE="true"
+export HYPHEN_INSENSITIVE="true"
 
 # Uncomment one of the following lines to change the auto-update behavior
 # zstyle ':omz:update' mode disabled  # disable automatic updates
@@ -68,39 +70,64 @@ zstyle ':omz:update' mode auto      # update automatically without asking
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=~/.oh-my-zsh-custom
 
+export MAGIC_ENTER_OTHER_COMMAND="br -gc :gs"
+export MAGIC_ENTER_GIT_COMMAND="${MAGIC_ENTER_OTHER_COMMAND}"
+
 # Which plugins would you like to load?
 # Standard plugins can be found in $ZSH/plugins/
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(
-    ubuntu
-    git
-    gh
-    golang
-    fnm
-    npm
-    python
-    pyenv
-    poetry
-    rust
+export plugins=(
+    cabal
+    copybuffer
+    copyfile
+    copypath
+    emoji
     fd
-    fzf
+    fnm
+    frontend-search
+    gh
+    git
+    git-extras
+    golang
+    history
+    isodate
+    last-working-dir
+    magic-enter
+    nmap
+    node
+    npm
+    pip
+    poetry
+    pyenv
+    python
     ripgrep
+    rsync
+    rust
+    safe-paste  # TODO: test it
     thefuck
     tmux
+    ubuntu
+    vi-mode
     vscode
     web-search
+    zbell
+
+    # Managed by me below
     zsh-autosuggestions
-    zsh-completions
-    zsh-history-substring-search
+    # zsh-completions  # zsh-users/zsh-completions#603
     zsh-syntax-highlighting
 )
 
+# Completions
+fpath+="${ZDOTDIR:-~}/.zsh_functions"
+fpath+="${ZSH_CUSTOM:-${ZSH:-~/.oh-my-zsh}/custom}/plugins/zsh-completions/src"
+
+source "$ZSH/oh-my-zsh.sh"
+
 # Proper autocompletions
 autoload -Uz compinit && compinit
-
-source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
@@ -111,9 +138,6 @@ source $ZSH/oh-my-zsh.sh
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
-
-# Completions
-fpath+=${ZDOTDIR:-~}/.zsh_functions
 
 # Smarter cd command
 eval "$(zoxide init zsh)"

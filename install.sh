@@ -105,14 +105,6 @@ else
     success "zsh-completions is already installed\n"
 fi
 
-zsh_history_substring_search=${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-history-substring-search
-if [[ ! -d $zsh_history_substring_search ]]; then
-    info "Installing zsh-history-substring-search...\n"
-    git clone https://github.com/zsh-users/zsh-history-substring-search "$zsh_history_substring_search"
-else
-    success "zsh-history-substring-search is already installed\n"
-fi
-
 zsh_autosuggestions=${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 if [[ ! -d $zsh_autosuggestions ]]; then
     info "Installing zsh-autosuggestions...\n"
@@ -156,6 +148,7 @@ install "delta" 'cargo install git-delta'
 install "dust" 'cargo install du-dust'
 install "dym" 'cargo install didyoumean'
 install "fuck" 'pip install -U thefuck'
+install "git-extras" 'curl -sSL https://raw.githubusercontent.com/tj/git-extras/master/install.sh | sudo bash /dev/stdin'
 install "grip" 'pip install -U grip'
 install "just" 'cargo install just'
 install "lazygit" 'go install github.com/jesseduffield/lazygit@latest'

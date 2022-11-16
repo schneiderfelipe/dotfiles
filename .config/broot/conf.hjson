@@ -167,7 +167,7 @@
         invocation: edit
         key: enter
         shortcut: e
-        execution: "$EDITOR +{line} {file}"
+        execution: "$EDITOR {file}:{line}"
         leave_broot: false
     }
 
