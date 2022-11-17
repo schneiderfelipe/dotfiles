@@ -38,7 +38,7 @@ function install() {
 }
 
 
-info "First, some updates... "
+info "First, some updates... (requires super user privileges)... "
 warning "proceed? [y/n]?"
 # TODO: make checking answers a function for reuse
 old_stty_cfg=$(stty -g)
@@ -142,13 +142,13 @@ install "vscode-json-language-server" "npm install -g vscode-langservers-extract
 install "yaml-language-server" "npm install -g yaml-language-server"
 julia -e "using Pkg; Pkg.add(\"LanguageServer\")"
 
+# Command-line goodies
 install "broot" 'cargo install broot && broot --install'
-install "chktex" "sudo apt install chktex -y"
 install "delta" 'cargo install git-delta'
 install "dust" 'cargo install du-dust'
 install "dym" 'cargo install didyoumean'
 install "fuck" 'pip install -U thefuck'
-install "git-extras" 'curl -sSL https://raw.githubusercontent.com/tj/git-extras/master/install.sh | sudo bash /dev/stdin'
+install "grex" 'cargo install grex'
 install "grip" 'pip install -U grip'
 install "just" 'cargo install just'
 install "lazygit" 'go install github.com/jesseduffield/lazygit@latest'
@@ -219,8 +219,10 @@ fi
 echo
 echo
 
+install "chktex" "sudo apt install chktex -y"
 install "ctags" 'sudo apt install universal-ctags -y'
 install "fzf" 'sudo apt install fzf -y'
+install "git-extras" 'curl -sSL https://raw.githubusercontent.com/tj/git-extras/master/install.sh | sudo bash /dev/stdin'
 install "jq" 'sudo apt install jq -y'
 install "rg" 'sudo apt install ripgrep -y'
 install "shellcheck" 'sudo apt install shellcheck -y'
