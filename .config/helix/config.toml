@@ -2,8 +2,19 @@ theme = "monokai_pro"
 
 [editor]
 line-number = "relative"
+color-modes = true
 
 [editor.cursor-shape]
 insert = "bar"
 normal = "block"
 select = "underline"
+
+[editor.statusline]
+right = [
+  "selections",
+  "file-type",
+  "file-encoding",
+  "file-line-ending",
+  "position-percentage",
+  "position",
+]
