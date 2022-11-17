@@ -70,8 +70,8 @@ zstyle ':omz:update' mode auto      # update automatically without asking
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=~/.oh-my-zsh-custom
 
-export MAGIC_ENTER_OTHER_COMMAND="br -gc :gs"
-export MAGIC_ENTER_GIT_COMMAND="${MAGIC_ENTER_OTHER_COMMAND}"
+export MAGIC_ENTER_GIT_COMMAND="git status"
+export MAGIC_ENTER_OTHER_COMMAND="ls"
 
 # Which plugins would you like to load?
 # Standard plugins can be found in $ZSH/plugins/
@@ -147,3 +147,6 @@ eval "$(zoxide init zsh)"
 if [ -f "$HOME/.bash_after" ]; then
     . "$HOME/.bash_after"
 fi
+
+# Last thing of this file, starship
+eval "$(starship init zsh)"

@@ -95,3 +95,6 @@ eval "$(zoxide init bash)"
 if [ -f "$HOME/.bash_after" ]; then
     . "$HOME/.bash_after"
 fi
+
+# Last thing of this file, starship
+eval "$(starship init bash)"

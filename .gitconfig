@@ -29,6 +29,7 @@
 	defaultBranch = main
 	templateDir = ~/.git-templates/git-secrets
 [alias]
+	# TODO: use a binary or a zsh plugin for this?
 	ignore = "!gi() { curl -sL https://www.gitignore.io/api/$@ ;}; gi"
 [credential "https://github.com"]
 	helper =

@@ -121,7 +121,7 @@ else
     success "zsh-syntax-highlighting is already installed\n"
 fi
 
-install "fnm" 'curl -fsSL https://fnm.vercel.app/install | bash'
+install "fnm" 'curl -fsSL https://fnm.vercel.app/install | bash' # TODO: can we use cargo?
 install "ghcup" "curl --proto '=https' --tlsv1.2 -sSf https://get-ghcup.haskell.org | sh"
 install "poetry" 'curl -sSL https://install.python-poetry.org | python3 -'
 install "tsc" "npm install -g typescript@latest"
@@ -152,11 +152,11 @@ install "git-extras" 'curl -sSL https://raw.githubusercontent.com/tj/git-extras/
 install "grip" 'pip install -U grip'
 install "just" 'cargo install just'
 install "lazygit" 'go install github.com/jesseduffield/lazygit@latest'
-install "names" 'curl -sSf https://fnichol.github.io/names/install.sh | sh -s -- -d ~/.local/bin'
-install "starship" 'sh -c "$(curl -fsSL https://starship.rs/install.sh)"'
+install "names" 'curl -sSf https://fnichol.github.io/names/install.sh | sh -s -- -d ~/.local/bin' # TODO: can we use cargo?
+install "starship" 'curl -sS https://starship.rs/install.sh | sh'
 install "tectonic" 'cargo install tectonic'
 install "watchexec" 'cargo install watchexec-cli'
-install "zoxide" 'curl -sS https://webinstall.dev/zoxide | bash' 
+install "zoxide" 'curl -sS https://webinstall.dev/zoxide | bash' # TODO: can we use cargo?
 
 echo
 echo
