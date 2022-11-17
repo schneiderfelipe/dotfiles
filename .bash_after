@@ -28,8 +28,8 @@ export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 export LS_COLORS=$(vivid generate monokai-pro)
 
 # Options and bindings for fzf
-export FZF_DEFAULT_OPTS='--height 40% --info=inline --cycle'
-export FZF_TMUX_OPTS="-d 40%"
+export FZF_DEFAULT_OPTS='--height 25% --info=inline --cycle'
+export FZF_TMUX_OPTS="-d 25%"
 # Monokai-inspired theme for fzf
 export FZF_DEFAULT_OPTS="$FZF_DEFAULT_OPTS \
   --color='fg:-1,bg:-1,hl:#a9dc76' \
@@ -38,7 +38,7 @@ export FZF_DEFAULT_OPTS="$FZF_DEFAULT_OPTS \
   --color='marker:#fc9867,spinner:#bcef8a,header:#fc9867'"
 
 # Set up Broot
-source $HOME/.config/broot/launcher/bash/br
+source "$HOME/.config/broot/launcher/bash/br"
 
 # Options for Multiwfn and xTB
 export OMP_STACKSIZE=200M

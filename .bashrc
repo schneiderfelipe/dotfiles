@@ -96,5 +96,9 @@ if [ -f "$HOME/.bash_after" ]; then
     . "$HOME/.bash_after"
 fi
 
+# fzf setup
+source /usr/share/doc/fzf/examples/key-bindings.bash
+source /usr/share/doc/fzf/examples/completion.bash
+
 # Last thing of this file, starship
 eval "$(starship init bash)"

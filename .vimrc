@@ -137,6 +137,9 @@ let g:vimtex_compiler_latexmk_engines = {
       \ 'context (xetex)'  : '-pdf -pdflatex=''texexec --xtx''',
       \}
 
+" fzf setup
+source /usr/share/doc/fzf/examples/fzf.vim
+
 " }}}
 " WIKI {{{
 
