@@ -172,7 +172,7 @@ code "https://github.com/elm/compiler/blob/master/installers/linux/README.md#ins
 info "Pop!_OS Shell:\n"
 info "(might be installed automatically in the future)\n"
 code "https://github.com/pop-os/shell#installation\n"
-code "https://github.com/pop-os/shell-shortcuts#dependencies\n"
+code "https://github.com/pop-os/shell-shortcuts#build\n"
 code "https://github.com/pop-os/launcher#installation\n\n"
 
 info "git-secrets:\n"
