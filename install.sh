@@ -203,6 +203,9 @@ code "https://github.com/sharkdp/fd/releases\n\n"
 info "vivid:\n"
 code "https://github.com/sharkdp/vivid/releases\n\n"
 
+info "dropbox:\n"
+code "https://www.dropbox.com/install\n\n"
+
 echo
 echo
 
@@ -227,17 +230,8 @@ install "jq" 'sudo apt install jq -y'
 install "rg" 'sudo apt install ripgrep -y'
 install "shellcheck" 'sudo apt install shellcheck -y'
 install "tmux" 'sudo apt install tmux -y'
+install "wine" "sudo apt install wine -y"
 install "zsh" 'sudo apt install zsh -y'
-
-if ! command -v "nvim" > /dev/null 2>&1; then
-    info "Installing neovim...\n"
-    sudo add-apt-repository ppa:neovim-ppa/stable -y
-
-    sudo apt install neovim -y
-else
-    success "neovim is already installed\n"
-fi
-pip install -U pynvim
 
 if ! command -v "gh" > /dev/null 2>&1; then
     info "Installing github/cli...\n"
@@ -264,9 +258,8 @@ fi
 sudo update-alternatives --config x-terminal-emulator
 
 # Possible text editors.
-if command -v nvim > /dev/null 2>&1; then
+if command -v hx > /dev/null 2>&1; then
     sudo update-alternatives --install /usr/bin/editor editor "$(which hx)" 60
-    sudo update-alternatives --install /usr/bin/editor editor "$(which nvim)" 50
 fi
 sudo update-alternatives --config editor
 
