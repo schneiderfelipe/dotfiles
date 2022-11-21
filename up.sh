@@ -38,7 +38,7 @@ function install() {
 }
 
 
-info "First, some updates... (requires super user privileges)... "
+info "First, some updates and utilities... (requires super user privileges)... "
 warning "proceed? [y/n]?"
 # TODO: make checking answers a function for reuse
 old_stty_cfg=$(stty -g)
@@ -61,6 +61,39 @@ sudo apt update \
     && sudo apt clean \
     && deborphan | grep -v amdgpu | xargs sudo apt purge
 
+echo
+echo
+
+info "Installing some utilities...\n"
+install "chktex" "sudo apt install chktex -y"
+install "ctags" 'sudo apt install universal-ctags -y'
+install "curl" 'sudo apt install curl -y'
+install "fzf" 'sudo apt install fzf -y'
+install "git-extras" 'curl -sSL https://raw.githubusercontent.com/tj/git-extras/master/install.sh | sudo bash /dev/stdin'
+install "jq" 'sudo apt install jq -y'
+install "rg" 'sudo apt install ripgrep -y'
+install "shellcheck" 'sudo apt install shellcheck -y'
+install "tmux" 'sudo apt install tmux -y'
+install "wine" "sudo apt install wine -y"
+install "zsh" 'sudo apt install zsh -y'
+
+if ! command -v "gh" > /dev/null 2>&1; then
+    info "Installing github/cli...\n"
+    curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg \
+            | sudo dd of=/usr/share/keyrings/githubcli-archive-keyring.gpg \
+        && sudo chmod go+r /usr/share/keyrings/githubcli-archive-keyring.gpg \
+        && echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" \
+            | sudo tee /etc/apt/sources.list.d/github-cli.list > /dev/null \
+        && sudo apt install gh -y
+else
+    success "github/cli is already installed\n"
+fi
+gh auth login
+gh extension install dlvhdr/gh-dash
+
+echo
+echo
+
 info "Updating pyenv (installing if needed)...\n"
 install "pyenv" 'curl https://pyenv.run | bash'
 pyenv update
@@ -73,6 +106,10 @@ julia -e "using Pkg; Pkg.update()"
 info "Updating rustup (installing if needed)...\n"
 install "rustup" "curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh"
 rustup update
+
+info "Updating ghcup (installling if needed)...\n"
+install "ghcup" "curl --proto '=https' --tlsv1.2 -sSf https://get-ghcup.haskell.org | sh"
+ghcup upgrade
 
 echo
 echo
@@ -122,7 +159,6 @@ else
 fi
 
 install "fnm" 'curl -fsSL https://fnm.vercel.app/install | bash' # TODO: can we use cargo?
-install "ghcup" "curl --proto '=https' --tlsv1.2 -sSf https://get-ghcup.haskell.org | sh"
 install "poetry" 'curl -sSL https://install.python-poetry.org | python3 -'
 install "tsc" "npm install -g typescript@latest"
 
@@ -205,46 +241,6 @@ code "https://github.com/sharkdp/vivid/releases\n\n"
 
 info "dropbox:\n"
 code "https://www.dropbox.com/install\n\n"
-
-echo
-echo
-
-info "Some things require super user privileges... "
-warning "proceed? [y/n]?"
-old_stty_cfg=$(stty -g)
-stty raw -echo
-answer=$(head -c 1)
-stty "$old_stty_cfg"
-if ! echo "$answer" | grep -iq "^y"; then
-    [[ $0 == "${BASH_SOURCE[0]}" ]] && exit 1 || return 1
-fi
-
-echo
-echo
-
-install "chktex" "sudo apt install chktex -y"
-install "ctags" 'sudo apt install universal-ctags -y'
-install "fzf" 'sudo apt install fzf -y'
-install "git-extras" 'curl -sSL https://raw.githubusercontent.com/tj/git-extras/master/install.sh | sudo bash /dev/stdin'
-install "jq" 'sudo apt install jq -y'
-install "rg" 'sudo apt install ripgrep -y'
-install "shellcheck" 'sudo apt install shellcheck -y'
-install "tmux" 'sudo apt install tmux -y'
-install "wine" "sudo apt install wine -y"
-install "zsh" 'sudo apt install zsh -y'
-
-if ! command -v "gh" > /dev/null 2>&1; then
-    info "Installing github/cli...\n"
-    type -p curl >/dev/null || sudo apt install curl -y
-    curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | sudo dd of=/usr/share/keyrings/githubcli-archive-keyring.gpg \
-        && sudo chmod go+r /usr/share/keyrings/githubcli-archive-keyring.gpg \
-        && echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | sudo tee /etc/apt/sources.list.d/github-cli.list > /dev/null \
-        && sudo apt install gh -y
-else
-    success "github/cli is already installed\n"
-fi
-gh auth login
-gh extension install dlvhdr/gh-dash
 
 echo
 echo
