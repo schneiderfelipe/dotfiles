@@ -34,7 +34,6 @@
   "html.format.templating": true,
   "latex-workshop.bibtex-fields.sort.enabled": true,
   "latex-workshop.bibtex-format.sort.enabled": true,
-  "latex-workshop.bibtex-format.trailingComma": true,
   "latex-workshop.latex.autoBuild.run": "never",
   "latex-workshop.latex.autoClean.run": "onFailed",
   "latex-workshop.linting.chktex.enabled": true,

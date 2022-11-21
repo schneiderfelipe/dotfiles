@@ -70,6 +70,7 @@ install "curl" 'sudo apt install curl -y'
 install "fzf" 'sudo apt install fzf -y'
 install "git-extras" 'curl -sSL https://raw.githubusercontent.com/tj/git-extras/master/install.sh | sudo bash /dev/stdin'
 install "jq" 'sudo apt install jq -y'
+install "latexindent" "sudo apt install texlive-extra-utils -y"
 install "rg" 'sudo apt install ripgrep -y'
 install "shellcheck" 'sudo apt install shellcheck -y'
 install "tmux" 'sudo apt install tmux -y'
@@ -164,9 +165,10 @@ install "tsc" "npm install -g typescript@latest"
 # Language servers
 install "awk-language-server" "npm install -g \"awk-language-server@>=0.5.2\""
 install "bash-language-server" "npm install -g bash-language-server"
+install "bibtex-tidy" "npm install -g bibtex-tidy"
 install "black" "pip install -U black"
 install "elm-language-server" "npm install -g elm-test elm-format elm-review @elm-tooling/elm-language-server" # elm is manually installed
-install "prettier" "npm install -g prettier prettier-plugin-svelte @prettier/plugin-xml prettier-plugin-latex prettier-plugin-sh prettier-plugin-elm"
+install "prettier" "npm install -g prettier prettier-plugin-svelte @prettier/plugin-xml prettier-plugin-sh prettier-plugin-elm"
 install "pylsp" "pip install -U 'python-lsp-server[all]'"
 install "rust-analyzer" "rustup component add rust-analyzer"
 install "svelteserver" "npm install -g svelte-language-server"
