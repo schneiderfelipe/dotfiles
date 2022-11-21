@@ -177,7 +177,7 @@ install "vscode-css-language-server" "npm install -g vscode-langservers-extracte
 install "vscode-html-language-server" "npm install -g vscode-langservers-extracted"
 install "vscode-json-language-server" "npm install -g vscode-langservers-extracted"
 install "yaml-language-server" "npm install -g yaml-language-server"
-julia -e "using Pkg; Pkg.add(\"LanguageServer\")"
+julia -e "using Pkg; Pkg.add(\"LanguageServer\")" # sadly no formatter configured yet
 
 # Command-line goodies
 install "broot" 'cargo install broot && broot --install'

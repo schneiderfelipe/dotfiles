@@ -1,4 +1,23 @@
 [[language]]
+name = "json"
+formatter = { command = 'prettier', args = ["--parser", "json"] }
+auto-format = true
+
+[[language]]
+name = "toml"
+auto-format = true
+
+[[language]]
+name = "yaml"
+formatter = { command = 'prettier', args = ["--parser", "yaml"] }
+auto-format = true
+
+[[language]]
+name = "css"
+formatter = { command = 'prettier', args = ["--parser", "css"] }
+auto-format = true
+
+[[language]]
 name = "html"
 formatter = { command = 'prettier', args = ["--parser", "html"] }
 auto-format = true
@@ -9,13 +28,8 @@ formatter = { command = 'prettier', args = ["--parser", "xml"] }
 auto-format = true
 
 [[language]]
-name = "json"
-formatter = { command = 'prettier', args = ["--parser", "json"] }
-auto-format = true
-
-[[language]]
-name = "css"
-formatter = { command = 'prettier', args = ["--parser", "css"] }
+name = "markdown"
+formatter = { command = 'prettier', args = ["--parser", "markdown"] }
 auto-format = true
 
 [[language]]
@@ -47,6 +61,10 @@ formatter = { command = 'prettier', args = ["--parser", "elm"] }
 auto-format = true
 
 [[language]]
+name = "awk"
+auto-format = true
+
+[[language]]
 name = "bash"
 formatter = { command = 'prettier', args = ["--parser", "sh"] }
 auto-format = true
@@ -55,3 +73,10 @@ auto-format = true
 name = "python"
 formatter = { command = "black", args = ["--quiet", "-"] }
 auto-format = true
+
+[[language]]
+name = "rust"
+auto-format = true
+
+[language.config]
+checkOnSave = { command = "clippy" }
