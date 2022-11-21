@@ -1,5 +1,57 @@
 [[language]]
+name = "html"
+formatter = { command = 'prettier', args = ["--parser", "html"] }
+auto-format = true
+
+[[language]]
+name = "xml"
+formatter = { command = 'prettier', args = ["--parser", "xml"] }
+auto-format = true
+
+[[language]]
+name = "json"
+formatter = { command = 'prettier', args = ["--parser", "json"] }
+auto-format = true
+
+[[language]]
+name = "css"
+formatter = { command = 'prettier', args = ["--parser", "css"] }
+auto-format = true
+
+[[language]]
 name = "latex"
+formatter = { command = 'prettier', args = ["--parser", "latex-parser"] }
+auto-format = true
 
 [language.config.texlab.chktex]
 onEdit = true
+
+[[language]]
+name = "javascript"
+formatter = { command = 'prettier', args = ["--parser", "typescript"] }
+auto-format = true
+
+[[language]]
+name = "typescript"
+formatter = { command = 'prettier', args = ["--parser", "typescript"] }
+auto-format = true
+
+[[language]]
+name = "svelte"
+formatter = { command = 'prettier', args = ["--parser", "svelte"] }
+auto-format = true
+
+[[language]]
+name = "elm"
+formatter = { command = 'prettier', args = ["--parser", "elm"] }
+auto-format = true
+
+[[language]]
+name = "bash"
+formatter = { command = 'prettier', args = ["--parser", "sh"] }
+auto-format = true
+
+[[language]]
+name = "python"
+formatter = { command = "black", args = ["--quiet", "-"] }
+auto-format = true

@@ -1,42 +1,41 @@
 #!/bin/bash
 
 function info() {
-    tput setaf 4
-    echo -n "$@"
-    tput sgr0
+  tput setaf 4
+  echo -n "$@"
+  tput sgr0
 }
 
 function warning() {
-    tput setaf 3
-    tput bold
-    echo -n "$@"
-    tput sgr0
-    sleep 0.5
+  tput setaf 3
+  tput bold
+  echo -n "$@"
+  tput sgr0
+  sleep 0.5
 }
 
 function success() {
-    tput setaf 2
-    echo -n "$@"
-    tput sgr0
+  tput setaf 2
+  echo -n "$@"
+  tput sgr0
 }
 
 function code() {
-    tput dim
-    echo -n "$@"
-    tput sgr0
+  tput dim
+  echo -n "$@"
+  tput sgr0
 }
 
 function install() {
-    package=$1
-    code=$2
-    if ! command -v "$package" > /dev/null 2>&1; then
-        info "Installing $package...\n"
-        eval "$code"
-    else
-        success "$package is already installed\n"
-    fi
+  package=$1
+  code=$2
+  if ! command -v "$package" > /dev/null 2>&1; then
+    info "Installing $package...\n"
+    eval "$code"
+  else
+    success "$package is already installed\n"
+  fi
 }
-
 
 info "First, some updates and utilities... (requires super user privileges)... "
 warning "proceed? [y/n]?"
@@ -46,7 +45,7 @@ stty raw -echo
 answer=$(head -c 1)
 stty "$old_stty_cfg"
 if ! echo "$answer" | grep -iq "^y"; then
-    [[ $0 == "${BASH_SOURCE[0]}" ]] && exit 1 || return 1
+  [[ $0 == "${BASH_SOURCE[0]}" ]] && exit 1 || return 1
 fi
 
 echo
@@ -54,12 +53,12 @@ echo
 
 info "Updating apt...\n"
 sudo apt update \
-    && sudo apt upgrade \
-    && sudo apt dist-upgrade \
-    && sudo apt autoremove \
-    && sudo apt autoclean \
-    && sudo apt clean \
-    && deborphan | grep -v amdgpu | xargs sudo apt purge
+  && sudo apt upgrade \
+  && sudo apt dist-upgrade \
+  && sudo apt autoremove \
+  && sudo apt autoclean \
+  && sudo apt clean \
+  && deborphan | grep -v amdgpu | xargs sudo apt purge
 
 echo
 echo
@@ -78,15 +77,15 @@ install "wine" "sudo apt install wine -y"
 install "zsh" 'sudo apt install zsh -y'
 
 if ! command -v "gh" > /dev/null 2>&1; then
-    info "Installing github/cli...\n"
-    curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg \
-            | sudo dd of=/usr/share/keyrings/githubcli-archive-keyring.gpg \
-        && sudo chmod go+r /usr/share/keyrings/githubcli-archive-keyring.gpg \
-        && echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" \
-            | sudo tee /etc/apt/sources.list.d/github-cli.list > /dev/null \
-        && sudo apt install gh -y
+  info "Installing github/cli...\n"
+  curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg \
+    | sudo dd of=/usr/share/keyrings/githubcli-archive-keyring.gpg \
+    && sudo chmod go+r /usr/share/keyrings/githubcli-archive-keyring.gpg \
+    && echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" \
+    | sudo tee /etc/apt/sources.list.d/github-cli.list > /dev/null \
+    && sudo apt install gh -y
 else
-    success "github/cli is already installed\n"
+  success "github/cli is already installed\n"
 fi
 gh auth login
 gh extension install dlvhdr/gh-dash
@@ -121,41 +120,41 @@ stty raw -echo
 answer=$(head -c 1)
 stty "$old_stty_cfg"
 if ! echo "$answer" | grep -iq "^y"; then
-    [[ $0 == "${BASH_SOURCE[0]}" ]] && exit 1 || return 1
+  [[ $0 == "${BASH_SOURCE[0]}" ]] && exit 1 || return 1
 fi
 
 echo
 echo
 
 if [[ ! -d "$HOME/.oh-my-zsh" ]]; then
-    info "Installing oh-my-zsh...\n"
-    sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+  info "Installing oh-my-zsh...\n"
+  sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 else
-    success "oh-my-zsh is already installed\n"
+  success "oh-my-zsh is already installed\n"
 fi
 
 zsh_completions=${ZSH_CUSTOM:-${ZSH:-~/.oh-my-zsh}/custom}/plugins/zsh-completions
 if [[ ! -d $zsh_completions ]]; then
-    info "Installing zsh-completions...\n"
-    git clone https://github.com/zsh-users/zsh-completions "$zsh_completions"
+  info "Installing zsh-completions...\n"
+  git clone https://github.com/zsh-users/zsh-completions "$zsh_completions"
 else
-    success "zsh-completions is already installed\n"
+  success "zsh-completions is already installed\n"
 fi
 
 zsh_autosuggestions=${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 if [[ ! -d $zsh_autosuggestions ]]; then
-    info "Installing zsh-autosuggestions...\n"
-    git clone https://github.com/zsh-users/zsh-autosuggestions "$zsh_autosuggestions"
+  info "Installing zsh-autosuggestions...\n"
+  git clone https://github.com/zsh-users/zsh-autosuggestions "$zsh_autosuggestions"
 else
-    success "zsh-autosuggestions is already installed\n"
+  success "zsh-autosuggestions is already installed\n"
 fi
 
 zsh_syntax_highlighting=${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 if [[ ! -d $zsh_syntax_highlighting ]]; then
-    info "Installing zsh-syntax-highlighting...\n"
-    git clone https://github.com/zsh-users/zsh-syntax-highlighting "$zsh_syntax_highlighting"
+  info "Installing zsh-syntax-highlighting...\n"
+  git clone https://github.com/zsh-users/zsh-syntax-highlighting "$zsh_syntax_highlighting"
 else
-    success "zsh-syntax-highlighting is already installed\n"
+  success "zsh-syntax-highlighting is already installed\n"
 fi
 
 install "fnm" 'curl -fsSL https://fnm.vercel.app/install | bash' # TODO: can we use cargo?
@@ -165,7 +164,9 @@ install "tsc" "npm install -g typescript@latest"
 # Language servers
 install "awk-language-server" "npm install -g \"awk-language-server@>=0.5.2\""
 install "bash-language-server" "npm install -g bash-language-server"
+install "black" "pip install -U black"
 install "elm-language-server" "npm install -g elm-test elm-format elm-review @elm-tooling/elm-language-server" # elm is manually installed
+install "prettier" "npm install -g prettier prettier-plugin-svelte @prettier/plugin-xml prettier-plugin-latex prettier-plugin-sh prettier-plugin-elm"
 install "pylsp" "pip install -U 'python-lsp-server[all]'"
 install "rust-analyzer" "rustup component add rust-analyzer"
 install "svelteserver" "npm install -g svelte-language-server"
@@ -249,13 +250,13 @@ info "Setting some default applications:\n\n"
 
 # Possible terminal emulators.
 if command -v alacritty > /dev/null 2>&1; then
-    sudo update-alternatives --install /usr/bin/x-terminal-emulator x-terminal-emulator "$(which alacritty)" 50
+  sudo update-alternatives --install /usr/bin/x-terminal-emulator x-terminal-emulator "$(which alacritty)" 50
 fi
 sudo update-alternatives --config x-terminal-emulator
 
 # Possible text editors.
 if command -v hx > /dev/null 2>&1; then
-    sudo update-alternatives --install /usr/bin/editor editor "$(which hx)" 60
+  sudo update-alternatives --install /usr/bin/editor editor "$(which hx)" 60
 fi
 sudo update-alternatives --config editor
 

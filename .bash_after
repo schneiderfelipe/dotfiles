@@ -6,14 +6,14 @@
 # See /usr/share/doc/bash-doc/examples in the bash-doc package.
 
 if [ -f "$HOME/.bash_aliases" ]; then
-    . "$HOME/.bash_aliases"
+  . "$HOME/.bash_aliases"
 fi
 
 # Preferred editor for local and remote sessions
 if [[ -n $SSH_CONNECTION ]]; then
-    export EDITOR='hx'
+  export EDITOR='hx'
 else
-    export EDITOR='hx'
+  export EDITOR='hx'
 fi
 
 # Uncomment the following line if you are using less version >= 551 and want to

@@ -3,7 +3,7 @@
 # Things shared between bash and zsh that should come before.
 # This includes changes to $PATH.
 if [ -f "$HOME/.bash_before" ]; then
-    . "$HOME/.bash_before"
+  . "$HOME/.bash_before"
 fi
 
 # Path to your oh-my-zsh installation.
@@ -30,7 +30,7 @@ export HYPHEN_INSENSITIVE="true"
 
 # Uncomment one of the following lines to change the auto-update behavior
 # zstyle ':omz:update' mode disabled  # disable automatic updates
-zstyle ':omz:update' mode auto      # update automatically without asking
+zstyle ':omz:update' mode auto # update automatically without asking
 # zstyle ':omz:update' mode reminder  # just remind me to update when it's time
 
 # Uncomment the following line to change how often to auto-update (in days).
@@ -79,45 +79,45 @@ export MAGIC_ENTER_OTHER_COMMAND="ls"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 export plugins=(
-    cabal
-    copybuffer
-    copyfile
-    copypath
-    emoji
-    fd
-    fnm
-    frontend-search
-    gh
-    git
-    git-extras
-    golang
-    history
-    isodate
-    last-working-dir
-    magic-enter
-    nmap
-    node
-    npm
-    pip
-    poetry
-    pyenv
-    python
-    ripgrep
-    rsync
-    rust
-    safe-paste  # TODO: test it
-    thefuck
-    tmux
-    ubuntu
-    vi-mode
-    vscode
-    web-search
-    zbell
+  cabal
+  copybuffer
+  copyfile
+  copypath
+  emoji
+  fd
+  fnm
+  frontend-search
+  gh
+  git
+  git-extras
+  golang
+  history
+  isodate
+  last-working-dir
+  magic-enter
+  nmap
+  node
+  npm
+  pip
+  poetry
+  pyenv
+  python
+  ripgrep
+  rsync
+  rust
+  safe-paste # TODO: test it
+  thefuck
+  tmux
+  ubuntu
+  vi-mode
+  vscode
+  web-search
+  zbell
 
-    # Managed by me below
-    zsh-autosuggestions
-    # zsh-completions  # zsh-users/zsh-completions#603
-    zsh-syntax-highlighting
+  # Managed by me below
+  zsh-autosuggestions
+  # zsh-completions  # zsh-users/zsh-completions#603
+  zsh-syntax-highlighting
 )
 
 # Completions
@@ -145,7 +145,7 @@ eval "$(zoxide init zsh)"
 # Things shared between bash and zsh that should come after.
 # This includes almost all exports and aliases.
 if [ -f "$HOME/.bash_after" ]; then
-    . "$HOME/.bash_after"
+  . "$HOME/.bash_after"
 fi
 
 # fzf setup

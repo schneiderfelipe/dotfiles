@@ -113,9 +113,6 @@ augroup LocalShell
     autocmd BufWritePre *.sh,*.bash Shfmt
 augroup END
 
-" List all of the extensions for which prettier should run.
-autocmd BufWritePre *.css,*.graphql,*.html,*.js,*.json,*.jsx,*.less,*.md,*.mjs,*.scss,*.svelte,*.ts,*.tsx,*.vue,*.yaml,.babelrc,.eslintrc,.jshintrc PrettierAsync
-
 " Avoid hanging when opening files with too many changes
 let g:gitgutter_max_signs = 1000
 

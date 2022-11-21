@@ -12,7 +12,6 @@
   "editor.minimap.showSlider": "always",
   "editor.minimap.size": "fill",
   "editor.wordWrap": "off",
-  "prettier.tabWidth": 4,
   "workbench.colorTheme": "One Monokai",
   "github.copilot.enable": {
     "*": true,
@@ -29,9 +28,7 @@
   "julia.enableCrashReporter": true,
   "julia.enableTelemetry": true,
   "julia.symbolCacheDownload": true,
-  "terminal.integrated.commandsToSkipShell": [
-    "language-julia.interrupt"
-  ],
+  "terminal.integrated.commandsToSkipShell": ["language-julia.interrupt"],
   "html.format.indentHandlebars": true,
   "html.format.indentInnerHtml": true,
   "html.format.templating": true,
@@ -85,14 +82,5 @@
   },
   "[bibtex]": {
     "editor.defaultFormatter": "James-Yu.latex-workshop"
-  },
-  "[markdown]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[html]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[svelte]": {
-    "editor.defaultFormatter": "svelte.svelte-vscode"
   }
 }
