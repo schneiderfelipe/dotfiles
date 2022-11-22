@@ -75,7 +75,6 @@ install "rg" 'sudo apt install ripgrep -y'
 install "shellcheck" 'sudo apt install shellcheck -y'
 install "tmux" 'sudo apt install tmux -y'
 install "wine" "sudo apt install wine -y"
-install "xsel" 'sudo apt install xsel -y'
 install "zsh" 'sudo apt install zsh -y'
 
 if ! command -v "gh" > /dev/null 2>&1; then
