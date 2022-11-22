@@ -259,6 +259,8 @@ sudo update-alternatives --config x-terminal-emulator
 # Possible text editors.
 if command -v hx > /dev/null 2>&1; then
   sudo update-alternatives --install /usr/bin/editor editor "$(which hx)" 60
+  hx --grammar fetch
+  hx --grammar build
 fi
 sudo update-alternatives --config editor
 
