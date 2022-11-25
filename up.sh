@@ -192,6 +192,7 @@ install "grip" 'pip install -U grip'
 install "just" 'cargo install just'
 install "lazygit" 'go install github.com/jesseduffield/lazygit@latest'
 install "names" 'curl -sSf https://fnichol.github.io/names/install.sh | sh -s -- -d ~/.local/bin' # TODO: can we use cargo?
+install "so" 'cargo install so'
 install "starship" 'curl -sS https://starship.rs/install.sh | sh'
 install "tectonic" 'cargo install tectonic'
 install "watchexec" 'cargo install watchexec-cli'
