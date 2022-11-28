@@ -30,3 +30,4 @@ sites:
   - workplace
   - writing
 search_engine: google
+copy_cmd: xclip -sel clip
