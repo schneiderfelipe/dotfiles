@@ -64,13 +64,12 @@ echo
 echo
 
 info "Installing some utilities...\n"
-install "chktex" "sudo apt install chktex -y"
 install "ctags" 'sudo apt install universal-ctags -y'
 install "curl" 'sudo apt install curl -y'
 install "fzf" 'sudo apt install fzf -y'
 install "git-extras" 'curl -sSL https://raw.githubusercontent.com/tj/git-extras/master/install.sh | sudo bash /dev/stdin'
 install "jq" 'sudo apt install jq -y'
-install "latexindent" "sudo apt install texlive-extra-utils -y"
+install "latexmk" 'sudo apt install texlive-full -y'
 install "rg" 'sudo apt install ripgrep -y'
 install "shellcheck" 'sudo apt install shellcheck -y'
 install "tmux" 'sudo apt install tmux -y'
@@ -194,7 +193,7 @@ install "lazygit" 'go install github.com/jesseduffield/lazygit@latest'
 install "names" 'curl -sSf https://fnichol.github.io/names/install.sh | sh -s -- -d ~/.local/bin' # TODO: can we use cargo?
 install "so" 'cargo install so'
 install "starship" 'curl -sS https://starship.rs/install.sh | sh'
-install "tectonic" 'cargo install tectonic'
+install "tokei" 'cargo install tokei'
 install "watchexec" 'cargo install watchexec-cli'
 install "zoxide" 'curl -sS https://webinstall.dev/zoxide | bash' # TODO: can we use cargo?
 
