@@ -166,7 +166,22 @@ else
   success "zsh-syntax-highlighting is already installed\n"
 fi
 
-# Command-line goodies
+# Cargo goodies
+cargo install cargo-audit
+cargo install cargo-bloat
+cargo install cargo-edit
+cargo install cargo-expand
+cargo install cargo-generate
+cargo install cargo-outdated
+cargo install cargo-readme
+cargo install cargo-smart-release
+cargo install cargo-tarpaulin
+cargo install cargo-udeps
+cargo install cargo-unused-features
+cargo install cargo-watch
+cargo install cargo-workspaces
+
+# General command-line goodies
 install "broot" 'cargo install broot && broot --install'
 install "delta" 'cargo install git-delta'
 install "dust" 'cargo install du-dust'
@@ -191,7 +206,7 @@ install "zoxide" 'curl -sS https://webinstall.dev/zoxide | bash' # TODO: can we 
 
 # Programming language utilities
 install "fnm" 'curl -fsSL https://fnm.vercel.app/install | bash' # TODO: can we use cargo?
-install "poetry" 'curl -sSL https://install.python-poetry.org | python3 -'
+install "poetry" 'curl -sSL https://install.python-poetry.org | python -'
 install "tsc" "npm install -g typescript@latest"
 
 # Language servers
