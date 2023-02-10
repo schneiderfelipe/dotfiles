@@ -103,8 +103,6 @@ auto-format = true
 name = "python"
 roots = ["pyrightconfig.json", "pyproject.toml", "."]
 file-types = ["py"]
-# NOTE: the following is important even if config is empty.
-config = {}
 formatter = { command = "black", args = ["--quiet", "-"] }
 auto-format = true
 
@@ -112,11 +110,10 @@ auto-format = true
 command = "pyright-langserver"
 args = ["--stdio"]
 
-# [language.config.analysis]
-# autoSearchPaths = true
-# diagnosticMode = "workspace"
-# useLibraryCodeForTypes = true
-# # typeCheckingMode = "strict"
+[language.config.analysis]
+autoSearchPaths = true
+diagnosticMode = "workspace"
+useLibraryCodeForTypes = true
 
 [[language]]
 name = "rust"
