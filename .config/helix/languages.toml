@@ -98,14 +98,25 @@ name = "bash"
 formatter = { command = 'prettier', args = ["--parser", "sh"] }
 auto-format = true
 
+# See <https://github.com/helix-editor/helix/issues/1898#issuecomment-1425248090>.
 [[language]]
 name = "python"
-# roots = ["pyproject.toml"]
-language-server = { command = "pyright-langserver", args = ["--stdio"] }
+roots = ["pyrightconfig.json", "pyproject.toml", "."]
+file-types = ["py"]
 # NOTE: the following is important even if config is empty.
-config = { }
+config = {}
 formatter = { command = "black", args = ["--quiet", "-"] }
 auto-format = true
+
+[language.language-server]
+command = "pyright-langserver"
+args = ["--stdio"]
+
+# [language.config.analysis]
+# autoSearchPaths = true
+# diagnosticMode = "workspace"
+# useLibraryCodeForTypes = true
+# # typeCheckingMode = "strict"
 
 [[language]]
 name = "rust"
