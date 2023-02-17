@@ -74,6 +74,7 @@ install "latexmk" 'sudo apt install texlive-full -y'
 install "pdftotext" 'sudo apt install poppler-utils -y'
 install "rg" 'sudo apt install ripgrep -y'
 install "shellcheck" 'sudo apt install shellcheck -y'
+install "surfraw" 'sudo apt install surfraw surfraw-extra -y'
 install "tmux" 'sudo apt install tmux -y'
 install "vipe" 'sudo apt install moreutils -y'
 install "wine" "sudo apt install wine -y"
@@ -194,6 +195,7 @@ install "ipython" 'pip install -U ipython'
 install "just" 'cargo install just'
 install "lazygit" 'go install github.com/jesseduffield/lazygit@latest'
 install "marp" 'npm install -g @marp-team/marp-cli'
+install "mdbook" 'cargo install mdbook'
 install "names" "curl -sSf https://fnichol.github.io/names/install.sh | sh -s -- -d $HOME/.local/bin" # TODO: can we use cargo?
 install "proselint" 'pip install -U proselint'
 install "sg" 'cargo install ast-grep'
@@ -201,6 +203,7 @@ install "so" 'cargo install so'
 install "starship" 'curl -sS https://starship.rs/install.sh | sh'
 install "tb" 'npm install -g taskbook'
 install "tokei" 'cargo install tokei'
+install "typos" 'cargo install typos-cli'
 install "watchexec" 'cargo install watchexec-cli'
 install "zoxide" 'curl -sS https://webinstall.dev/zoxide | bash' # TODO: can we use cargo?
 
