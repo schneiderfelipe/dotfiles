@@ -48,6 +48,9 @@ export PATH=$Multiwfnpath:$PATH
 export GOPATH="$HOME/.go"
 export PATH="$GOPATH/bin:/opt/go/bin:$PATH"
 
+# Rust
+export RUSTFLAGS="-C target-cpu=native"
+
 # fnm/npm installed packages
 export PATH=$HOME/.fnm:$PATH
 
