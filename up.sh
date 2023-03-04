@@ -206,6 +206,7 @@ install "tb" 'npm install -g taskbook'
 install "tokei" 'cargo install tokei'
 install "typos" 'cargo install typos-cli'
 install "watchexec" 'cargo install watchexec-cli'
+install "whome" 'cargo install whome'
 install "zoxide" 'curl -sS https://webinstall.dev/zoxide | bash' # TODO: can we use cargo?
 
 # Programming language utilities
