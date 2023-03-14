@@ -175,12 +175,15 @@ cargo install cargo-expand
 cargo install cargo-generate
 cargo install cargo-outdated
 cargo install cargo-readme
-cargo install cargo-smart-release
+cargo install cargo-release
 cargo install cargo-tarpaulin
 cargo install cargo-udeps
 cargo install cargo-unused-features
 cargo install cargo-watch
 cargo install cargo-workspaces
+
+# Command-line utilities I developed
+cargo install answer
 
 # General command-line goodies
 install "broot" 'cargo install broot && broot --install'
