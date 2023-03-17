@@ -172,6 +172,7 @@ cargo install cargo-audit
 cargo install cargo-bloat
 cargo install cargo-edit
 cargo install cargo-expand
+cargo install cargo-geiger
 cargo install cargo-generate
 cargo install cargo-outdated
 cargo install cargo-readme
