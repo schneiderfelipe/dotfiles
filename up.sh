@@ -204,6 +204,7 @@ install "marp" 'npm install -g @marp-team/marp-cli'
 install "mdbook" 'cargo install mdbook'
 install "names" "curl -sSf https://fnichol.github.io/names/install.sh | sh -s -- -d $HOME/.local/bin" # TODO: can we use cargo?
 install "proselint" 'pip install -U proselint'
+install "ruff" 'pip install -U ruff'
 install "sg" 'cargo install ast-grep'
 install "so" 'cargo install so'
 install "starship" 'curl -sS https://starship.rs/install.sh | sh'
