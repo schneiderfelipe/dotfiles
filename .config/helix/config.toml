@@ -16,14 +16,23 @@ character = "┊"
 
 [editor.statusline]
 right = [
+  "diagnostics",
+  "version-control",
   "selections",
   "file-type",
-  "diagnostics",
   "file-encoding",
   "file-line-ending",
-  "position-percentage",
   "position",
+  "position-percentage",
 ]
 
 [editor.whitespace.render]
 tab = "all"
+
+[editor.soft-wrap]
+enable = true
+wrap-at-text-width = true
+
+[editor.lsp]
+display-messages = true
+display-inlay-hints = true
