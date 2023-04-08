@@ -31,7 +31,6 @@ tab = "all"
 
 [editor.soft-wrap]
 enable = true
-wrap-at-text-width = true
 
 [editor.lsp]
 display-messages = true
