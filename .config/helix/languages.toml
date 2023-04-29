@@ -29,8 +29,7 @@ auto-format = true
 
 [[language]]
 name = "markdown"
-# NOTE: this conflicts with slidev, use <https://prettier.io/docs/en/ignore.html#range-ignore> to ignore blocks.
-formatter = { command = 'prettier', args = ["--parser", "markdown"] }
+formatter = { command = 'mdformat', args = ["-"] }
 auto-format = true
 
 [[language]]

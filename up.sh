@@ -227,6 +227,7 @@ install "bash-language-server" "npm install -g bash-language-server"
 install "bibtex-tidy" "npm install -g bibtex-tidy"
 install "black" "pip install -U black"
 install "elm-language-server" "npm install -g elm-test elm-format elm-review @elm-tooling/elm-language-server" # elm is manually installed
+install "mdformat" "pip install -U mdformat mdformat-gfm mdformat-frontmatter mdformat-footnote mdformat-myst"
 install "prettier" "npm install -g prettier@latest prettier-plugin-svelte @prettier/plugin-xml prettier-plugin-sh prettier-plugin-elm"
 install "pyright" "npm install -g pyright"
 install "rust-analyzer" "rustup component add rust-analyzer"
