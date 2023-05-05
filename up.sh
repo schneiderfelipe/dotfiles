@@ -184,6 +184,9 @@ cargo install cargo-unused-features
 cargo install cargo-watch
 cargo install cargo-workspaces
 
+# Other stuff I use all the time
+cargo install just
+
 # Command-line utilities I developed
 cargo install answer
 
@@ -198,7 +201,6 @@ install "grex" 'cargo install grex'
 install "grip" 'pip install -U grip'
 install "httpie" 'pip install -U httpie'
 install "ipython" 'pip install -U ipython'
-install "just" 'cargo install just'
 install "kalker" 'cargo install kalker'
 install "lazygit" 'go install github.com/jesseduffield/lazygit@latest'
 install "marp" 'npm install -g @marp-team/marp-cli'
@@ -214,6 +216,7 @@ install "tokei" 'cargo install tokei'
 install "typos" 'cargo install typos-cli'
 install "watchexec" 'cargo install watchexec-cli'
 install "whome" 'cargo install whome'
+install "youtube-dl" 'sudo apt install youtube-dl'
 install "zoxide" 'curl -sS https://webinstall.dev/zoxide | bash' # TODO: can we use cargo?
 
 # Programming language utilities
