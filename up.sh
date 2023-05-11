@@ -167,7 +167,8 @@ else
   success "zsh-syntax-highlighting is already installed\n"
 fi
 
-# Cargo goodies
+# Rust development
+rustup component add rust-analyzer
 cargo install cargo-audit
 cargo install cargo-bloat
 cargo install cargo-edit
@@ -184,11 +185,18 @@ cargo install cargo-unused-features
 cargo install cargo-watch
 cargo install cargo-workspaces
 
-# Other stuff I use all the time
-cargo install just
+# Python development
+pip install -U black
+pip install -U ipython
+pip install -U maturin
+pip install -U pytest
+pip install -U ruff
 
 # Command-line utilities I developed
 cargo install answer
+
+# Other stuff I use all the time
+cargo install just
 
 # General command-line goodies
 install "broot" 'cargo install broot && broot --install'
@@ -201,13 +209,13 @@ install "grex" 'cargo install grex'
 install "grip" 'pip install -U grip'
 install "httpie" 'pip install -U httpie'
 install "ipython" 'pip install -U ipython'
+install "just" 'cargo install just'
 install "kalker" 'cargo install kalker'
 install "lazygit" 'go install github.com/jesseduffield/lazygit@latest'
 install "marp" 'npm install -g @marp-team/marp-cli'
 install "mdbook" 'cargo install mdbook'
 install "names" "curl -sSf https://fnichol.github.io/names/install.sh | sh -s -- -d $HOME/.local/bin" # TODO: can we use cargo?
 install "proselint" 'pip install -U proselint'
-install "ruff" 'pip install -U ruff'
 install "sg" 'cargo install ast-grep'
 install "so" 'cargo install so'
 install "starship" 'curl -sS https://starship.rs/install.sh | sh'
@@ -228,12 +236,10 @@ install "tsc" "npm install -g typescript@latest"
 install "awk-language-server" "npm install -g \"awk-language-server@>=0.5.2\""
 install "bash-language-server" "npm install -g bash-language-server"
 install "bibtex-tidy" "npm install -g bibtex-tidy"
-install "black" "pip install -U black"
 install "elm-language-server" "npm install -g elm-test elm-format elm-review @elm-tooling/elm-language-server" # elm is manually installed
 install "mdformat" "pip install -U mdformat mdformat-gfm mdformat-frontmatter mdformat-footnote mdformat-myst"
 install "prettier" "npm install -g prettier@latest prettier-plugin-svelte @prettier/plugin-xml prettier-plugin-sh prettier-plugin-elm"
 install "pyright" "npm install -g pyright"
-install "rust-analyzer" "rustup component add rust-analyzer"
 install "svelteserver" "npm install -g svelte-language-server"
 install "taplo" "cargo install taplo-cli --features lsp"
 install "texlab" "cargo install texlab"
