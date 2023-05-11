@@ -216,7 +216,7 @@ install "tokei" 'cargo install tokei'
 install "typos" 'cargo install typos-cli'
 install "watchexec" 'cargo install watchexec-cli'
 install "whome" 'cargo install whome'
-install "youtube-dl" 'sudo apt install youtube-dl'
+install "yt-dlp" 'sudo apt install yt-dlp'
 install "zoxide" 'curl -sS https://webinstall.dev/zoxide | bash' # TODO: can we use cargo?
 
 # Programming language utilities
