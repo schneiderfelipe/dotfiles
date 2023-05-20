@@ -60,3 +60,6 @@ eval "$(thefuck --alias)"
 
 # Set up fnm environment
 eval "$(fnm env --use-on-cd --version-file-strategy=recursive)"
+
+# Before anything else, start zellij
+eval "$(zellij setup --generate-auto-start zsh)"

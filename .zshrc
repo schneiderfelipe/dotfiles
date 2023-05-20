@@ -107,7 +107,6 @@ export plugins=(
   rust
   safe-paste # TODO: test it
   thefuck
-  tmux
   ubuntu
   vi-mode
   vscode

@@ -75,10 +75,10 @@ install "pdftotext" 'sudo apt install poppler-utils -y'
 install "rg" 'sudo apt install ripgrep -y'
 install "shellcheck" 'sudo apt install shellcheck -y'
 install "surfraw" 'sudo apt install surfraw surfraw-extra -y'
-install "tmux" 'sudo apt install tmux -y'
 install "vipe" 'sudo apt install moreutils -y'
 install "wine" "sudo apt install wine -y"
 install "xsel" 'sudo apt install xsel -y'
+install "zellij" 'cargo install zellij'
 install "zsh" 'sudo apt install zsh -y'
 
 if ! command -v "gh" > /dev/null 2>&1; then
