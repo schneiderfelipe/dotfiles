@@ -86,6 +86,8 @@ esac
 
 # Completions
 source "$HOME/.bash_completion/alacritty"
+source "$HOME/.bash_completion/cargo"
+source "$HOME/.bash_completion/rustup"
 source "$HOME/.bash_completion/zellij"
 
 # Smarter cd command
