@@ -203,19 +203,14 @@ install "broot" 'cargo install broot && broot --install'
 install "delta" 'cargo install git-delta'
 install "dust" 'cargo install du-dust'
 install "dym" 'cargo install didyoumean'
-install "fuck" 'pip install -U thefuck'
 install "git-cliff" 'cargo install git-cliff'
 install "grex" 'cargo install grex'
-install "grip" 'pip install -U grip'
-install "httpie" 'pip install -U httpie'
-install "ipython" 'pip install -U ipython'
 install "just" 'cargo install just'
 install "kalker" 'cargo install kalker'
 install "lazygit" 'go install github.com/jesseduffield/lazygit@latest'
 install "marp" 'npm install -g @marp-team/marp-cli'
 install "mdbook" 'cargo install mdbook'
 install "names" "curl -sSf https://fnichol.github.io/names/install.sh | sh -s -- -d $HOME/.local/bin" # TODO: can we use cargo?
-install "proselint" 'pip install -U proselint'
 install "sg" 'cargo install ast-grep'
 install "so" 'cargo install so'
 install "starship" 'curl -sS https://starship.rs/install.sh | sh'
@@ -226,6 +221,11 @@ install "watchexec" 'cargo install watchexec-cli'
 install "whome" 'cargo install whome'
 install "yt-dlp" 'sudo apt install yt-dlp'
 install "zoxide" 'curl -sS https://webinstall.dev/zoxide | bash' # TODO: can we use cargo?
+pip install -U grip
+pip install -U httpie
+pip install -U ipython
+pip install -U proselint
+pip install -U thefuck
 
 # Programming language utilities
 install "fnm" 'curl -fsSL https://fnm.vercel.app/install | bash' # TODO: can we use cargo?
@@ -237,7 +237,6 @@ install "awk-language-server" "npm install -g \"awk-language-server@>=0.5.2\""
 install "bash-language-server" "npm install -g bash-language-server"
 install "bibtex-tidy" "npm install -g bibtex-tidy"
 install "elm-language-server" "npm install -g elm-test elm-format elm-review @elm-tooling/elm-language-server" # elm is manually installed
-install "mdformat" "pip install -U mdformat mdformat-gfm mdformat-frontmatter mdformat-footnote mdformat-myst"
 install "prettier" "npm install -g prettier@latest prettier-plugin-svelte @prettier/plugin-xml prettier-plugin-sh prettier-plugin-elm"
 install "pyright" "npm install -g pyright"
 install "svelteserver" "npm install -g svelte-language-server"
@@ -250,6 +249,7 @@ install "vscode-html-language-server" "npm install -g vscode-langservers-extract
 install "vscode-json-language-server" "npm install -g vscode-langservers-extracted"
 install "yaml-language-server" "npm install -g yaml-language-server"
 julia -e "using Pkg; Pkg.add(\"LanguageServer\")" # sadly no formatter configured yet
+pip install -U mdformat mdformat-gfm mdformat-frontmatter mdformat-footnote mdformat-myst
 
 echo
 echo
