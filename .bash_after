@@ -62,5 +62,5 @@ eval "$(thefuck --alias)"
 eval "$(fnm env --use-on-cd --version-file-strategy=recursive)"
 
 # Before anything else, start zellij
+export ZELLIJ_AUTO_EXIT=true
 eval "$(zellij setup --generate-auto-start zsh)"
-# TODO: how to kill terminal after killing zellij?
