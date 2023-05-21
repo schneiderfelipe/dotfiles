@@ -86,6 +86,7 @@ esac
 
 # Completions
 source "$HOME/.bash_completion/alacritty"
+source "$HOME/.bash_completion/zellij"
 
 # Smarter cd command
 eval "$(zoxide init bash)"
