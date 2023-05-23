@@ -64,6 +64,7 @@ echo
 echo
 
 info "Installing some utilities...\n"
+cargo install zellij
 install "ctags" 'sudo apt install universal-ctags -y'
 install "curl" 'sudo apt install curl -y'
 install "fzf" 'sudo apt install fzf -y'
@@ -78,7 +79,6 @@ install "surfraw" 'sudo apt install surfraw surfraw-extra -y'
 install "vipe" 'sudo apt install moreutils -y'
 install "wine" "sudo apt install wine -y"
 install "xsel" 'sudo apt install xsel -y'
-install "zellij" 'cargo install zellij'
 install "zsh" 'sudo apt install zsh -y'
 
 if ! command -v "gh" > /dev/null 2>&1; then
