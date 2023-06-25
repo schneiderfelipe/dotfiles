@@ -461,7 +461,7 @@
   "editor.minimap.renderCharacters": false,
   "editor.minimap.showSlider": "always",
   "editor.minimap.size": "fill",
-  "editor.wordWrap": "off",
+  "editor.wordWrap": "bounded",
   "workbench.colorTheme": "One Monokai",
   "github.copilot.enable": {
     "*": true,
