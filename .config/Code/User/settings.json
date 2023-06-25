@@ -1,5 +1,24 @@
 {
+    "css.lint.important": "warning",
+    "debug.toolBarLocation": "docked",
+    "editor.cursorBlinking": "phase",
+    "editor.fontLigatures": true,
     "editor.fontSize": 16,
+    "editor.formatOnPaste": true,
     "editor.formatOnSave": true,
-    "editor.formatOnPaste": true
+    "files.autoSave": "onFocusChange",
+    "files.insertFinalNewline": true,
+    "files.trimTrailingWhitespace": true,
+    "javascript.format.insertSpaceAfterConstructor": true,
+    "javascript.updateImportsOnFileMove.enabled": "always",
+    "less.lint.important": "warning",
+    "notebook.formatOnSave.enabled": true,
+    "scss.lint.important": "warning",
+    "terminal.explorerKind": "external",
+    "typescript.updateImportsOnFileMove.enabled": "always",
+    "workbench.editor.enablePreview": false,
+    "workbench.editor.tabSizing": "shrink",
+    "workbench.panel.defaultLocation": "right",
+    "workbench.settings.editor": "json",
+    "workbench.sideBar.location": "right"
 }
