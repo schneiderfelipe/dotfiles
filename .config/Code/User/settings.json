@@ -435,7 +435,7 @@
   "rust.clippy_preference": "on",
   "[rust]": {
     "editor.defaultFormatter": "matklad.rust-analyzer"
-},
+  },
   "rust-analyzer.assist.importEnforceGranularity": true,
   "github.copilot.enable": {
     "*": true,
@@ -531,5 +531,5 @@
   },
   "[bibtex]": {
     "editor.defaultFormatter": "James-Yu.latex-workshop"
-}
+  }
 }
