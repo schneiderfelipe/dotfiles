@@ -29,6 +29,11 @@ export PATH=$HOME/.local/bin:$PATH
 # Alda binaries
 export PATH=/opt/alda:$PATH
 
+# torch/pytorch/tch-rs stuff
+export LIBTORCH_USE_PYTORCH=1
+export LIBTORCH="$(pyenv prefix)/lib/python3.10/site-packages/torch"
+export LD_LIBRARY_PATH=$LIBTORCH/lib:$LD_LIBRARY_PATH
+
 # Path configurations for Orca
 export ORCA_PATH=/opt/orca
 export PATH=$ORCA_PATH:$PATH
