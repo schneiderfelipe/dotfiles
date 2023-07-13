@@ -64,6 +64,7 @@ echo
 echo
 
 info "Installing some utilities...\n"
+cargo install cocogitto
 cargo install zellij
 install "ctags" 'sudo apt install universal-ctags -y'
 install "curl" 'sudo apt install curl -y'
