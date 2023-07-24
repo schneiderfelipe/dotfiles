@@ -1,5 +1,6 @@
 {
   "editor.fontFamily": "'JetBrains Mono Nerd Font', 'Droid Sans Mono', 'monospace', monospace",
   "editor.fontLigatures": true,
-  "workbench.colorTheme": "Monokai"
+  "workbench.colorTheme": "Monokai",
+  "editor.inlineSuggest.enabled": true
 }
