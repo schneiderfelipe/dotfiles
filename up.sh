@@ -64,6 +64,7 @@ echo
 echo
 
 info "Installing some utilities...\n"
+cargo install alacritty
 cargo install cocogitto
 cargo install zellij
 install "ctags" 'sudo apt install universal-ctags -y'
@@ -196,30 +197,27 @@ pip install -U ruff
 # Command-line utilities I developed
 cargo install answer
 
-# Other stuff I use all the time
-cargo install just
-
 # General command-line goodies
+cargo install ast-grep
+cargo install didyoumean
+cargo install du-dust
+cargo install git-cliff
+cargo install git-delta
+cargo install grex
+cargo install just
+cargo install kalker
+cargo install mdbook
+cargo install so
+cargo install tokei
+cargo install typos-cli
+cargo install watchexec-cli
+cargo install whome
 install "broot" 'cargo install broot && broot --install'
-install "delta" 'cargo install git-delta'
-install "dust" 'cargo install du-dust'
-install "dym" 'cargo install didyoumean'
-install "git-cliff" 'cargo install git-cliff'
-install "grex" 'cargo install grex'
-install "just" 'cargo install just'
-install "kalker" 'cargo install kalker'
 install "lazygit" 'go install github.com/jesseduffield/lazygit@latest'
 install "marp" 'npm install -g @marp-team/marp-cli'
-install "mdbook" 'cargo install mdbook'
 install "names" "curl -sSf https://fnichol.github.io/names/install.sh | sh -s -- -d $HOME/.local/bin" # TODO: can we use cargo?
-install "sg" 'cargo install ast-grep'
-install "so" 'cargo install so'
 install "starship" 'curl -sS https://starship.rs/install.sh | sh'
 install "tb" 'npm install -g taskbook'
-install "tokei" 'cargo install tokei'
-install "typos" 'cargo install typos-cli'
-install "watchexec" 'cargo install watchexec-cli'
-install "whome" 'cargo install whome'
 install "yt-dlp" 'sudo apt install yt-dlp'
 install "zoxide" 'curl -sS https://webinstall.dev/zoxide | bash' # TODO: can we use cargo?
 pip install -U grip
@@ -234,6 +232,8 @@ install "poetry" 'curl -sSL https://install.python-poetry.org | python -'
 install "tsc" "npm install -g typescript@latest"
 
 # Language servers
+cargo install taplo-cli --features lsp
+cargo install texlab
 install "awk-language-server" "npm install -g \"awk-language-server@>=0.5.2\""
 install "bash-language-server" "npm install -g bash-language-server"
 install "bibtex-tidy" "npm install -g bibtex-tidy"
@@ -241,8 +241,6 @@ install "elm-language-server" "npm install -g elm-test elm-format elm-review @el
 install "prettier" "npm install -g prettier@latest prettier-plugin-svelte @prettier/plugin-xml prettier-plugin-sh prettier-plugin-elm prettier-plugin-go-template"
 install "pyright" "npm install -g pyright"
 install "svelteserver" "npm install -g svelte-language-server"
-install "taplo" "cargo install taplo-cli --features lsp"
-install "texlab" "cargo install texlab"
 install "typescript-language-server" "npm install -g typescript typescript-language-server"
 install "vls" "npm install -g vls"
 install "vscode-css-language-server" "npm install -g vscode-langservers-extracted" # works with SCSS too
@@ -257,6 +255,14 @@ echo
 
 warning "Things that need to be installed manually:\n\n"
 
+info "alacritty:\n"
+info "(the binary itself is installed automatically)\n"
+code "https://github.com/alacritty/alacritty/blob/master/INSTALL.md#manual-installation\n\n"
+
+info "Helix editor:\n"
+info "(might be installed automatically in the future)\n"
+code "https://docs.helix-editor.com/install.html#build-from-source\n\n"
+
 info "JetBrains Mono:\n"
 code "https://github.com/ryanoasis/nerd-fonts/releases\n"
 code "https://askubuntu.com/a/3706/361183\n\n"
@@ -266,9 +272,6 @@ info "(might be installed automatically in the future)\n"
 code "https://github.com/pop-os/shell#installation\n"
 code "https://github.com/pop-os/shell-shortcuts#build\n"
 code "https://github.com/pop-os/launcher#installation\n\n"
-
-info "alacritty:\n"
-code "https://github.com/alacritty/alacritty/blob/master/INSTALL.md#manual-installation\n\n"
 
 info "bat:\n"
 code "https://github.com/sharkdp/bat/releases\n\n"
@@ -282,9 +285,6 @@ code "https://github.com/sharkdp/fd/releases\n\n"
 info "git-secrets:\n"
 info "(might be installed automatically in the future)\n"
 code "https://github.com/awslabs/git-secrets#nix-linuxmacos\n\n"
-
-info "Helix editor:\n"
-code "https://docs.helix-editor.com/install.html#build-from-source\n\n"
 
 info "vivid:\n"
 code "https://github.com/sharkdp/vivid/releases\n\n"
