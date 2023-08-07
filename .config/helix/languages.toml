@@ -37,8 +37,8 @@ name = "latex"
 formatter = { command = 'latexindent', args = ["-m"] }
 auto-format = true
 
-[language.config.texlab.chktex]
-onEdit = true
+# [language.config.texlab.chktex]
+# onEdit = true
 
 [[language]]
 name = "bibtex"
@@ -47,7 +47,7 @@ injection-regex = "bib"
 file-types = ["bib"]
 roots = []
 comment-token = "%"
-language-server = { command = "texlab" }
+# language-server = { command = "texlab" }
 indent = { tab-width = 4, unit = "\t" }
 auto-format = true
 
@@ -105,18 +105,18 @@ file-types = ["py"]
 formatter = { command = "black", args = ["--quiet", "-"] }
 auto-format = true
 
-[language.language-server]
-command = "pyright-langserver"
-args = ["--stdio"]
+# [language.language-server]
+# command = "pyright-langserver"
+# args = ["--stdio"]
 
-[language.config.analysis]
-autoSearchPaths = true
-diagnosticMode = "workspace"
-useLibraryCodeForTypes = true
+# [language.config.analysis]
+# autoSearchPaths = true
+# diagnosticMode = "workspace"
+# useLibraryCodeForTypes = true
 
 [[language]]
 name = "rust"
 auto-format = true
 
-[language.config]
-checkOnSave = { command = "clippy" }
+# [language.config]
+# checkOnSave = { command = "clippy" }
