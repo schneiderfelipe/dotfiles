@@ -1,11 +1,10 @@
 edition = "2021"
 
 hex_literal_case = "Upper"
-imports_granularity = "Item"
+imports_granularity = "Crate"
 group_imports = "StdExternalCrate"
 
 condense_wildcard_suffixes = true
-force_multiline_blocks = true
 format_macro_matchers = true
 format_strings = true
 normalize_doc_attributes = true
