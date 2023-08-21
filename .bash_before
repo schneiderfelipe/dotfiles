@@ -19,6 +19,16 @@ if ! command -v pyenv &> /dev/null; then
 fi
 eval "$(pyenv init -)"
 
+# pyenv shared library
+export PYENV_LIB="$(pyenv prefix)/lib"
+export LD_LIBRARY_PATH=$PYENV_LIB:$LD_LIBRARY_PATH
+
+# torch/pytorch/tch-rs stuff
+export LIBTORCH_USE_PYTORCH=1
+export LIBTORCH="$PYENV_LIB/python3.10/site-packages/torch"
+export LIBTORCH_LIB="$LIBTORCH/lib"
+export LD_LIBRARY_PATH=$LIBTORCH_LIB:$LD_LIBRARY_PATH
+
 # juliaup configuration
 export PATH=$HOME/.juliaup/bin:$PATH
 
@@ -28,11 +38,6 @@ export PATH=$HOME/.local/bin:$PATH
 
 # Alda binaries
 export PATH=/opt/alda:$PATH
-
-# torch/pytorch/tch-rs stuff
-export LIBTORCH_USE_PYTORCH=1
-export LIBTORCH="$(pyenv prefix)/lib/python3.10/site-packages/torch"
-export LD_LIBRARY_PATH=$LIBTORCH/lib:$LD_LIBRARY_PATH
 
 # Path configurations for Orca
 export ORCA_PATH=/opt/orca
