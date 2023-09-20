@@ -66,6 +66,7 @@ echo
 info "Installing some utilities...\n"
 cargo install alacritty
 cargo install cocogitto
+cargo install xsv
 cargo install zellij
 install "ctags" 'sudo apt install universal-ctags -y'
 install "curl" 'sudo apt install curl -y'
@@ -177,15 +178,18 @@ cargo install cargo-edit
 cargo install cargo-expand
 cargo install cargo-geiger
 cargo install cargo-generate
+cargo install cargo-license
 cargo install cargo-msrv
 cargo install cargo-outdated
 cargo install cargo-readme
 cargo install cargo-release
+cargo install cargo-show-asm
 cargo install cargo-tarpaulin
 cargo install cargo-udeps
 cargo install cargo-unused-features
 cargo install cargo-watch
 cargo install cargo-workspaces
+cargo install flamegraph
 
 # Python development
 pip install -U black
@@ -204,6 +208,7 @@ cargo install du-dust
 cargo install git-cliff
 cargo install git-delta
 cargo install grex
+cargo install hyperfine
 cargo install just
 cargo install kalker
 cargo install mdbook
