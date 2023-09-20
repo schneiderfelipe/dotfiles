@@ -66,6 +66,7 @@ echo
 info "Installing some utilities...\n"
 cargo install alacritty
 cargo install cocogitto
+cargo install gptcommit
 cargo install xsv
 cargo install zellij
 install "ctags" 'sudo apt install universal-ctags -y'
