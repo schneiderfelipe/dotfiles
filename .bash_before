@@ -14,10 +14,9 @@ unset SECRETS
 # Pyenv configuration
 # See <https://github.com/pyenv/pyenv#set-up-your-shell-environment-for-pyenv>.
 export PYENV_ROOT="$HOME/.pyenv"
-if ! command -v pyenv &> /dev/null; then
-  export PATH="$PYENV_ROOT/bin:$PATH"
-fi
+command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
 
 # pyenv shared library
 export PYENV_LIB="$(pyenv prefix)/lib"
