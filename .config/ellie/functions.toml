@@ -1,0 +1,5 @@
+[[provider]]
+name = "search"
+command = "python"
+# TODO: make it easier to give paths by having env var substituted
+args = ["/home/schneider/.config/ellie/functions/metaphor.py", "search"]
