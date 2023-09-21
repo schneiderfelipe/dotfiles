@@ -6,6 +6,7 @@ import dataclasses
 
 api_key = os.environ["METAPHOR_API_KEY"]
 
+
 def dict_factory(data):
     def include_pair(pair):
         key, value = pair
@@ -15,6 +16,7 @@ def dict_factory(data):
     return dict(pair for pair in data if include_pair(pair))
 
 
+# TODO: support find_similar <https://dashboard.metaphor.systems/playground/find-similar>
 match sys.argv[1:]:  # ignore script name
     case ["search"]:
         metaphor = Metaphor(api_key=api_key)
@@ -31,8 +33,6 @@ match sys.argv[1:]:  # ignore script name
         for result in data["results"]:
             print(json.dumps(result, separators=(',', ':')))
     case ["search", "spec"]:
-        # TODO: some interesting options suppressed,
-        # include domains is particularly useful (e.g. "find me youtube videos")
         print(
             json.dumps(
                 {
@@ -45,6 +45,14 @@ match sys.argv[1:]:  # ignore script name
                             "query": {
                                 "type": "string",
                             },
+                            "include_domains": {
+                                "type": "array",
+                                "items": {
+                                    "type": "string"
+                                },
+                                "uniqueItems": True,
+                            },
+                            # TODO: include start published date?
                         },
                     },
                 },
