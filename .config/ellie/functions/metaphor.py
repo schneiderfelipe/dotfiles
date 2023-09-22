@@ -1,8 +1,9 @@
 import sys
 import json
 import os
-from metaphor_python import Metaphor
 import dataclasses
+
+from metaphor_python import Metaphor
 
 api_key = os.environ["METAPHOR_API_KEY"]
 
@@ -10,13 +11,11 @@ api_key = os.environ["METAPHOR_API_KEY"]
 def dict_factory(data):
     def include_pair(pair):
         key, value = pair
-        return key != "id" and \
-            value is not None and \
-            not isinstance(value, Metaphor)
+        return key != "id" and value is not None and not isinstance(value, Metaphor)
+
     return dict(pair for pair in data if include_pair(pair))
 
 
-# TODO: support find_similar <https://dashboard.metaphor.systems/playground/find-similar>
 match sys.argv[1:]:  # ignore script name
     case ["search"]:
         metaphor = Metaphor(api_key=api_key)
@@ -31,13 +30,23 @@ match sys.argv[1:]:  # ignore script name
         # print(data["autoprompt_string"])
 
         for result in data["results"]:
-            print(json.dumps(result, separators=(',', ':')))
+            print(json.dumps(result, separators=(",", ":")))
+    case ["find_similar"]:
+        metaphor = Metaphor(api_key=api_key)
+
+        kwargs = json.load(sys.stdin)
+        response = metaphor.find_similar(**kwargs)
+
+        data = dataclasses.asdict(response, dict_factory=dict_factory)
+
+        for result in data["results"]:
+            print(json.dumps(result, separators=(",", ":")))
     case ["search", "spec"]:
         print(
             json.dumps(
                 {
                     "name": "search",
-                    "description": "Search the web using metaphor.systems",
+                    "description": "Search web queries using metaphor.systems",
                     "parameters": {
                         "type": "object",
                         "required": ["query"],
@@ -47,17 +56,40 @@ match sys.argv[1:]:  # ignore script name
                             },
                             "include_domains": {
                                 "type": "array",
-                                "items": {
-                                    "type": "string"
-                                },
+                                "items": {"type": "string"},
                                 "uniqueItems": True,
                             },
                             # TODO: include start published date?
                         },
                     },
                 },
-                separators=(',', ':')
+                separators=(",", ":"),
             )
         )
         # TODO: improve error messages when spec is malformed.
         # The bare minimum is name, parameters, parameters>type, parameters>properties}
+    case ["find_similar", "spec"]:
+        print(
+            json.dumps(
+                {
+                    "name": "find_similar",
+                    "description": "Find similar URLs using metaphor.systems",
+                    "parameters": {
+                        "type": "object",
+                        "required": ["url"],
+                        "properties": {
+                            "url": {
+                                "type": "string",
+                            },
+                            "include_domains": {
+                                "type": "array",
+                                "items": {"type": "string"},
+                                "uniqueItems": True,
+                            },
+                            # TODO: include start published date?
+                        },
+                    },
+                },
+                separators=(",", ":"),
+            )
+        )
