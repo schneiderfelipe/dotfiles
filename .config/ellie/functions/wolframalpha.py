@@ -7,7 +7,7 @@ import requests
 appid = os.environ["WOLFRAM_ALPHA_APPID"]
 
 
-def wolframalpha(input, appid=appid):
+def wolfram_alpha(input, appid=appid):
     endpoint = "https://www.wolframalpha.com/api/v1/llm-api"
     headers = {"Authorization": f"Bearer {appid}"}
     # TODO: there are other parameters available, check them out: https://products.wolframalpha.com/llm-api/documentation
@@ -18,14 +18,14 @@ def wolframalpha(input, appid=appid):
 match sys.argv[1:]:  # ignore script name
     case []:
         kwargs = {"appid": appid, **json.load(sys.stdin)}
-        output = wolframalpha(**kwargs)
+        output = wolfram_alpha(**kwargs)
         print(output)
     case ["spec"]:
         print(
             json.dumps(
                 {
-                    "name": "wolframalpha",
-                    "description": "Understand natural language queries about various subjects, perform mathematical calculations and conversions, and obtain up-to-date data",  # noqa: E501
+                    "name": "compute",
+                    "description": "Compute expert-level answers using WolframAlpha",
                     "parameters": {
                         "type": "object",
                         "required": ["input"],
