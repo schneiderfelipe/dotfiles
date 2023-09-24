@@ -21,6 +21,7 @@ match sys.argv[1:]:  # ignore script name
         metaphor = Metaphor(api_key=api_key)
 
         kwargs = json.load(sys.stdin)
+        # TODO: use update for defaults, see wolframalpha
         if "use_autoprompt" not in kwargs:
             kwargs["use_autoprompt"] = True
         response = metaphor.search(**kwargs)

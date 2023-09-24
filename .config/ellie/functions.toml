@@ -7,3 +7,8 @@ args = ["~/.config/ellie/functions/metaphor.py", "search"]
 name = "find_similar"
 command = "python"
 args = ["~/.config/ellie/functions/metaphor.py", "find_similar"]
+
+[[provider]]
+name = "wolframalpha"
+command = "python"
+args = ["~/.config/ellie/functions/wolframalpha.py"]
