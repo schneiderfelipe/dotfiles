@@ -8,11 +8,11 @@ appid = os.environ["WOLFRAM_ALPHA_APPID"]
 
 
 def wolfram_alpha(input, appid=appid):
-    endpoint = "https://www.wolframalpha.com/api/v1/llm-api"
     headers = {"Authorization": f"Bearer {appid}"}
     # TODO: there are other parameters available, check them out: https://products.wolframalpha.com/llm-api/documentation
     params = {"input": input}
-    return requests.get(endpoint, headers=headers, params=params).text
+    endpoint = "https://www.wolframalpha.com/api/v1/llm-api"
+    return requests.get(endpoint, params=params, headers=headers).text
 
 
 match sys.argv[1:]:  # ignore script name
@@ -24,8 +24,10 @@ match sys.argv[1:]:  # ignore script name
         print(
             json.dumps(
                 {
-                    "name": "compute",
-                    "description": "Compute expert-level answers using WolframAlpha",
+                    "name": "wolfram",
+                    "description": "Access expert-level computation, math, "
+                    "curated knowledge, answers & real-time data through "
+                    "Wolfram|Alpha and Wolfram Language",
                     "parameters": {
                         "type": "object",
                         "required": ["input"],

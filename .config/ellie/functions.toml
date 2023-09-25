@@ -9,6 +9,6 @@ command = "python"
 args = ["~/.config/ellie/functions/metaphor.py", "find_similar"]
 
 [[provider]]
-name = "compute"
+name = "wolfram"
 command = "python"
-args = ["~/.config/ellie/functions/wolframalpha.py"]
+args = ["~/.config/ellie/functions/wolfram.py"]
