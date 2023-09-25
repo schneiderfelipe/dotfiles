@@ -7,7 +7,7 @@ import requests
 appid = os.environ["WOLFRAM_ALPHA_APPID"]
 
 
-def wolfram_alpha(input, appid=appid):
+def wolfram_alpha(input: str, appid: str = appid) -> str:
     headers = {"Authorization": f"Bearer {appid}"}
     # TODO: there are other parameters available, check them out: https://products.wolframalpha.com/llm-api/documentation
     params = {"input": input}

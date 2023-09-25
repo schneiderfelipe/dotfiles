@@ -8,8 +8,8 @@ from metaphor_python import Metaphor
 api_key = os.environ["METAPHOR_API_KEY"]
 
 
-def dict_factory(data):
-    def include_pair(pair):
+def dict_factory(data: dict) -> dict:
+    def include_pair(pair: tuple):
         key, value = pair
         return key != "id" and value is not None and not isinstance(value, Metaphor)
 
