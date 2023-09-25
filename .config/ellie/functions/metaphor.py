@@ -47,7 +47,7 @@ match sys.argv[1:]:  # ignore script name
             json.dumps(
                 {
                     "name": "search",
-                    "description": "Search web queries using metaphor.systems",
+                    "description": "Search the web using metaphor.systems",
                     "parameters": {
                         "type": "object",
                         "required": ["query"],

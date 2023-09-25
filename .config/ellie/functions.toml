@@ -2,13 +2,16 @@
 name = "search"
 command = "python"
 args = ["~/.config/ellie/functions/metaphor.py", "search"]
+safe = true
 
 [[provider]]
 name = "find_similar"
 command = "python"
 args = ["~/.config/ellie/functions/metaphor.py", "find_similar"]
+safe = true
 
 [[provider]]
 name = "wolfram"
 command = "python"
 args = ["~/.config/ellie/functions/wolfram.py"]
+safe = true
