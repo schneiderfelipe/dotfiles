@@ -38,6 +38,5 @@ match sys.argv[1:]:  # ignore script name
                         },
                     },
                 },
-                separators=(",", ":"),
             )
         )

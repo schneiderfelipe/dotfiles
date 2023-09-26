@@ -1,14 +1,15 @@
+import sys
+import os
+import json
 import dataclasses
 import typing
 import inspect
-import json
-import os
-import sys
 
 import pydantic
 from metaphor_python import Metaphor
 
-api_key = os.environ["METAPHOR_API_KEY"]
+
+API_KEY = os.environ["METAPHOR_API_KEY"]
 
 
 def schema(function):
@@ -74,7 +75,7 @@ def search(query: str, include_domains: set[str] | None = None):
     print(
         json.dumps(
             dataclasses.asdict(
-                Metaphor(api_key=api_key).search(
+                Metaphor(api_key=API_KEY).search(
                     query=query,
                     num_results=5,
                     include_domains=include_domains,
@@ -95,7 +96,7 @@ def find_similar(url: str, include_domains: set[str] | None = None):
     print(
         json.dumps(
             dataclasses.asdict(
-                Metaphor(api_key=api_key).find_similar(
+                Metaphor(api_key=API_KEY).find_similar(
                     url=url,
                     num_results=5,
                     include_domains=include_domains,
