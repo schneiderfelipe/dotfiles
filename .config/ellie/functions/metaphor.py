@@ -1,11 +1,60 @@
-import sys
+import dataclasses
+import typing
+import inspect
 import json
 import os
-import dataclasses
+import sys
 
+import pydantic
 from metaphor_python import Metaphor
 
 api_key = os.environ["METAPHOR_API_KEY"]
+
+
+def schema(function):
+    def get_fields(f) -> dict[str, tuple]:
+        def get_field(parameter: inspect.Parameter) -> tuple:
+            assert (
+                parameter.annotation is not inspect.Parameter.empty
+            ), f"parameter '{parameter}' lacks type annotation"
+            return (
+                parameter.annotation,
+                ...
+                if parameter.default is inspect.Parameter.empty
+                else parameter.default,
+            )
+
+        return {
+            name: get_field(parameter)
+            for name, parameter in inspect.signature(f).parameters.items()
+        }
+
+    K = typing.TypeVar("K")
+    V = typing.TypeVar("V")
+
+    def remove_keys(data: dict[K, V], keys: list[K]) -> dict[K, V]:
+        return {
+            key: remove_keys(value, keys) if isinstance(value, dict) else value
+            for key, value in data.items()
+            if key not in keys
+        }
+
+    name = function.__name__
+    assert name, "function lacks a name"
+    assert len(name) > 1, f"{name} name is too short"
+
+    description = inspect.getdoc(function).strip()
+    assert description, f"{name} lacks documentation"
+
+    fields = get_fields(function)
+    model = pydantic.create_model(name, **fields)
+    schema = model.schema()
+    parameters = remove_keys(schema, ["title"])
+    assert parameters, f"{name} lacks parameters"
+    assert "type" in parameters, f"{name} parameters lack type"
+    assert "properties" in parameters, f"{name} parameters lack properties"
+
+    return dict(name=name, description=description, parameters=parameters)
 
 
 def dict_factory(data: dict) -> dict:
