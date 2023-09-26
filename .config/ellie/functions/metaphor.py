@@ -65,19 +65,40 @@ def dict_factory(data: dict) -> dict:
     return dict(pair for pair in data if include_pair(pair))
 
 
-# TODO: include start published date?
 def search(query: str, include_domains: set[str] | None = None):
     """Search the web using metaphor.systems"""
+    # TODO: include start published date?
+    include_domains = (
+        list(include_domains) if include_domains is not None else include_domains
+    )
     print(
         json.dumps(
             dataclasses.asdict(
                 Metaphor(api_key=api_key).search(
                     query=query,
-                    include_domains=list(include_domains)
-                    if include_domains is not None
-                    else include_domains,
                     num_results=5,
+                    include_domains=include_domains,
                     use_autoprompt=True,
+                ),
+                dict_factory=dict_factory,
+            )
+        )
+    )
+
+
+def find_similar(url: str, include_domains: set[str] | None = None):
+    """Find similar URLs using metaphor.systems"""
+    # TODO: include start published date?
+    include_domains = (
+        list(include_domains) if include_domains is not None else include_domains
+    )
+    print(
+        json.dumps(
+            dataclasses.asdict(
+                Metaphor(api_key=api_key).find_similar(
+                    url=url,
+                    num_results=5,
+                    include_domains=include_domains,
                 ),
                 dict_factory=dict_factory,
             )
@@ -88,40 +109,10 @@ def search(query: str, include_domains: set[str] | None = None):
 match sys.argv[1:]:  # ignore script name
     case ["search"]:
         search(**json.load(sys.stdin))
-    case ["find_similar"]:
-        metaphor = Metaphor(api_key=api_key)
-
-        kwargs = json.load(sys.stdin)
-        response = metaphor.find_similar(**kwargs)
-
-        data = dataclasses.asdict(response, dict_factory=dict_factory)
-
-        for result in data["results"]:
-            print(json.dumps(result, separators=(",", ":")))
     case ["search", "spec"]:
         print(json.dumps(schema(search)))
+
+    case ["find_similar"]:
+        find_similar(**json.load(sys.stdin))
     case ["find_similar", "spec"]:
-        print(
-            json.dumps(
-                {
-                    "name": "find_similar",
-                    "description": "Find similar URLs using metaphor.systems",
-                    "parameters": {
-                        "type": "object",
-                        "required": ["url"],
-                        "properties": {
-                            "url": {
-                                "type": "string",
-                            },
-                            "include_domains": {
-                                "type": "array",
-                                "items": {"type": "string"},
-                                "uniqueItems": True,
-                            },
-                            # TODO: include start published date?
-                        },
-                    },
-                },
-                separators=(",", ":"),
-            )
-        )
+        print(json.dumps(schema(find_similar)))
