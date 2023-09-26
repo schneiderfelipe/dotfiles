@@ -65,22 +65,29 @@ def dict_factory(data: dict) -> dict:
     return dict(pair for pair in data if include_pair(pair))
 
 
+# TODO: include start published date?
+def search(query: str, include_domains: set[str] | None = None):
+    """Search the web using metaphor.systems"""
+    print(
+        json.dumps(
+            dataclasses.asdict(
+                Metaphor(api_key=api_key).search(
+                    query=query,
+                    include_domains=list(include_domains)
+                    if include_domains is not None
+                    else include_domains,
+                    num_results=5,
+                    use_autoprompt=True,
+                ),
+                dict_factory=dict_factory,
+            )
+        )
+    )
+
+
 match sys.argv[1:]:  # ignore script name
     case ["search"]:
-        metaphor = Metaphor(api_key=api_key)
-
-        kwargs = json.load(sys.stdin)
-        # TODO: use update for defaults, see wolfram
-        if "use_autoprompt" not in kwargs:
-            kwargs["use_autoprompt"] = True
-        response = metaphor.search(**kwargs)
-
-        data = dataclasses.asdict(response, dict_factory=dict_factory)
-        # TODO: log data.autoprompt_string
-        # print(data["autoprompt_string"])
-
-        for result in data["results"]:
-            print(json.dumps(result, separators=(",", ":")))
+        search(**json.load(sys.stdin))
     case ["find_similar"]:
         metaphor = Metaphor(api_key=api_key)
 
@@ -92,32 +99,7 @@ match sys.argv[1:]:  # ignore script name
         for result in data["results"]:
             print(json.dumps(result, separators=(",", ":")))
     case ["search", "spec"]:
-        print(
-            json.dumps(
-                {
-                    "name": "search",
-                    "description": "Search the web using metaphor.systems",
-                    "parameters": {
-                        "type": "object",
-                        "required": ["query"],
-                        "properties": {
-                            "query": {
-                                "type": "string",
-                            },
-                            "include_domains": {
-                                "type": "array",
-                                "items": {"type": "string"},
-                                "uniqueItems": True,
-                            },
-                            # TODO: include start published date?
-                        },
-                    },
-                },
-                separators=(",", ":"),
-            )
-        )
-        # TODO: improve error messages when spec is malformed.
-        # The bare minimum is name, parameters, parameters>type, parameters>properties}
+        print(json.dumps(schema(search)))
     case ["find_similar", "spec"]:
         print(
             json.dumps(
