@@ -82,7 +82,8 @@ def search(query: str, include_domains: set[str] | None = None):
                     use_autoprompt=True,
                 ),
                 dict_factory=dict_factory,
-            )
+            ),
+            separators=(",", ":"),
         )
     )
 
