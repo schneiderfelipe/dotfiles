@@ -60,4 +60,4 @@ export PATH="$GOPATH/bin:/opt/go/bin:$PATH"
 export RUSTFLAGS="-C target-cpu=native"
 
 # fnm/npm installed packages
-export PATH=$HOME/.fnm:$PATH
+export PATH="$HOME/.fnm:$PATH"

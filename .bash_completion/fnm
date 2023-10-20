@@ -1,5 +1,5 @@
 _fnm() {
-    local i cur prev opts cmds
+    local i cur prev opts cmd
     COMPREPLY=()
     cur="${COMP_WORDS[COMP_CWORD]}"
     prev="${COMP_WORDS[COMP_CWORD-1]}"
@@ -8,45 +8,93 @@ _fnm() {
 
     for i in ${COMP_WORDS[@]}
     do
-        case "${i}" in
-            "$1")
+        case "${cmd},${i}" in
+            ",$1")
                 cmd="fnm"
                 ;;
-            alias)
-                cmd+="__alias"
+            fnm,alias)
+                cmd="fnm__alias"
                 ;;
-            completions)
-                cmd+="__completions"
+            fnm,completions)
+                cmd="fnm__completions"
                 ;;
-            current)
-                cmd+="__current"
+            fnm,current)
+                cmd="fnm__current"
                 ;;
-            default)
-                cmd+="__default"
+            fnm,default)
+                cmd="fnm__default"
                 ;;
-            env)
-                cmd+="__env"
+            fnm,env)
+                cmd="fnm__env"
                 ;;
-            exec)
-                cmd+="__exec"
+            fnm,exec)
+                cmd="fnm__exec"
                 ;;
-            install)
-                cmd+="__install"
+            fnm,help)
+                cmd="fnm__help"
                 ;;
-            list)
-                cmd+="__list"
+            fnm,install)
+                cmd="fnm__install"
                 ;;
-            list-remote)
-                cmd+="__list__remote"
+            fnm,list)
+                cmd="fnm__list"
                 ;;
-            unalias)
-                cmd+="__unalias"
+            fnm,list-remote)
+                cmd="fnm__list__remote"
                 ;;
-            uninstall)
-                cmd+="__uninstall"
+            fnm,ls)
+                cmd="fnm__list"
                 ;;
-            use)
-                cmd+="__use"
+            fnm,ls-remote)
+                cmd="fnm__list__remote"
+                ;;
+            fnm,unalias)
+                cmd="fnm__unalias"
+                ;;
+            fnm,uninstall)
+                cmd="fnm__uninstall"
+                ;;
+            fnm,use)
+                cmd="fnm__use"
+                ;;
+            fnm__help,alias)
+                cmd="fnm__help__alias"
+                ;;
+            fnm__help,completions)
+                cmd="fnm__help__completions"
+                ;;
+            fnm__help,current)
+                cmd="fnm__help__current"
+                ;;
+            fnm__help,default)
+                cmd="fnm__help__default"
+                ;;
+            fnm__help,env)
+                cmd="fnm__help__env"
+                ;;
+            fnm__help,exec)
+                cmd="fnm__help__exec"
+                ;;
+            fnm__help,help)
+                cmd="fnm__help__help"
+                ;;
+            fnm__help,install)
+                cmd="fnm__help__install"
+                ;;
+            fnm__help,list)
+                cmd="fnm__help__list"
+                ;;
+            fnm__help,list-remote)
+                cmd="fnm__help__list__remote"
+                ;;
+            fnm__help,unalias)
+                cmd="fnm__help__unalias"
+                ;;
+            fnm__help,uninstall)
+                cmd="fnm__help__uninstall"
+                ;;
+            fnm__help,use)
+                cmd="fnm__help__use"
                 ;;
             *)
                 ;;
@@ -55,7 +103,7 @@ _fnm() {
 
     case "${cmd}" in
         fnm)
-            opts="--help --version --node-dist-mirror --fnm-dir --multishell-path --log-level --arch --version-file-strategy list-remote list install use env completions alias unalias default current exec uninstall"
+            opts="-h -V --node-dist-mirror --fnm-dir --multishell-path --log-level --arch --version-file-strategy --corepack-enabled --resolve-engines --help --version list-remote list install use env completions alias unalias default current exec uninstall help"
             if [[ ${cur} == -* || ${COMP_CWORD} -eq 1 ]] ; then
                 COMPREPLY=( $(compgen -W "${opts}" -- "${cur}") )
                 return 0
@@ -74,7 +122,7 @@ _fnm() {
                     return 0
                     ;;
                 --log-level)
-                    COMPREPLY=($(compgen -W "quiet info all error" -- "${cur}"))
+                    COMPREPLY=($(compgen -W "quiet error info" -- "${cur}"))
                     return 0
                     ;;
                 --arch)
@@ -93,7 +141,7 @@ _fnm() {
             return 0
             ;;
         alias)
-            opts="--help --version --node-dist-mirror --fnm-dir --multishell-path --log-level --arch --version-file-strategy list-remote list install use env completions alias unalias default current exec uninstall"
+            opts="-h -V --node-dist-mirror --fnm-dir --multishell-path --log-level --arch --version-file-strategy --corepack-enabled --resolve-engines --help --version list-remote list install use env completions alias unalias default current exec uninstall help"
             if [[ ${cur} == -* || ${COMP_CWORD} -eq 1 ]] ; then
                 COMPREPLY=( $(compgen -W "${opts}" -- "${cur}") )
                 return 0
@@ -112,7 +160,7 @@ _fnm() {
                     return 0
                     ;;
                 --log-level)
-                    COMPREPLY=($(compgen -W "quiet info all error" -- "${cur}"))
+                    COMPREPLY=($(compgen -W "quiet error info" -- "${cur}"))
                     return 0
                     ;;
                 --arch)
@@ -131,7 +179,7 @@ _fnm() {
             return 0
             ;;
         completions)
-            opts="--help --version --node-dist-mirror --fnm-dir --multishell-path --log-level --arch --version-file-strategy list-remote list install use env completions alias unalias default current exec uninstall"
+            opts="-h -V --node-dist-mirror --fnm-dir --multishell-path --log-level --arch --version-file-strategy --corepack-enabled --resolve-engines --help --version list-remote list install use env completions alias unalias default current exec uninstall help"
             if [[ ${cur} == -* || ${COMP_CWORD} -eq 1 ]] ; then
                 COMPREPLY=( $(compgen -W "${opts}" -- "${cur}") )
                 return 0
@@ -150,7 +198,7 @@ _fnm() {
                     return 0
                     ;;
                 --log-level)
-                    COMPREPLY=($(compgen -W "quiet info all error" -- "${cur}"))
+                    COMPREPLY=($(compgen -W "quiet error info" -- "${cur}"))
                     return 0
                     ;;
                 --arch)
@@ -169,7 +217,7 @@ _fnm() {
             return 0
             ;;
         current)
-            opts="--help --version --node-dist-mirror --fnm-dir --multishell-path --log-level --arch --version-file-strategy list-remote list install use env completions alias unalias default current exec uninstall"
+            opts="-h -V --node-dist-mirror --fnm-dir --multishell-path --log-level --arch --version-file-strategy --corepack-enabled --resolve-engines --help --version list-remote list install use env completions alias unalias default current exec uninstall help"
             if [[ ${cur} == -* || ${COMP_CWORD} -eq 1 ]] ; then
                 COMPREPLY=( $(compgen -W "${opts}" -- "${cur}") )
                 return 0
@@ -188,7 +236,7 @@ _fnm() {
                     return 0
                     ;;
                 --log-level)
-                    COMPREPLY=($(compgen -W "quiet info all error" -- "${cur}"))
+                    COMPREPLY=($(compgen -W "quiet error info" -- "${cur}"))
                     return 0
                     ;;
                 --arch)
@@ -207,7 +255,7 @@ _fnm() {
             return 0
             ;;
         default)
-            opts="--help --version --node-dist-mirror --fnm-dir --multishell-path --log-level --arch --version-file-strategy list-remote list install use env completions alias unalias default current exec uninstall"
+            opts="-h -V --node-dist-mirror --fnm-dir --multishell-path --log-level --arch --version-file-strategy --corepack-enabled --resolve-engines --help --version list-remote list install use env completions alias unalias default current exec uninstall help"
             if [[ ${cur} == -* || ${COMP_CWORD} -eq 1 ]] ; then
                 COMPREPLY=( $(compgen -W "${opts}" -- "${cur}") )
                 return 0
@@ -226,7 +274,7 @@ _fnm() {
                     return 0
                     ;;
                 --log-level)
-                    COMPREPLY=($(compgen -W "quiet info all error" -- "${cur}"))
+                    COMPREPLY=($(compgen -W "quiet error info" -- "${cur}"))
                     return 0
                     ;;
                 --arch)
@@ -245,7 +293,7 @@ _fnm() {
             return 0
             ;;
         env)
-            opts="--help --version --node-dist-mirror --fnm-dir --multishell-path --log-level --arch --version-file-strategy list-remote list install use env completions alias unalias default current exec uninstall"
+            opts="-h -V --node-dist-mirror --fnm-dir --multishell-path --log-level --arch --version-file-strategy --corepack-enabled --resolve-engines --help --version list-remote list install use env completions alias unalias default current exec uninstall help"
             if [[ ${cur} == -* || ${COMP_CWORD} -eq 1 ]] ; then
                 COMPREPLY=( $(compgen -W "${opts}" -- "${cur}") )
                 return 0
@@ -264,7 +312,7 @@ _fnm() {
                     return 0
                     ;;
                 --log-level)
-                    COMPREPLY=($(compgen -W "quiet info all error" -- "${cur}"))
+                    COMPREPLY=($(compgen -W "quiet error info" -- "${cur}"))
                     return 0
                     ;;
                 --arch)
@@ -283,7 +331,7 @@ _fnm() {
             return 0
             ;;
         exec)
-            opts="--help --version --node-dist-mirror --fnm-dir --multishell-path --log-level --arch --version-file-strategy list-remote list install use env completions alias unalias default current exec uninstall"
+            opts="-h -V --node-dist-mirror --fnm-dir --multishell-path --log-level --arch --version-file-strategy --corepack-enabled --resolve-engines --help --version list-remote list install use env completions alias unalias default current exec uninstall help"
             if [[ ${cur} == -* || ${COMP_CWORD} -eq 1 ]] ; then
                 COMPREPLY=( $(compgen -W "${opts}" -- "${cur}") )
                 return 0
@@ -302,7 +350,7 @@ _fnm() {
                     return 0
                     ;;
                 --log-level)
-                    COMPREPLY=($(compgen -W "quiet info all error" -- "${cur}"))
+                    COMPREPLY=($(compgen -W "quiet error info" -- "${cur}"))
                     return 0
                     ;;
                 --arch)
@@ -320,8 +368,204 @@ _fnm() {
             COMPREPLY=( $(compgen -W "${opts}" -- "${cur}") )
             return 0
             ;;
+        fnm__help)
+            opts="list-remote list install use env completions alias unalias default current exec uninstall help"
+            if [[ ${cur} == -* || ${COMP_CWORD} -eq 2 ]] ; then
+                COMPREPLY=( $(compgen -W "${opts}" -- "${cur}") )
+                return 0
+            fi
+            case "${prev}" in
+                *)
+                    COMPREPLY=()
+                    ;;
+            esac
+            COMPREPLY=( $(compgen -W "${opts}" -- "${cur}") )
+            return 0
+            ;;
+        fnm__help__alias)
+            opts=""
+            if [[ ${cur} == -* || ${COMP_CWORD} -eq 3 ]] ; then
+                COMPREPLY=( $(compgen -W "${opts}" -- "${cur}") )
+                return 0
+            fi
+            case "${prev}" in
+                *)
+                    COMPREPLY=()
+                    ;;
+            esac
+            COMPREPLY=( $(compgen -W "${opts}" -- "${cur}") )
+            return 0
+            ;;
+        fnm__help__completions)
+            opts=""
+            if [[ ${cur} == -* || ${COMP_CWORD} -eq 3 ]] ; then
+                COMPREPLY=( $(compgen -W "${opts}" -- "${cur}") )
+                return 0
+            fi
+            case "${prev}" in
+                *)
+                    COMPREPLY=()
+                    ;;
+            esac
+            COMPREPLY=( $(compgen -W "${opts}" -- "${cur}") )
+            return 0
+            ;;
+        fnm__help__current)
+            opts=""
+            if [[ ${cur} == -* || ${COMP_CWORD} -eq 3 ]] ; then
+                COMPREPLY=( $(compgen -W "${opts}" -- "${cur}") )
+                return 0
+            fi
+            case "${prev}" in
+                *)
+                    COMPREPLY=()
+                    ;;
+            esac
+            COMPREPLY=( $(compgen -W "${opts}" -- "${cur}") )
+            return 0
+            ;;
+        fnm__help__default)
+            opts=""
+            if [[ ${cur} == -* || ${COMP_CWORD} -eq 3 ]] ; then
+                COMPREPLY=( $(compgen -W "${opts}" -- "${cur}") )
+                return 0
+            fi
+            case "${prev}" in
+                *)
+                    COMPREPLY=()
+                    ;;
+            esac
+            COMPREPLY=( $(compgen -W "${opts}" -- "${cur}") )
+            return 0
+            ;;
+        fnm__help__env)
+            opts=""
+            if [[ ${cur} == -* || ${COMP_CWORD} -eq 3 ]] ; then
+                COMPREPLY=( $(compgen -W "${opts}" -- "${cur}") )
+                return 0
+            fi
+            case "${prev}" in
+                *)
+                    COMPREPLY=()
+                    ;;
+            esac
+            COMPREPLY=( $(compgen -W "${opts}" -- "${cur}") )
+            return 0
+            ;;
+        fnm__help__exec)
+            opts=""
+            if [[ ${cur} == -* || ${COMP_CWORD} -eq 3 ]] ; then
+                COMPREPLY=( $(compgen -W "${opts}" -- "${cur}") )
+                return 0
+            fi
+            case "${prev}" in
+                *)
+                    COMPREPLY=()
+                    ;;
+            esac
+            COMPREPLY=( $(compgen -W "${opts}" -- "${cur}") )
+            return 0
+            ;;
+        fnm__help__help)
+            opts=""
+            if [[ ${cur} == -* || ${COMP_CWORD} -eq 3 ]] ; then
+                COMPREPLY=( $(compgen -W "${opts}" -- "${cur}") )
+                return 0
+            fi
+            case "${prev}" in
+                *)
+                    COMPREPLY=()
+                    ;;
+            esac
+            COMPREPLY=( $(compgen -W "${opts}" -- "${cur}") )
+            return 0
+            ;;
+        fnm__help__install)
+            opts=""
+            if [[ ${cur} == -* || ${COMP_CWORD} -eq 3 ]] ; then
+                COMPREPLY=( $(compgen -W "${opts}" -- "${cur}") )
+                return 0
+            fi
+            case "${prev}" in
+                *)
+                    COMPREPLY=()
+                    ;;
+            esac
+            COMPREPLY=( $(compgen -W "${opts}" -- "${cur}") )
+            return 0
+            ;;
+        fnm__help__list)
+            opts=""
+            if [[ ${cur} == -* || ${COMP_CWORD} -eq 3 ]] ; then
+                COMPREPLY=( $(compgen -W "${opts}" -- "${cur}") )
+                return 0
+            fi
+            case "${prev}" in
+                *)
+                    COMPREPLY=()
+                    ;;
+            esac
+            COMPREPLY=( $(compgen -W "${opts}" -- "${cur}") )
+            return 0
+            ;;
+        fnm__help__list__remote)
+            opts=""
+            if [[ ${cur} == -* || ${COMP_CWORD} -eq 3 ]] ; then
+                COMPREPLY=( $(compgen -W "${opts}" -- "${cur}") )
+                return 0
+            fi
+            case "${prev}" in
+                *)
+                    COMPREPLY=()
+                    ;;
+            esac
+            COMPREPLY=( $(compgen -W "${opts}" -- "${cur}") )
+            return 0
+            ;;
+        fnm__help__unalias)
+            opts=""
+            if [[ ${cur} == -* || ${COMP_CWORD} -eq 3 ]] ; then
+                COMPREPLY=( $(compgen -W "${opts}" -- "${cur}") )
+                return 0
+            fi
+            case "${prev}" in
+                *)
+                    COMPREPLY=()
+                    ;;
+            esac
+            COMPREPLY=( $(compgen -W "${opts}" -- "${cur}") )
+            return 0
+            ;;
+        fnm__help__uninstall)
+            opts=""
+            if [[ ${cur} == -* || ${COMP_CWORD} -eq 3 ]] ; then
+                COMPREPLY=( $(compgen -W "${opts}" -- "${cur}") )
+                return 0
+            fi
+            case "${prev}" in
+                *)
+                    COMPREPLY=()
+                    ;;
+            esac
+            COMPREPLY=( $(compgen -W "${opts}" -- "${cur}") )
+            return 0
+            ;;
+        fnm__help__use)
+            opts=""
+            if [[ ${cur} == -* || ${COMP_CWORD} -eq 3 ]] ; then
+                COMPREPLY=( $(compgen -W "${opts}" -- "${cur}") )
+                return 0
+            fi
+            case "${prev}" in
+                *)
+                    COMPREPLY=()
+                    ;;
+            esac
+            COMPREPLY=( $(compgen -W "${opts}" -- "${cur}") )
+            return 0
+            ;;
         install)
-            opts="--help --version --node-dist-mirror --fnm-dir --multishell-path --log-level --arch --version-file-strategy list-remote list install use env completions alias unalias default current exec uninstall"
+            opts="-h -V --node-dist-mirror --fnm-dir --multishell-path --log-level --arch --version-file-strategy --corepack-enabled --resolve-engines --help --version list-remote list install use env completions alias unalias default current exec uninstall help"
             if [[ ${cur} == -* || ${COMP_CWORD} -eq 1 ]] ; then
                 COMPREPLY=( $(compgen -W "${opts}" -- "${cur}") )
                 return 0
@@ -340,7 +584,7 @@ _fnm() {
                     return 0
                     ;;
                 --log-level)
-                    COMPREPLY=($(compgen -W "quiet info all error" -- "${cur}"))
+                    COMPREPLY=($(compgen -W "quiet error info" -- "${cur}"))
                     return 0
                     ;;
                 --arch)
@@ -359,7 +603,7 @@ _fnm() {
             return 0
             ;;
         list)
-            opts="--help --version --node-dist-mirror --fnm-dir --multishell-path --log-level --arch --version-file-strategy list-remote list install use env completions alias unalias default current exec uninstall"
+            opts="-h -V --node-dist-mirror --fnm-dir --multishell-path --log-level --arch --version-file-strategy --corepack-enabled --resolve-engines --help --version list-remote list install use env completions alias unalias default current exec uninstall help"
             if [[ ${cur} == -* || ${COMP_CWORD} -eq 1 ]] ; then
                 COMPREPLY=( $(compgen -W "${opts}" -- "${cur}") )
                 return 0
@@ -378,7 +622,7 @@ _fnm() {
                     return 0
                     ;;
                 --log-level)
-                    COMPREPLY=($(compgen -W "quiet info all error" -- "${cur}"))
+                    COMPREPLY=($(compgen -W "quiet error info" -- "${cur}"))
                     return 0
                     ;;
                 --arch)
@@ -397,7 +641,7 @@ _fnm() {
             return 0
             ;;
         list__remote)
-            opts="--help --version --node-dist-mirror --fnm-dir --multishell-path --log-level --arch --version-file-strategy list-remote list install use env completions alias unalias default current exec uninstall"
+            opts="-h -V --node-dist-mirror --fnm-dir --multishell-path --log-level --arch --version-file-strategy --corepack-enabled --resolve-engines --help --version list-remote list install use env completions alias unalias default current exec uninstall help"
             if [[ ${cur} == -* || ${COMP_CWORD} -eq 1 ]] ; then
                 COMPREPLY=( $(compgen -W "${opts}" -- "${cur}") )
                 return 0
@@ -416,7 +660,7 @@ _fnm() {
                     return 0
                     ;;
                 --log-level)
-                    COMPREPLY=($(compgen -W "quiet info all error" -- "${cur}"))
+                    COMPREPLY=($(compgen -W "quiet error info" -- "${cur}"))
                     return 0
                     ;;
                 --arch)
@@ -435,7 +679,7 @@ _fnm() {
             return 0
             ;;
         unalias)
-            opts="--help --version --node-dist-mirror --fnm-dir --multishell-path --log-level --arch --version-file-strategy list-remote list install use env completions alias unalias default current exec uninstall"
+            opts="-h -V --node-dist-mirror --fnm-dir --multishell-path --log-level --arch --version-file-strategy --corepack-enabled --resolve-engines --help --version list-remote list install use env completions alias unalias default current exec uninstall help"
             if [[ ${cur} == -* || ${COMP_CWORD} -eq 1 ]] ; then
                 COMPREPLY=( $(compgen -W "${opts}" -- "${cur}") )
                 return 0
@@ -454,7 +698,7 @@ _fnm() {
                     return 0
                     ;;
                 --log-level)
-                    COMPREPLY=($(compgen -W "quiet info all error" -- "${cur}"))
+                    COMPREPLY=($(compgen -W "quiet error info" -- "${cur}"))
                     return 0
                     ;;
                 --arch)
@@ -473,7 +717,7 @@ _fnm() {
             return 0
             ;;
         uninstall)
-            opts="--help --version --node-dist-mirror --fnm-dir --multishell-path --log-level --arch --version-file-strategy list-remote list install use env completions alias unalias default current exec uninstall"
+            opts="-h -V --node-dist-mirror --fnm-dir --multishell-path --log-level --arch --version-file-strategy --corepack-enabled --resolve-engines --help --version list-remote list install use env completions alias unalias default current exec uninstall help"
             if [[ ${cur} == -* || ${COMP_CWORD} -eq 1 ]] ; then
                 COMPREPLY=( $(compgen -W "${opts}" -- "${cur}") )
                 return 0
@@ -492,7 +736,7 @@ _fnm() {
                     return 0
                     ;;
                 --log-level)
-                    COMPREPLY=($(compgen -W "quiet info all error" -- "${cur}"))
+                    COMPREPLY=($(compgen -W "quiet error info" -- "${cur}"))
                     return 0
                     ;;
                 --arch)
@@ -511,7 +755,7 @@ _fnm() {
             return 0
             ;;
         use)
-            opts="--help --version --node-dist-mirror --fnm-dir --multishell-path --log-level --arch --version-file-strategy list-remote list install use env completions alias unalias default current exec uninstall"
+            opts="-h -V --node-dist-mirror --fnm-dir --multishell-path --log-level --arch --version-file-strategy --corepack-enabled --resolve-engines --help --version list-remote list install use env completions alias unalias default current exec uninstall help"
             if [[ ${cur} == -* || ${COMP_CWORD} -eq 1 ]] ; then
                 COMPREPLY=( $(compgen -W "${opts}" -- "${cur}") )
                 return 0
@@ -530,7 +774,7 @@ _fnm() {
                     return 0
                     ;;
                 --log-level)
-                    COMPREPLY=($(compgen -W "quiet info all error" -- "${cur}"))
+                    COMPREPLY=($(compgen -W "quiet error info" -- "${cur}"))
                     return 0
                     ;;
                 --arch)
