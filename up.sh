@@ -244,7 +244,7 @@ install "awk-language-server" "npm install -g \"awk-language-server@>=0.5.2\""
 install "bash-language-server" "npm install -g bash-language-server"
 install "bibtex-tidy" "npm install -g bibtex-tidy"
 install "elm-language-server" "npm install -g elm-test elm-format elm-review @elm-tooling/elm-language-server" # elm is manually installed
-install "prettier" "npm install -g prettier@latest prettier-plugin-svelte @prettier/plugin-xml prettier-plugin-sh prettier-plugin-elm prettier-plugin-go-template prettier-plugin-toml"
+npm install -g prettier@latest @prettier/plugin-php @prettier/plugin-pug @prettier/plugin-ruby @prettier/plugin-xml
 install "pylsp" "pip install -U 'python-lsp-server[all]' python-lsp-ruff"
 install "pyright" "npm install -g pyright"
 install "svelteserver" "npm install -g svelte-language-server"
