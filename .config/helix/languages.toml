@@ -57,11 +57,6 @@ name = "yaml"
 formatter = { command = "prettier", args = ["--parser", "yaml"] }
 auto-format = true
 
-[[language]]
-name = "toml"
-formatter = { command = "prettier", args = ["--parser", "toml"] }
-auto-format = true
-
 # Prettier (untested ones, official plugins, see above)
 
 [[language]]
