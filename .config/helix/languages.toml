@@ -1,49 +1,63 @@
-[[language]]
-name = "typescript"
-formatter = { command = 'prettier', args = ["--parser", "typescript"] }
-auto-format = true
+# Prettier (tested ones, see <https://github.com/helix-editor/helix/wiki/External-binary-formatter-configuration#prettier>)
 
 [[language]]
-name = "css"
-formatter = { command = 'prettier', args = ["--parser", "css"] }
-auto-format = true
-
-[[language]]
-name = "scss"
-formatter = { command = 'prettier', args = ["--parser", "scss"] }
+name = "html"
+formatter = { command = "prettier", args = ["--parser", "html"] }
 auto-format = true
 
 [[language]]
 name = "json"
-formatter = { command = 'prettier', args = ["--parser", "json"] }
+formatter = { command = "prettier", args = ["--parser", "json"] }
 auto-format = true
 
 [[language]]
+name = "css"
+formatter = { command = "prettier", args = ["--parser", "css"] }
+auto-format = true
+
+[[language]]
+name = "javascript"
+formatter = { command = "prettier", args = ["--parser", "javascript"] }
+auto-format = true
+
+[[language]]
+name = "typescript"
+formatter = { command = "prettier", args = ["--parser", "typescript"] }
+auto-format = true
+
+[[language]]
+name = "tsx"
+formatter = { command = "prettier", args = ["--parser", "typescript"] }
+auto-format = true
+
+# Prettier (untested ones, see above)
+
+[[language]]
 name = "json5"
-formatter = { command = 'prettier', args = ["--parser", "json5"] }
+formatter = { command = "prettier", args = ["--parser", "json5"] }
+auto-format = true
+
+[[language]]
+name = "scss"
+formatter = { command = "prettier", args = ["--parser", "scss"] }
 auto-format = true
 
 [[language]]
 name = "graphql"
-formatter = { command = 'prettier', args = ["--parser", "graphql"] }
+formatter = { command = "prettier", args = ["--parser", "graphql"] }
 auto-format = true
 
 [[language]]
 name = "markdown"
-formatter = { command = 'prettier', args = ["--parser", "markdown"] }
+formatter = { command = "prettier", args = ["--parser", "markdown"] }
 auto-format = true
 
 [[language]]
 name = "yaml"
-formatter = { command = 'prettier', args = ["--parser", "yaml"] }
-auto-format = true
-
-[[language]]
-name = "html"
-formatter = { command = 'prettier', args = ["--parser", "html"] }
+formatter = { command = "prettier", args = ["--parser", "yaml"] }
 auto-format = true
 
 [[language]]
 name = "toml"
-formatter = { command = 'prettier', args = ["--parser", "toml"] }
+formatter = { command = "prettier", args = ["--parser", "toml"] }
 auto-format = true
