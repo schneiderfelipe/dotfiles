@@ -4,28 +4,8 @@ formatter = { command = 'prettier', args = ["--parser", "typescript"] }
 auto-format = true
 
 [[language]]
-name = "acorn"
-formatter = { command = 'prettier', args = ["--parser", "acorn"] }
-auto-format = true
-
-[[language]]
-name = "espree"
-formatter = { command = 'prettier', args = ["--parser", "espree"] }
-auto-format = true
-
-[[language]]
-name = "meriyah"
-formatter = { command = 'prettier', args = ["--parser", "meriyah"] }
-auto-format = true
-
-[[language]]
 name = "css"
 formatter = { command = 'prettier', args = ["--parser", "css"] }
-auto-format = true
-
-[[language]]
-name = "less"
-formatter = { command = 'prettier', args = ["--parser", "less"] }
 auto-format = true
 
 [[language]]
@@ -44,11 +24,6 @@ formatter = { command = 'prettier', args = ["--parser", "json5"] }
 auto-format = true
 
 [[language]]
-name = "json-stringify"
-formatter = { command = 'prettier', args = ["--parser", "json-stringify"] }
-auto-format = true
-
-[[language]]
 name = "graphql"
 formatter = { command = 'prettier', args = ["--parser", "graphql"] }
 auto-format = true
@@ -59,38 +34,13 @@ formatter = { command = 'prettier', args = ["--parser", "markdown"] }
 auto-format = true
 
 [[language]]
-name = "mdx"
-formatter = { command = 'prettier', args = ["--parser", "mdx"] }
-auto-format = true
-
-[[language]]
-name = "vue"
-formatter = { command = 'prettier', args = ["--parser", "vue"] }
-auto-format = true
-
-[[language]]
 name = "yaml"
 formatter = { command = 'prettier', args = ["--parser", "yaml"] }
 auto-format = true
 
 [[language]]
-name = "glimmer"
-formatter = { command = 'prettier', args = ["--parser", "glimmer"] }
-auto-format = true
-
-[[language]]
 name = "html"
 formatter = { command = 'prettier', args = ["--parser", "html"] }
-auto-format = true
-
-[[language]]
-name = "angular"
-formatter = { command = 'prettier', args = ["--parser", "angular"] }
-auto-format = true
-
-[[language]]
-name = "lwc"
-formatter = { command = 'prettier', args = ["--parser", "lwc"] }
 auto-format = true
 
 [[language]]
