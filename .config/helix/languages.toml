@@ -61,3 +61,25 @@ auto-format = true
 name = "toml"
 formatter = { command = "prettier", args = ["--parser", "toml"] }
 auto-format = true
+
+# Prettier (untested ones, official plugins, see above)
+
+[[language]]
+name = "php"
+formatter = { command = "prettier", args = ["--parser", "php"] }
+auto-format = true
+
+[[language]]
+name = "pug"
+formatter = { command = "prettier", args = ["--parser", "pug"] }
+auto-format = true
+
+[[language]]
+name = "ruby"
+formatter = { command = "prettier", args = ["--parser", "ruby"] }
+auto-format = true
+
+[[language]]
+name = "xml"
+formatter = { command = "prettier", args = ["--parser", "xml"] }
+auto-format = true
