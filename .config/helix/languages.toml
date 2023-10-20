@@ -1,24 +1,4 @@
 [[language]]
-name = "flow"
-formatter = { command = 'prettier', args = ["--parser", "flow"] }
-auto-format = true
-
-[[language]]
-name = "babel"
-formatter = { command = 'prettier', args = ["--parser", "babel"] }
-auto-format = true
-
-[[language]]
-name = "babel-flow"
-formatter = { command = 'prettier', args = ["--parser", "babel-flow"] }
-auto-format = true
-
-[[language]]
-name = "babel-ts"
-formatter = { command = 'prettier', args = ["--parser", "babel-ts"] }
-auto-format = true
-
-[[language]]
 name = "typescript"
 formatter = { command = 'prettier', args = ["--parser", "typescript"] }
 auto-format = true
