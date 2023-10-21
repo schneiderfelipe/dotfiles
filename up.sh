@@ -113,7 +113,6 @@ juliaup update
 julia -e "using Pkg; Pkg.update()"
 
 info "Updating npm (installing if needed)...\n"
-# TODO: update node as well before npm
 npm install -g npm@latest
 
 info "Updating rustup (installing if needed)...\n"
@@ -172,7 +171,6 @@ else
 fi
 
 # Rust development
-rustup component add rust-analyzer
 cargo install cargo-audit
 cargo install cargo-bloat
 cargo install cargo-edit
@@ -220,10 +218,10 @@ cargo install watchexec-cli
 cargo install whome
 install "broot" 'cargo install broot && broot --install'
 install "lazygit" 'go install github.com/jesseduffield/lazygit@latest'
-install "marp" 'npm install -g @marp-team/marp-cli'
+npm install -g @marp-team/marp-cli
 install "names" "curl -sSf https://fnichol.github.io/names/install.sh | sh -s -- -d $HOME/.local/bin" # TODO: can we use cargo?
 install "starship" 'curl -sS https://starship.rs/install.sh | sh'
-install "tb" 'npm install -g taskbook'
+npm install -g taskbook
 install "yt-dlp" 'sudo apt install yt-dlp'
 install "zoxide" 'curl -sS https://webinstall.dev/zoxide | bash' # TODO: can we use cargo?
 pip install -U grip
@@ -235,25 +233,24 @@ pip install -U thefuck
 # Programming language utilities
 install "fnm" 'curl -fsSL https://fnm.vercel.app/install | bash' # TODO: can we use cargo?
 install "poetry" 'curl -sSL https://install.python-poetry.org | python -'
-install "tsc" "npm install -g typescript@latest"
+npm install -g typescript@latest
 
 # Language servers
 cargo install taplo-cli --features lsp
 cargo install texlab
-install "awk-language-server" "npm install -g \"awk-language-server@>=0.5.2\""
-install "bash-language-server" "npm install -g bash-language-server"
-install "bibtex-tidy" "npm install -g bibtex-tidy"
-install "elm-language-server" "npm install -g elm-test elm-format elm-review @elm-tooling/elm-language-server" # elm is manually installed
+npm install -g bash-language-server
+npm install -g bibtex-tidy
+npm install -g elm-test elm-format elm-review @elm-tooling/elm-language-server # elm is manually installed
 npm install -g prettier@latest @prettier/plugin-php @prettier/plugin-pug @prettier/plugin-ruby @prettier/plugin-xml
 install "pylsp" "pip install -U 'python-lsp-server[all]' python-lsp-ruff"
-install "pyright" "npm install -g pyright"
-install "svelteserver" "npm install -g svelte-language-server"
-install "typescript-language-server" "npm install -g typescript typescript-language-server"
-install "vls" "npm install -g vls"
-install "vscode-css-language-server" "npm install -g vscode-langservers-extracted" # works with SCSS too
-install "vscode-html-language-server" "npm install -g vscode-langservers-extracted"
-install "vscode-json-language-server" "npm install -g vscode-langservers-extracted"
-install "yaml-language-server" "npm install -g yaml-language-server"
+npm install -g pyright
+npm install -g svelte-language-server
+npm install -g typescript typescript-language-server
+npm install -g vls
+npm install -g vscode-langservers-extracted # works with SCSS too
+npm install -g vscode-langservers-extracted
+npm install -g vscode-langservers-extracted
+npm install -g yaml-language-server
 julia -e "using Pkg; Pkg.add(\"LanguageServer\")" # sadly no formatter configured yet
 pip install -U mdformat mdformat-gfm mdformat-frontmatter mdformat-footnote mdformat-myst
 
