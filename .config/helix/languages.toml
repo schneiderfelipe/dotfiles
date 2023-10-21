@@ -54,6 +54,7 @@ auto-format = true
 [[language]]
 name = "json"
 formatter = { command = 'deno', args = ["fmt", "-", "--ext", "json" ] }
+auto-format = true
 
 [[language]]
 name = "markdown"
