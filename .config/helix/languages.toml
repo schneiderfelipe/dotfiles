@@ -33,11 +33,6 @@ auto-format = true
 # Prettier (untested ones, see above)
 
 [[language]]
-name = "json5"
-formatter = { command = "prettier", args = ["--parser", "json5"] }
-auto-format = true
-
-[[language]]
 name = "scss"
 formatter = { command = "prettier", args = ["--parser", "scss"] }
 auto-format = true
@@ -62,11 +57,6 @@ auto-format = true
 [[language]]
 name = "php"
 formatter = { command = "prettier", args = ["--parser", "php"] }
-auto-format = true
-
-[[language]]
-name = "pug"
-formatter = { command = "prettier", args = ["--parser", "pug"] }
 auto-format = true
 
 [[language]]
