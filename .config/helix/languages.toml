@@ -47,7 +47,7 @@ auto-format = true
 # Deno
 
 [[language]]
-name = "ts"
+name = "typescript"
 formatter = { command = 'deno', args = ["fmt", "-", "--ext", "ts" ] }
 auto-format = true
 
@@ -57,7 +57,7 @@ formatter = { command = 'deno', args = ["fmt", "-", "--ext", "tsx" ] }
 auto-format = true
 
 [[language]]
-name = "js"
+name = "javascript"
 formatter = { command = 'deno', args = ["fmt", "-", "--ext", "js" ] }
 auto-format = true
 
@@ -67,14 +67,13 @@ formatter = { command = 'deno', args = ["fmt", "-", "--ext", "jsx" ] }
 auto-format = true
 
 [[language]]
-name = "md"
+name = "markdown"
 formatter = { command = 'deno', args = ["fmt", "-", "--ext", "md" ] }
 auto-format = true
 
 [[language]]
 name = "json"
 formatter = { command = 'deno', args = ["fmt", "-", "--ext", "json" ] }
-auto-format = true
 
 [[language]]
 name = "jsonc"
