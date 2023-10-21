@@ -44,21 +44,25 @@ name = "xml"
 formatter = { command = "prettier", args = ["--parser", "xml"] }
 auto-format = true
 
-# Deno
-
-[[language]]
-name = "typescript"
-formatter = { command = 'deno', args = ["fmt", "-", "--ext", "ts" ] }
-auto-format = true
-
-[[language]]
-name = "tsx"
-formatter = { command = 'deno', args = ["fmt", "-", "--ext", "tsx" ] }
-auto-format = true
+# Deno (tested ones, see <https://github.com/helix-editor/helix/wiki/External-binary-formatter-configuration#deno>)
 
 [[language]]
 name = "javascript"
 formatter = { command = 'deno', args = ["fmt", "-", "--ext", "js" ] }
+auto-format = true
+
+[[language]]
+name = "json"
+formatter = { command = 'deno', args = ["fmt", "-", "--ext", "json" ] }
+
+[[language]]
+name = "markdown"
+formatter = { command = 'deno', args = ["fmt", "-", "--ext", "md" ] }
+auto-format = true
+
+[[language]]
+name = "typescript"
+formatter = { command = 'deno', args = ["fmt", "-", "--ext", "ts" ] }
 auto-format = true
 
 [[language]]
@@ -67,13 +71,11 @@ formatter = { command = 'deno', args = ["fmt", "-", "--ext", "jsx" ] }
 auto-format = true
 
 [[language]]
-name = "markdown"
-formatter = { command = 'deno', args = ["fmt", "-", "--ext", "md" ] }
+name = "tsx"
+formatter = { command = 'deno', args = ["fmt", "-", "--ext", "tsx" ] }
 auto-format = true
 
-[[language]]
-name = "json"
-formatter = { command = 'deno', args = ["fmt", "-", "--ext", "json" ] }
+# Deno (untested ones, see above)
 
 [[language]]
 name = "jsonc"
