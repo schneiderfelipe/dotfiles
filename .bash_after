@@ -53,9 +53,6 @@ source "/opt/xtb/share/xtb/config_env.bash"
 # Set up Haskell environment
 [ -f "$HOME/.ghcup/env" ] && source "$HOME/.ghcup/env"
 
-# Correct errors in previous console commands
-eval "$(thefuck --alias)"
-
 # Generated for envman. Do not edit.
 [ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
 

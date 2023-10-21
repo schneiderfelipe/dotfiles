@@ -106,7 +106,6 @@ export plugins=(
   rsync
   rust
   safe-paste # TODO: test it
-  thefuck
   ubuntu
   vi-mode
   vscode
