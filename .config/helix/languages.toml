@@ -10,7 +10,8 @@ command = "pyright-langserver"
 args = ["--stdio"]
 
 [language-server.pyright.config.python.analysis]
-typeCheckingMode = "basic"
+# https://github.com/helix-editor/helix/issues/1898#issuecomment-1627146829
+typeCheckingMode = "strict"
 
 [language-server.ruff]
 command = "ruff-lsp"
