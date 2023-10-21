@@ -6,28 +6,8 @@ formatter = { command = "prettier", args = ["--parser", "html"] }
 auto-format = true
 
 [[language]]
-name = "json"
-formatter = { command = "prettier", args = ["--parser", "json"] }
-auto-format = true
-
-[[language]]
 name = "css"
 formatter = { command = "prettier", args = ["--parser", "css"] }
-auto-format = true
-
-[[language]]
-name = "javascript"
-formatter = { command = "prettier", args = ["--parser", "javascript"] }
-auto-format = true
-
-[[language]]
-name = "typescript"
-formatter = { command = "prettier", args = ["--parser", "typescript"] }
-auto-format = true
-
-[[language]]
-name = "tsx"
-formatter = { command = "prettier", args = ["--parser", "typescript"] }
 auto-format = true
 
 # Prettier (untested ones, see above)
@@ -40,11 +20,6 @@ auto-format = true
 [[language]]
 name = "graphql"
 formatter = { command = "prettier", args = ["--parser", "graphql"] }
-auto-format = true
-
-[[language]]
-name = "markdown"
-formatter = { command = "prettier", args = ["--parser", "markdown"] }
 auto-format = true
 
 [[language]]
@@ -67,4 +42,41 @@ auto-format = true
 [[language]]
 name = "xml"
 formatter = { command = "prettier", args = ["--parser", "xml"] }
+auto-format = true
+
+# Deno
+
+[[language]]
+name = "ts"
+formatter = { command = 'deno', args = ["fmt", "-", "--ext", "ts" ] }
+auto-format = true
+
+[[language]]
+name = "tsx"
+formatter = { command = 'deno', args = ["fmt", "-", "--ext", "tsx" ] }
+auto-format = true
+
+[[language]]
+name = "js"
+formatter = { command = 'deno', args = ["fmt", "-", "--ext", "js" ] }
+auto-format = true
+
+[[language]]
+name = "jsx"
+formatter = { command = 'deno', args = ["fmt", "-", "--ext", "jsx" ] }
+auto-format = true
+
+[[language]]
+name = "md"
+formatter = { command = 'deno', args = ["fmt", "-", "--ext", "md" ] }
+auto-format = true
+
+[[language]]
+name = "json"
+formatter = { command = 'deno', args = ["fmt", "-", "--ext", "json" ] }
+auto-format = true
+
+[[language]]
+name = "jsonc"
+formatter = { command = 'deno', args = ["fmt", "-", "--ext", "jsonc" ] }
 auto-format = true
