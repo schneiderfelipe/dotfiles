@@ -9,8 +9,8 @@ auto-format = true
 command = "pyright-langserver"
 args = ["--stdio"]
 
-[language-server.pyright.config.python.analysis]
 # https://github.com/helix-editor/helix/issues/1898#issuecomment-1627146829
+[language-server.pyright.config.python.analysis]
 typeCheckingMode = "strict"
 
 [language-server.ruff]
