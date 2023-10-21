@@ -1,7 +1,25 @@
+# Python configuration (see <https://github.com/helix-editor/helix/wiki/How-to-install-the-default-language-servers#python---pyright--ruff--black>)
+
 [[language]]
 name = "python"
-formatter = { command = "black", args = ["--quiet", "-"] }
-auto-format = true
+language-servers = ["pyright", "ruff"]
+
+[language-server.pyright]
+command = "pyright-langserver"
+args = ["--stdio"]
+
+[language-server.pyright.config.python.analysis]
+typeCheckingMode = "basic"
+
+[language-server.ruff]
+command = "ruff-lsp"
+
+[language-server.ruff.config.settings]
+args = ["--ignore", "E501"]
+
+[language.formatter]
+command = "black"
+args = ["--line-length", "88", "--quiet", "-"]
 
 # Prettier (tested ones, see <https://github.com/helix-editor/helix/wiki/External-binary-formatter-configuration#prettier>)
 
