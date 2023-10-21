@@ -74,10 +74,3 @@ auto-format = true
 name = "tsx"
 formatter = { command = 'deno', args = ["fmt", "-", "--ext", "tsx" ] }
 auto-format = true
-
-# Deno (untested ones, see above)
-
-[[language]]
-name = "jsonc"
-formatter = { command = 'deno', args = ["fmt", "-", "--ext", "jsonc" ] }
-auto-format = true
