@@ -37,6 +37,7 @@ name = "lilypond"
 scope = "source.ly"
 injection-regex = "ly"
 file-types = ["ly"]
+roots = []
 comment-token = "%"
 indent = { tab-width = 4, unit = "\t" }
 
