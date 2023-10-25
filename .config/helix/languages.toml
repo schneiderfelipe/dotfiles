@@ -23,6 +23,13 @@ args = ["--ignore", "E501"]
 command = "black"
 args = ["--line-length", "88", "--quiet", "-"]
 
+# Haskell configuration
+
+[[language]]
+name = "haskell"
+formatter = { command = "stylish-haskell", args = [] }
+auto-format = true
+
 # Prettier (tested ones, see <https://github.com/helix-editor/helix/wiki/External-binary-formatter-configuration#prettier>)
 
 [[language]]
