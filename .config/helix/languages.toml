@@ -30,6 +30,20 @@ name = "haskell"
 formatter = { command = "stylish-haskell", args = [] }
 auto-format = true
 
+# LilyPond configuration
+
+[[language]]
+name = "lilypond"
+scope = "source.ly"
+injection-regex = "ly"
+file-types = ["ly"]
+comment-token = "%"
+indent = { tab-width = 4, unit = "\t" }
+
+[[grammar]]
+name = "lilypond"
+source = { git = "https://github.com/nwhetsell/tree-sitter-lilypond", rev = "016d651d3983d090a7f7ef4753c87b5ed498ad0f" }
+
 # Prettier (tested ones, see <https://github.com/helix-editor/helix/wiki/External-binary-formatter-configuration#prettier>)
 
 [[language]]
