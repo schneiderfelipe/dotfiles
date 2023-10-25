@@ -228,6 +228,7 @@ pip install -U grip
 pip install -U httpie
 pip install -U ipython
 pip install -U proselint
+pip install -U python-ly
 
 # Programming language utilities
 install "fnm" 'curl -fsSL https://fnm.vercel.app/install | bash' # TODO: can we use cargo?
