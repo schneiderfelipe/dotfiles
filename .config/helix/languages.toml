@@ -34,13 +34,16 @@ auto-format = true
 
 [[language]]
 name = "lilypond"
-scope = "source.ly"
-injection-regex = "ly"
+scope = "source.lilypond"
+injection-regex = "lilypond"
 file-types = ["ly"]
 roots = []
 comment-token = "%"
-indent = { tab-width = 4, unit = "\t" }
+indent = { tab-width = 4, unit = "    " }
+formatter = { command = "ly", args = ["reformat"] }
+auto-format = true
 
+# TODO: does not work, create your own!
 [[grammar]]
 name = "lilypond"
 source = { git = "https://github.com/nwhetsell/tree-sitter-lilypond", rev = "016d651d3983d090a7f7ef4753c87b5ed498ad0f" }
