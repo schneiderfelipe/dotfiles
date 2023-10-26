@@ -1,0 +1,8 @@
+languages:
+  lilypond:
+    - commands:
+        - title: abs2rel
+          command: "ly"
+          arguments:
+            - "abs2rel"
+            - "${FILENAME}"
