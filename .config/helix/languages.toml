@@ -1,3 +1,6 @@
+[language-server.efm]
+command = "efm-langserver"
+
 # Python configuration (see <https://github.com/helix-editor/helix/wiki/How-to-install-the-default-language-servers#python---pyright--ruff--black>)
 
 [[language]]
@@ -39,6 +42,7 @@ injection-regex = "lilypond"
 file-types = ["ly"]
 roots = []
 comment-token = "%"
+language-servers = ["efm"]
 indent = { tab-width = 4, unit = "    " }
 formatter = { command = "ly", args = ["reformat"] }
 auto-format = true
