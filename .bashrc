@@ -5,7 +5,7 @@
 # for examples
 
 # Things shared between bash and zsh that should come before.
-# This includes changes to $PATH.
+# This includes changes to $PATH and function definitions.
 if [ -f "$HOME/.bash_before" ]; then
   . "$HOME/.bash_before"
 fi

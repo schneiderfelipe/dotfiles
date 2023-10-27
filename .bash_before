@@ -1,5 +1,10 @@
 #!/bin/bash
 
+# Functions.
+if [ -f "$HOME/.bash_functions" ]; then
+  . "$HOME/.bash_functions"
+fi
+
 DROPBOX="$(jq -r '.personal.path' "$HOME/.dropbox/info.json")"
 export DROPBOX
 
