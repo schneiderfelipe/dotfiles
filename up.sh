@@ -67,6 +67,8 @@ info "Installing some utilities...\n"
 cargo install alacritty
 cargo install cocogitto
 cargo install gptcommit
+cargo install ripgrep
+cargo install ripgrep_all
 cargo install xsv
 cargo install zellij
 install "ctags" 'sudo apt install universal-ctags -y'
@@ -77,7 +79,6 @@ install "git-extras" 'curl -sSL https://raw.githubusercontent.com/tj/git-extras/
 install "jq" 'sudo apt install jq -y'
 install "latexmk" 'sudo apt install texlive-full -y'
 install "pdftotext" 'sudo apt install poppler-utils -y'
-install "rg" 'sudo apt install ripgrep -y'
 install "shellcheck" 'sudo apt install shellcheck -y'
 install "surfraw" 'sudo apt install surfraw surfraw-extra -y'
 install "vipe" 'sudo apt install moreutils -y'
