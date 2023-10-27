@@ -233,6 +233,7 @@ pip install -U python-ly
 # Programming language utilities
 install "fnm" 'curl -fsSL https://fnm.vercel.app/install | bash' # TODO: can we use cargo?
 install "poetry" 'curl -sSL https://install.python-poetry.org | python -'
+poetry self update
 npm install -g typescript@latest
 
 # Language servers

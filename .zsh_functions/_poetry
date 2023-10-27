@@ -2,7 +2,9 @@
 
 _poetry_596bbf7c262849f4_complete()
 {
-    local com coms cur opts state
+    local state com cur
+    local -a opts
+    local -a coms
 
     cur=${words[${#words[@]}]}
 
@@ -16,10 +18,10 @@ _poetry_596bbf7c262849f4_complete()
 
     if [[ ${cur} == --* ]]; then
         state="option"
-        opts=("--ansi:Force ANSI output." "--help:Display help for the given command. When no command is given display help for the list command." "--no-ansi:Disable ANSI output." "--no-cache:Disables Poetry source caches." "--no-interaction:Do not ask any interactive question." "--no-plugins:Disables plugins." "--quiet:Do not output any message." "--verbose:Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug." "--version:Display this application version.")
+        opts+=("--ansi:Force ANSI output." "--directory:The working directory for the Poetry command \(defaults to the current working directory\)." "--help:Display help for the given command. When no command is given display help for the list command." "--no-ansi:Disable ANSI output." "--no-cache:Disables Poetry source caches." "--no-interaction:Do not ask any interactive question." "--no-plugins:Disables plugins." "--quiet:Do not output any message." "--verbose:Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug." "--version:Display this application version.")
     elif [[ $cur == $com ]]; then
         state="command"
-        coms=("about:Shows information about Poetry." "add:Adds a new dependency to pyproject.toml." "build:Builds a package, as a tarball and a wheel by default." "cache clear:Clears Poetry\'s cache." "cache list:List Poetry\'s caches." "check:Checks the validity of the pyproject.toml file." "config:Manages configuration settings." "debug info:Shows debug information." "debug resolve:Debugs dependency resolution." "env info:Displays information about the current environment." "env list:Lists all virtualenvs associated with the current project." "env remove:Remove virtual environments associated with the project." "env use:Activates or creates a new virtualenv for the current project." "export:Exports the lock file to alternative formats." "help:Displays help for a command." "init:Creates a basic pyproject.toml file in the current directory." "install:Installs the project dependencies." "list:Lists commands." "lock:Locks the project dependencies." "new:Creates a new Python project at <path\>." "publish:Publishes a package to a remote repository." "remove:Removes a package from the project dependencies." "run:Runs a command in the appropriate environment." "search:Searches for packages on remote repositories." "self add:Add additional packages to Poetry\'s runtime environment." "self install:Install locked packages \(incl. addons\) required by this Poetry installation." "self lock:Lock the Poetry installation\'s system requirements." "self remove:Remove additional packages from Poetry\'s runtime environment." "self show plugins:Shows information about the currently installed plugins." "self show:Show packages from Poetry\'s runtime environment." "self update:Updates Poetry to the latest version." "shell:Spawns a shell within the virtual environment." "show:Shows information about packages." "source add:Add source configuration for project." "source remove:Remove source configured for the project." "source show:Show information about sources configured for the project." "update:Update the dependencies as according to the pyproject.toml file." "version:Shows the version of the project or bumps it when a valid bump rule is provided.")
+        coms+=("about:Shows information about Poetry." "add:Adds a new dependency to pyproject.toml." "build:Builds a package, as a tarball and a wheel by default." "'cache clear':Clears a Poetry cache by name." "'cache list':List Poetry\'s caches." "check:Validates the content of the pyproject.toml file and its consistency with the poetry.lock file." "config:Manages configuration settings." "'debug info':Shows debug information." "'debug resolve':Debugs dependency resolution." "'env info':Displays information about the current environment." "'env list':Lists all virtualenvs associated with the current project." "'env remove':Remove virtual environments associated with the project." "'env use':Activates or creates a new virtualenv for the current project." "export:Exports the lock file to alternative formats." "help:Displays help for a command." "init:Creates a basic pyproject.toml file in the current directory." "install:Installs the project dependencies." "list:Lists commands." "lock:Locks the project dependencies." "new:Creates a new Python project at <path\>." "publish:Publishes a package to a remote repository." "remove:Removes a package from the project dependencies." "run:Runs a command in the appropriate environment." "search:Searches for packages on remote repositories." "'self add':Add additional packages to Poetry\'s runtime environment." "'self install':Install locked packages \(incl. addons\) required by this Poetry installation." "'self lock':Lock the Poetry installation\'s system requirements." "'self remove':Remove additional packages from Poetry\'s runtime environment." "'self show':Show packages from Poetry\'s runtime environment." "'self show plugins':Shows information about the currently installed plugins." "'self update':Updates Poetry to the latest version." "shell:Spawns a shell within the virtual environment." "show:Shows information about packages." "'source add':Add source configuration for project." "'source remove':Remove source configured for the project." "'source show':Show information about sources configured for the project." "update:Update the dependencies as according to the pyproject.toml file." "version:Shows the version of the project or bumps it when a valid bump rule is provided.")
     fi
 
     case $state in
@@ -34,50 +36,50 @@ _poetry_596bbf7c262849f4_complete()
             ;;
 
             (add)
-            opts+=("--allow-prereleases:Accept prereleases." "--dev:Add as a development dependency. \(Deprecated\)" "--dry-run:Output the operations but do not execute anything \(implicitly enables --verbose\)." "--editable:Add vcs/path dependencies as editable." "--extras:Extras to activate for the dependency." "--group:The group to add the dependency to." "--lock:Do not perform operations \(only update the lockfile\)." "--optional:Add as an optional dependency." "--platform:Platforms for which the dependency must be installed." "--python:Python version for which the dependency must be installed." "--source:Name of the source to use to install the package.")
+            opts+=("--allow-prereleases:Accept prereleases." "--dev:Add as a development dependency. \(Deprecated\) Use --group=dev instead." "--dry-run:Output the operations but do not execute anything \(implicitly enables --verbose\)." "--editable:Add vcs/path dependencies as editable." "--extras:Extras to activate for the dependency." "--group:The group to add the dependency to." "--lock:Do not perform operations \(only update the lockfile\)." "--optional:Add as an optional dependency." "--platform:Platforms for which the dependency must be installed." "--python:Python version for which the dependency must be installed." "--source:Name of the source to use to install the package.")
             ;;
 
             (build)
             opts+=("--format:Limit the format to either sdist or wheel.")
             ;;
 
-            (cache clear)
+            ('cache clear')
             opts+=("--all:Clear all entries in the cache.")
             ;;
 
-            (cache list)
+            ('cache list')
             opts+=()
             ;;
 
             (check)
-            opts+=()
+            opts+=("--lock:Checks that poetry.lock exists for the current version of pyproject.toml.")
             ;;
 
             (config)
             opts+=("--list:List configuration settings." "--local:Set/Get from the project\'s local configuration." "--unset:Unset configuration setting.")
             ;;
 
-            (debug info)
+            ('debug info')
             opts+=()
             ;;
 
-            (debug resolve)
+            ('debug resolve')
             opts+=("--extras:Extras to activate for the dependency." "--install:Show what would be installed for the current system." "--python:Python version\(s\) to use for resolution." "--tree:Display the dependency tree.")
             ;;
 
-            (env info)
-            opts+=("--path:Only display the environment\'s path.")
+            ('env info')
+            opts+=("--executable:Only display the environment\'s python executable path." "--path:Only display the environment\'s path.")
             ;;
 
-            (env list)
+            ('env list')
             opts+=("--full-path:Output the full paths of the virtualenvs.")
             ;;
 
-            (env remove)
+            ('env remove')
             opts+=("--all:Remove all managed virtual environments associated with the project.")
             ;;
 
-            (env use)
+            ('env use')
             opts+=()
             ;;
 
@@ -94,7 +96,7 @@ _poetry_596bbf7c262849f4_complete()
             ;;
 
             (install)
-            opts+=("--all-extras:Install all extra dependencies." "--dry-run:Output the operations but do not execute anything \(implicitly enables --verbose\)." "--extras:Extra sets of dependencies to install." "--no-dev:Do not install the development dependencies. \(Deprecated\)" "--no-root:Do not install the root package \(the current project\)." "--only:The only dependency groups to include." "--only-root:Exclude all dependencies." "--remove-untracked:Removes packages not present in the lock file. \(Deprecated\)" "--sync:Synchronize the environment with the locked packages and the specified groups." "--with:The optional dependency groups to include." "--without:The dependency groups to ignore.")
+            opts+=("--all-extras:Install all extra dependencies." "--compile:Compile Python source files to bytecode. \(This option has no effect if modern-installation is disabled because the old installer always compiles.\)" "--dry-run:Output the operations but do not execute anything \(implicitly enables --verbose\)." "--extras:Extra sets of dependencies to install." "--no-dev:Do not install the development dependencies. \(Deprecated\)" "--no-directory:Do not install any directory path dependencies\; useful to install dependencies without source code, e.g. for caching of Docker layers\)" "--no-root:Do not install the root package \(the current project\)." "--only:The only dependency groups to include." "--only-root:Exclude all dependencies." "--remove-untracked:Removes packages not present in the lock file. \(Deprecated\)" "--sync:Synchronize the environment with the locked packages and the specified groups." "--with:The optional dependency groups to include." "--without:The dependency groups to ignore.")
             ;;
 
             (list)
@@ -102,7 +104,7 @@ _poetry_596bbf7c262849f4_complete()
             ;;
 
             (lock)
-            opts+=("--check:Check that the poetry.lock file corresponds to the current version of pyproject.toml." "--no-update:Do not update locked versions, only refresh lock file.")
+            opts+=("--check:Check that the poetry.lock file corresponds to the current version of pyproject.toml. \(Deprecated\) Use poetry check --lock instead." "--no-update:Do not update locked versions, only refresh lock file.")
             ;;
 
             (new)
@@ -114,7 +116,7 @@ _poetry_596bbf7c262849f4_complete()
             ;;
 
             (remove)
-            opts+=("--dev:Remove a package from the development dependencies. \(Deprecated\)" "--dry-run:Output the operations but do not execute anything \(implicitly enables --verbose\)." "--group:The group to remove the dependency from.")
+            opts+=("--dev:Remove a package from the development dependencies. \(Deprecated\) Use --group=dev instead." "--dry-run:Output the operations but do not execute anything \(implicitly enables --verbose\)." "--group:The group to remove the dependency from." "--lock:Do not perform operations \(only update the lockfile\).")
             ;;
 
             (run)
@@ -125,31 +127,31 @@ _poetry_596bbf7c262849f4_complete()
             opts+=()
             ;;
 
-            (self add)
+            ('self add')
             opts+=("--allow-prereleases:Accept prereleases." "--dry-run:Output the operations but do not execute anything \(implicitly enables --verbose\)." "--editable:Add vcs/path dependencies as editable." "--extras:Extras to activate for the dependency." "--source:Name of the source to use to install the package.")
             ;;
 
-            (self install)
+            ('self install')
             opts+=("--dry-run:Output the operations but do not execute anything \(implicitly enables --verbose\)." "--sync:Synchronize the environment with the locked packages and the specified groups.")
             ;;
 
-            (self lock)
-            opts+=("--check:Check that the poetry.lock file corresponds to the current version of pyproject.toml." "--no-update:Do not update locked versions, only refresh lock file.")
+            ('self lock')
+            opts+=("--check:Check that the poetry.lock file corresponds to the current version of pyproject.toml. \(Deprecated\) Use poetry check --lock instead." "--no-update:Do not update locked versions, only refresh lock file.")
             ;;
 
-            (self remove)
+            ('self remove')
             opts+=("--dry-run:Output the operations but do not execute anything \(implicitly enables --verbose\).")
             ;;
 
-            (self show)
+            ('self show')
             opts+=("--addons:List only add-on packages installed." "--latest:Show the latest version." "--outdated:Show the latest version but only for packages that are outdated." "--tree:List the dependencies as a tree.")
             ;;
 
-            (self show plugins)
+            ('self show plugins')
             opts+=()
             ;;
 
-            (self update)
+            ('self update')
             opts+=("--dry-run:Output the operations but do not execute anything \(implicitly enables --verbose\)." "--preview:Allow the installation of pre-release versions.")
             ;;
 
@@ -158,18 +160,18 @@ _poetry_596bbf7c262849f4_complete()
             ;;
 
             (show)
-            opts+=("--all:Show all packages \(even those not compatible with current system\)." "--latest:Show the latest version." "--no-dev:Do not list the development dependencies. \(Deprecated\)" "--only:The only dependency groups to include." "--outdated:Show the latest version but only for packages that are outdated." "--tree:List the dependencies as a tree." "--why:When showing the full list, or a --tree for a single package, also display why it\'s included." "--with:The optional dependency groups to include." "--without:The dependency groups to ignore.")
+            opts+=("--all:Show all packages \(even those not compatible with current system\)." "--latest:Show the latest version." "--no-dev:Do not list the development dependencies. \(Deprecated\)" "--only:The only dependency groups to include." "--outdated:Show the latest version but only for packages that are outdated." "--top-level:Show only top-level dependencies." "--tree:List the dependencies as a tree." "--why:When showing the full list, or a --tree for a single package, also display why it\'s included." "--with:The optional dependency groups to include." "--without:The dependency groups to ignore.")
             ;;
 
-            (source add)
-            opts+=("--default:Set this source as the default \(disable PyPI\). A default source will also be the fallback source if you add other sources." "--secondary:Set this source as secondary.")
+            ('source add')
+            opts+=("--default:Set this source as the default \(disable PyPI\). A default source will also be the fallback source if you add other sources. \(Deprecated, use --priority\)" "--priority:Set the priority of this source. One of: default, primary, secondary, supplemental, explicit. Defaults to primary." "--secondary:Set this source as secondary. \(Deprecated, use --priority\)")
             ;;
 
-            (source remove)
+            ('source remove')
             opts+=()
             ;;
 
-            (source show)
+            ('source show')
             opts+=()
             ;;
 

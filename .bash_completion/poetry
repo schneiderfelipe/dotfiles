@@ -21,7 +21,7 @@ _poetry_596bbf7c262849f4_complete()
 
     # completing for an option
     if [[ ${cur} == --* ]] ; then
-        opts="--ansi --help --no-ansi --no-cache --no-interaction --no-plugins --quiet --verbose --version"
+        opts="--ansi --directory --help --no-ansi --no-cache --no-interaction --no-plugins --quiet --verbose --version"
 
         case "$com" in
 
@@ -37,43 +37,43 @@ _poetry_596bbf7c262849f4_complete()
             opts="${opts} --format"
             ;;
 
-            (cache clear)
+            ('cache clear')
             opts="${opts} --all"
             ;;
 
-            (cache list)
+            ('cache list')
             opts="${opts} "
             ;;
 
             (check)
-            opts="${opts} "
+            opts="${opts} --lock"
             ;;
 
             (config)
             opts="${opts} --list --local --unset"
             ;;
 
-            (debug info)
+            ('debug info')
             opts="${opts} "
             ;;
 
-            (debug resolve)
+            ('debug resolve')
             opts="${opts} --extras --install --python --tree"
             ;;
 
-            (env info)
-            opts="${opts} --path"
+            ('env info')
+            opts="${opts} --executable --path"
             ;;
 
-            (env list)
+            ('env list')
             opts="${opts} --full-path"
             ;;
 
-            (env remove)
+            ('env remove')
             opts="${opts} --all"
             ;;
 
-            (env use)
+            ('env use')
             opts="${opts} "
             ;;
 
@@ -90,7 +90,7 @@ _poetry_596bbf7c262849f4_complete()
             ;;
 
             (install)
-            opts="${opts} --all-extras --dry-run --extras --no-dev --no-root --only --only-root --remove-untracked --sync --with --without"
+            opts="${opts} --all-extras --compile --dry-run --extras --no-dev --no-directory --no-root --only --only-root --remove-untracked --sync --with --without"
             ;;
 
             (list)
@@ -110,7 +110,7 @@ _poetry_596bbf7c262849f4_complete()
             ;;
 
             (remove)
-            opts="${opts} --dev --dry-run --group"
+            opts="${opts} --dev --dry-run --group --lock"
             ;;
 
             (run)
@@ -121,31 +121,31 @@ _poetry_596bbf7c262849f4_complete()
             opts="${opts} "
             ;;
 
-            (self add)
+            ('self add')
             opts="${opts} --allow-prereleases --dry-run --editable --extras --source"
             ;;
 
-            (self install)
+            ('self install')
             opts="${opts} --dry-run --sync"
             ;;
 
-            (self lock)
+            ('self lock')
             opts="${opts} --check --no-update"
             ;;
 
-            (self remove)
+            ('self remove')
             opts="${opts} --dry-run"
             ;;
 
-            (self show)
+            ('self show')
             opts="${opts} --addons --latest --outdated --tree"
             ;;
 
-            (self show plugins)
+            ('self show plugins')
             opts="${opts} "
             ;;
 
-            (self update)
+            ('self update')
             opts="${opts} --dry-run --preview"
             ;;
 
@@ -154,18 +154,18 @@ _poetry_596bbf7c262849f4_complete()
             ;;
 
             (show)
-            opts="${opts} --all --latest --no-dev --only --outdated --tree --why --with --without"
+            opts="${opts} --all --latest --no-dev --only --outdated --top-level --tree --why --with --without"
             ;;
 
-            (source add)
-            opts="${opts} --default --secondary"
+            ('source add')
+            opts="${opts} --default --priority --secondary"
             ;;
 
-            (source remove)
+            ('source remove')
             opts="${opts} "
             ;;
 
-            (source show)
+            ('source show')
             opts="${opts} "
             ;;
 
@@ -187,7 +187,7 @@ _poetry_596bbf7c262849f4_complete()
 
     # completing for a command
     if [[ $cur == $com ]]; then
-        coms="about add build cache clear cache list check config debug info debug resolve env info env list env remove env use export help init install list lock new publish remove run search self add self install self lock self remove self show self show plugins self update shell show source add source remove source show update version"
+        coms="about add build 'cache clear' 'cache list' check config 'debug info' 'debug resolve' 'env info' 'env list' 'env remove' 'env use' export help init install list lock new publish remove run search 'self add' 'self install' 'self lock' 'self remove' 'self show' 'self show plugins' 'self update' shell show 'source add' 'source remove' 'source show' update version"
 
         COMPREPLY=($(compgen -W "${coms}" -- ${cur}))
         __ltrim_colon_completions "$cur"
