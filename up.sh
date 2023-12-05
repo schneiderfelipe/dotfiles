@@ -192,9 +192,9 @@ cargo install cargo-workspaces
 cargo install flamegraph
 
 # Python development
+pip install -U 'maturin[patchelf]'
 pip install -U black
 pip install -U ipython
-pip install -U maturin
 pip install -U pytest
 pip install -U ruff
 
