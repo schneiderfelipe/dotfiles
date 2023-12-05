@@ -267,7 +267,7 @@ code "https://github.com/alacritty/alacritty/blob/master/INSTALL.md#manual-insta
 
 info "Helix editor:\n"
 info "(might be installed automatically in the future)\n"
-code "https://docs.helix-editor.com/install.html#build-from-source\n\n"
+code "https://docs.helix-editor.com/install.html#building-from-source\n\n"
 
 info "JetBrains Mono:\n"
 code "https://github.com/ryanoasis/nerd-fonts/releases\n"
@@ -303,7 +303,7 @@ code "https://go.dev/doc/install\n\n"
 
 info "Marksman:\n"
 info "(a language server for Markdown)\n"
-code "https://github.com/artempyanykh/marksman#option-1-use-pre-built-binary\n\n"
+code "https://github.com/artempyanykh/marksman/blob/main/docs/install.md#option-2-use-pre-built-binary\n\n"
 
 echo
 echo
