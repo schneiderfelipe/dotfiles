@@ -1,0 +1,53 @@
+[colors]
+transparent_background_colors = true
+
+[colors.bright]
+black = "#727072"
+blue = "#759AFF"
+cyan = "#8EEFFB"
+green = "#BCEF8A"
+magenta = "#BDAFFF"
+red = "#FF759A"
+white = "#FCFCFA"
+yellow = "#FFD866"
+
+[colors.normal]
+black = "#403E41"
+blue = "#6088FF"
+cyan = "#78DCE8"
+green = "#A9DC76"
+magenta = "#AB9DF2"
+red = "#FF6188"
+white = "#E9E9E7"
+yellow = "#FC9867"
+
+[colors.primary]
+background = "#2D2A2E"
+foreground = "#FCFCFA"
+
+[font]
+size = 13.0
+
+[font.bold]
+family = "JetBrains Mono Nerd Font"
+style = "Bold"
+
+[font.bold_italic]
+family = "JetBrains Mono Nerd Font"
+style = "Bold Italic"
+
+[font.italic]
+family = "JetBrains Mono Nerd Font"
+style = "Italic"
+
+[font.normal]
+family = "JetBrains Mono Nerd Font"
+style = "Regular"
+
+[window]
+decorations = "none"
+opacity = 0.99
+
+[window.dimensions]
+columns = 93
+lines = 35
