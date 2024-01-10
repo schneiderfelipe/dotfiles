@@ -180,6 +180,7 @@ cargo install cargo-geiger
 cargo install cargo-generate
 cargo install cargo-license
 cargo install cargo-msrv
+cargo install cargo-nextest
 cargo install cargo-outdated
 cargo install cargo-readme
 cargo install cargo-release
