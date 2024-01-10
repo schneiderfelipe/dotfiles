@@ -1,2 +1,3 @@
 [build]
+rustc-wrapper = "sccache"
 rustflags = ["-C", "target-cpu=native", "-C", "link-arg=-fuse-ld=mold"]

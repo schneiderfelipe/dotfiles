@@ -191,6 +191,7 @@ cargo install cargo-unused-features
 cargo install cargo-watch
 cargo install cargo-workspaces
 cargo install flamegraph
+cargo install sccache
 
 # Python development
 pip install -U 'maturin[patchelf]'
