@@ -179,6 +179,7 @@ cargo install cargo-expand
 cargo install cargo-geiger
 cargo install cargo-generate
 cargo install cargo-license
+cargo install cargo-machete
 cargo install cargo-msrv
 cargo install cargo-nextest
 cargo install cargo-outdated
@@ -186,7 +187,6 @@ cargo install cargo-readme
 cargo install cargo-release
 cargo install cargo-show-asm
 cargo install cargo-tarpaulin
-cargo install cargo-udeps
 cargo install cargo-unused-features
 cargo install cargo-watch
 cargo install cargo-workspaces
