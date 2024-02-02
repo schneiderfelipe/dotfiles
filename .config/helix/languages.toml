@@ -31,6 +31,12 @@ args = ["--ignore", "E501"]
 command = "black"
 args = ["--line-length", "88", "--quiet", "-"]
 
+# Rust configuration
+
+[[language]]
+rust = "rust"
+language-servers = ["rust-analyzer", "helix-gpt"]
+
 # Haskell configuration
 
 [[language]]
@@ -109,10 +115,7 @@ auto-format = true
 name = "javascript"
 formatter = { command = 'deno', args = ["fmt", "-", "--ext", "js" ] }
 auto-format = true
-language-servers = [
-  "typescript-language-server",
-  "helix-gpt",
-]
+language-servers = ["typescript-language-server", "helix-gpt"]
 
 [[language]]
 name = "json"
@@ -128,10 +131,7 @@ auto-format = true
 name = "typescript"
 formatter = { command = 'deno', args = ["fmt", "-", "--ext", "ts" ] }
 auto-format = true
-language-servers = [
-  "typescript-language-server",
-  "helix-gpt",
-]
+language-servers = ["typescript-language-server", "helix-gpt"]
 
 [[language]]
 name = "jsx"
