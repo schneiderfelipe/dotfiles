@@ -34,7 +34,7 @@ args = ["--line-length", "88", "--quiet", "-"]
 # Rust configuration
 
 [[language]]
-rust = "rust"
+name = "rust"
 language-servers = ["rust-analyzer", "helix-gpt"]
 
 # Haskell configuration
