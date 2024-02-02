@@ -235,6 +235,7 @@ pip install -U python-ly
 
 # Programming language utilities
 install "bun" 'curl -fsSL https://bun.sh/install | bash'
+bun upgrade
 install "fnm" 'curl -fsSL https://fnm.vercel.app/install | bash' # TODO: can we use cargo?
 install "poetry" 'curl -sSL https://install.python-poetry.org | python -'
 npm install -g typescript@latest
