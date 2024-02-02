@@ -93,6 +93,7 @@ source "$HOME/.bash_completion/mdbook"
 source "$HOME/.bash_completion/poetry"
 source "$HOME/.bash_completion/rustup"
 source "$HOME/.bash_completion/zellij"
+source "$HOME/.bun/_bun"
 
 # Smarter cd command
 eval "$(zoxide init bash)"

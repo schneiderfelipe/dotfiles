@@ -66,3 +66,7 @@ export RUSTFLAGS="-C target-cpu=native"
 
 # fnm/npm installed packages
 export PATH="$HOME/.fnm:$PATH"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"

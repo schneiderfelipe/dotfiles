@@ -234,10 +234,11 @@ pip install -U proselint
 pip install -U python-ly
 
 # Programming language utilities
+install "bun" 'curl -fsSL https://bun.sh/install | bash'
 install "fnm" 'curl -fsSL https://fnm.vercel.app/install | bash' # TODO: can we use cargo?
 install "poetry" 'curl -sSL https://install.python-poetry.org | python -'
-poetry self update
 npm install -g typescript@latest
+poetry self update
 
 # Language servers
 cargo install taplo-cli --features lsp
