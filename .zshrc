@@ -153,4 +153,3 @@ source /usr/share/doc/fzf/examples/completion.zsh
 
 # Last thing of this file, starship
 eval "$(starship init zsh)"
-
