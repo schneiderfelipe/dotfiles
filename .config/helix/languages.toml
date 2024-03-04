@@ -1,7 +1,7 @@
 # See <https://github.com/leona/helix-gpt>.
 [language-server.helix-gpt]
 command = "bun"
-args = ["run", "/home/schneider/.local/bin/helix-gpt.js", "--logFile", "/home/schneider/.cache/helix/helix-gpt.log"]
+args = ["run", "/home/schneider/.local/bin/helix-gpt.js", "--logFile", "/home/schneider/.cache/helix/helix-gpt.log", "--handler", "copilot"]
 
 [language-server.efm]
 command = "efm-langserver"
