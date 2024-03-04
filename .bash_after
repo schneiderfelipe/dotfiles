@@ -45,7 +45,9 @@ source "$HOME/.config/broot/launcher/bash/br"
 # Options for Multiwfn and xTB
 export OMP_STACKSIZE=200M
 # ulimit -s unlimited
-source "/opt/xtb/share/xtb/config_env.bash"
+if [ -f "/opt/xtb/share/xtb/config_env.bash" ]; then
+    . "/opt/xtb/share/xtb/config_env.bash"
+fi
 
 # Set up Rust environment
 . "$HOME/.cargo/env"
