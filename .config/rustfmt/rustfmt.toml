@@ -10,11 +10,11 @@ use_try_shorthand = true
 # condense_wildcard_suffixes = true
 # format_macro_matchers = true
 # format_strings = true
-# normalize_doc_attributes = true
+normalize_doc_attributes = true
 # overflow_delimited_expr = true
 # reorder_impl_items = true
 # skip_children = true
 
-# format_code_in_doc_comments = true
-# normalize_comments = true
-# wrap_comments = true
+format_code_in_doc_comments = true
+normalize_comments = true
+wrap_comments = true
