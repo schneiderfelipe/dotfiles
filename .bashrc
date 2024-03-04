@@ -7,7 +7,7 @@
 # Things shared between bash and zsh that should come before.
 # This includes changes to $PATH and function definitions.
 if [ -f "$HOME/.bash_before" ]; then
-  . "$HOME/.bash_before"
+  source "$HOME/.bash_before"
 fi
 
 # If not running interactively, don't do anything
@@ -81,7 +81,7 @@ esac
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
 # sources /etc/bash.bashrc).
 #if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
-#    . /etc/bash_completion
+#  source /etc/bash_completion
 #fi
 
 # Completions
@@ -101,7 +101,7 @@ eval "$(zoxide init bash)"
 # Things shared between bash and zsh that should come after.
 # This includes almost all exports and aliases.
 if [ -f "$HOME/.bash_after" ]; then
-  . "$HOME/.bash_after"
+  source "$HOME/.bash_after"
 fi
 
 # fzf setup
