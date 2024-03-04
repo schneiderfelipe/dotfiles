@@ -3,7 +3,7 @@
 # Things shared between bash and zsh that should come before.
 # This includes changes to $PATH.
 if [ -f "$HOME/.bash_before" ]; then
-  . "$HOME/.bash_before"
+  source "$HOME/.bash_before"
 fi
 
 # Path to your oh-my-zsh installation.
@@ -144,7 +144,7 @@ eval "$(zoxide init zsh)"
 # Things shared between bash and zsh that should come after.
 # This includes almost all exports and aliases.
 if [ -f "$HOME/.bash_after" ]; then
-  . "$HOME/.bash_after"
+  source "$HOME/.bash_after"
 fi
 
 # fzf setup

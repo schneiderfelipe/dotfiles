@@ -2,7 +2,7 @@
 
 # Functions.
 if [ -f "$HOME/.bash_functions" ]; then
-  . "$HOME/.bash_functions"
+  source "$HOME/.bash_functions"
 fi
 
 DROPBOX="$(jq -r '.personal.path' "$HOME/.dropbox/info.json")"
@@ -12,7 +12,7 @@ export DROPBOX
 SECRETS="$DROPBOX/.secrets"
 if [ -f "$SECRETS" ]; then
   # shellcheck source=/dev/null
-  . "$SECRETS"
+  source "$SECRETS"
 fi
 unset SECRETS
 

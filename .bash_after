@@ -6,7 +6,7 @@
 # See /usr/share/doc/bash-doc/examples in the bash-doc package.
 
 if [ -f "$HOME/.bash_aliases" ]; then
-  . "$HOME/.bash_aliases"
+  source "$HOME/.bash_aliases"
 fi
 
 # Preferred editor for local and remote sessions
@@ -46,11 +46,11 @@ source "$HOME/.config/broot/launcher/bash/br"
 export OMP_STACKSIZE=200M
 # ulimit -s unlimited
 if [ -f "/opt/xtb/share/xtb/config_env.bash" ]; then
-    . "/opt/xtb/share/xtb/config_env.bash"
+  source "/opt/xtb/share/xtb/config_env.bash"
 fi
 
 # Set up Rust environment
-. "$HOME/.cargo/env"
+source "$HOME/.cargo/env"
 
 # Set up Haskell environment
 [ -f "$HOME/.ghcup/env" ] && source "$HOME/.ghcup/env"
