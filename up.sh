@@ -64,7 +64,6 @@ echo
 echo
 
 info "Installing some utilities...\n"
-cargo install alacritty
 cargo install cocogitto
 cargo install gptcommit
 cargo install ripgrep
