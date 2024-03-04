@@ -173,6 +173,7 @@ fi
 
 # Rust development
 cargo install cargo-audit
+cargo install cargo-binutils
 cargo install cargo-bloat
 cargo install cargo-edit
 cargo install cargo-expand
