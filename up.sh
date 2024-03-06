@@ -195,10 +195,11 @@ cargo install sccache
 
 # Python development
 pip install -U 'maturin[patchelf]'
+pip install -U 'python-lsp-server[all]' python-lsp-ruff
 pip install -U black
 pip install -U ipython
 pip install -U pytest
-pip install -U ruff
+pip install -U ruff ruff-lsp
 
 # Command-line utilities I developed
 cargo install answer
@@ -248,7 +249,6 @@ npm install -g bash-language-server
 npm install -g bibtex-tidy
 npm install -g elm-test elm-format elm-review @elm-tooling/elm-language-server # elm is manually installed
 npm install -g prettier@latest @prettier/plugin-php @prettier/plugin-pug @prettier/plugin-ruby @prettier/plugin-xml
-install "pylsp" "pip install -U 'python-lsp-server[all]' python-lsp-ruff"
 npm install -g pyright
 npm install -g svelte-language-server
 npm install -g typescript typescript-language-server
