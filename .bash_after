@@ -68,3 +68,6 @@ eval "$(zellij setup --generate-auto-start zsh)"
 
 # rye
 # source "$HOME/.rye/env"
+
+# bun completions
+[ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
