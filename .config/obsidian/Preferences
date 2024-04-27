@@ -1,4 +1,1 @@
-{
-  "browser": { "enable_spellchecking": true },
-  "spellcheck": { "dictionaries": ["en-GB", "pt-BR"], "dictionary": "" }
-}
+{"browser":{"enable_spellchecking":true},"spellcheck":{"dictionaries":["en-GB"],"dictionary":""}}
