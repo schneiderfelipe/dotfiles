@@ -4,8 +4,8 @@ use_field_init_shorthand = true
 use_try_shorthand = true
 
 # hex_literal_case = "Upper"
-# imports_granularity = "Crate"
-# group_imports = "StdExternalCrate"
+imports_granularity = "Crate"
+group_imports = "StdExternalCrate"
 
 # condense_wildcard_suffixes = true
 # format_macro_matchers = true
