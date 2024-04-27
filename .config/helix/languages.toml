@@ -6,6 +6,10 @@ args = ["run", "/home/schneider/.local/bin/helix-gpt.js", "--logFile", "/home/sc
 [language-server.efm]
 command = "efm-langserver"
 
+[[language]]
+name = "toml"
+language-servers = ["taplo", "helix-gpt"]
+
 # Python configuration (see <https://github.com/helix-editor/helix/wiki/How-to-install-the-default-language-servers#python---pyright--ruff--black>)
 
 [[language]]
