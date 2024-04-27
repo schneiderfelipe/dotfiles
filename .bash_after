@@ -67,4 +67,4 @@ export ZELLIJ_AUTO_EXIT=true
 eval "$(zellij setup --generate-auto-start zsh)"
 
 # rye
-source "$HOME/.rye/env"
+# source "$HOME/.rye/env"
