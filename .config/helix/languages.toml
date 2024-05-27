@@ -35,6 +35,8 @@ args = ["--ignore", "E501"]
 command = "black"
 args = ["--line-length", "88", "--quiet", "-"]
 
+# TODO: add a default formatter for Golang, and "pair-up" the configuration with Rust
+
 # Rust configuration
 
 [[language]]

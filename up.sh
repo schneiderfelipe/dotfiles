@@ -304,6 +304,8 @@ code "https://github.com/elm/compiler/blob/master/installers/linux/README.md#ins
 
 info "Golang:\n"
 code "https://go.dev/doc/install\n\n"
+# Official Go language server: go install golang.org/x/tools/gopls@latest
+# golangci-lint language server (requires golangci-lint): go install github.com/nametake/golangci-lint-langserver@latest
 
 info "Marksman:\n"
 info "(a language server for Markdown)\n"
