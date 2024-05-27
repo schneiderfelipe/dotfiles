@@ -118,6 +118,7 @@ npm install -g npm@latest
 info "Updating rustup (installing if needed)...\n"
 install "rustup" "curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh"
 rustup update
+cargo install sccache
 
 info "Updating ghcup (installling if needed)...\n"
 install "ghcup" "curl --proto '=https' --tlsv1.2 -sSf https://get-ghcup.haskell.org | sh"
@@ -191,7 +192,6 @@ cargo install cargo-unused-features
 cargo install cargo-watch
 cargo install cargo-workspaces
 cargo install flamegraph
-cargo install sccache
 
 # Python development
 pip install -U 'maturin[patchelf]'
