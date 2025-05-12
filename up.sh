@@ -265,9 +265,9 @@ echo
 
 warning "Things that need to be installed manually:\n\n"
 
-info "alacritty:\n"
-info "(the binary itself is installed automatically)\n"
-code "https://github.com/alacritty/alacritty/blob/master/INSTALL.md#manual-installation\n\n"
+info "rio terminal:\n"
+info "(might be installed automatically in the future)\n"
+code "https://github.com/raphamorim/rio/releases"
 
 info "Helix editor:\n"
 info "(might be installed automatically in the future)\n"
@@ -317,8 +317,8 @@ echo
 info "Setting some default applications:\n\n"
 
 # Possible terminal emulators.
-if command -v alacritty > /dev/null 2>&1; then
-  sudo update-alternatives --install /usr/bin/x-terminal-emulator x-terminal-emulator "$(which alacritty)" 50
+if command -v rio > /dev/null 2>&1; then
+  sudo update-alternatives --install /usr/bin/x-terminal-emulator x-terminal-emulator "$(which rio)" 60
 fi
 sudo update-alternatives --config x-terminal-emulator
 

@@ -85,7 +85,6 @@ esac
 #fi
 
 # Completions
-source "$HOME/.bash_completion/alacritty"
 source "$HOME/.bash_completion/cargo"
 source "$HOME/.bash_completion/cog"
 source "$HOME/.bash_completion/fnm"
