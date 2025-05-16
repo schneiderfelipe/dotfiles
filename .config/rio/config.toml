@@ -1,3 +1,4 @@
+
 # Hide the cursor while typing
 #
 # Default is `false`
@@ -29,7 +30,7 @@ theme = "dracula"
 
 # Padding-y
 #
-# define y axis padding based on a format [top, left]
+# define y axis padding based on a format [top, bottom]
 # (default is [0, 0])
 #
 # Example:
@@ -103,7 +104,7 @@ theme = "dracula"
 # use the value of the editor along with the rio configuration path.
 [editor]
 program = "hx"
-args = []
+# args = []
 
 # Window configuration
 #
@@ -202,28 +203,34 @@ args = []
 # [fonts]
 # hinting = false
 #
-# Example:
+# You can also map the specified Unicode codepoints to a particular font.
+# [fonts]
+# symbol-map = [
+#   { start = "2297", end = "2299", font-family = "Cascadia Code NF" }
+# ]
+#
+# Simple example:
 # [fonts]
 # size = 18
 #
 # [fonts.regular]
 # family = "cascadiamono"
-# style = "normal"
+# style = "Normal"
 # weight = 400
 #
 # [fonts.bold]
 # family = "cascadiamono"
-# style = "normal"
+# style = "Normal"
 # weight = 800
 #
 # [fonts.italic]
 # family = "cascadiamono"
-# style = "italic"
+# style = "Italic"
 # weight = 400
 #
 # [fonts.bold-italic]
 # family = "cascadiamono"
-# style = "italic"
+# style = "Italic"
 # weight = 800
 
 # Scroll
@@ -318,7 +325,7 @@ args = []
 # Bindings
 #
 # Create custom Key bindings for Rio terminal
-# More information in: https://raphamorim.io/rio/docs/config/bindings
+# More information in: https://raphamorim.io/rio/docs/key-bindings
 #
 # Example:
 # [bindings]
@@ -357,3 +364,4 @@ args = []
 # [developer]
 # log-level = "OFF"
 # enable-log-file = false
+
