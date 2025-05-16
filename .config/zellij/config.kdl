@@ -218,27 +218,11 @@ pane_frames false
 // Define color themes for Zellij
 // For more examples, see: https://github.com/zellij-org/zellij/tree/main/example/themes
 // Once these themes are defined, one of them should to be selected in the "theme" section of this file
-//
-themes {
-    monokai-pro-modified {
-        fg "#FCFCFA"
-        bg "#2D2A2E"
-        black "#403E41"
-        red "#FF6188"
-        green "#A9DC76"
-        yellow "#FFD866"
-        blue "#6088FF"
-        magenta "#AB9DF2"
-        cyan "#78DCE8"
-        white "#FCFCFA"
-        orange "#FC9867"
-    }
-}
 
 // Choose the theme that is specified in the themes section.
 // Default: default
 //
-theme "monokai-pro-modified"
+theme "dracula"
 
 // The name of the default layout to load on startup
 // Default: "default"

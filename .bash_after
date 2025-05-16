@@ -26,7 +26,7 @@ export LESS="--RAW-CONTROL-CHARS --quit-if-one-screen --mouse"
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 
 # Directory colors
-LS_COLORS=$(vivid generate monokai-pro)
+LS_COLORS=$(vivid generate dracula)
 export LS_COLORS
 
 # Options and bindings for fzf
