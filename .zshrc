@@ -108,7 +108,6 @@ export plugins=(
   safe-paste # TODO: test it
   ubuntu
   vi-mode
-  vscode
   web-search
   zbell
 
