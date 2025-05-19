@@ -13,8 +13,8 @@
 	diffFilter = delta --color-only
 [delta]
 	features = side-by-side line-numbers
-	syntax-theme = Monokai Extended
-	theme = Monokai Extended
+	syntax-theme = Dracula
+	theme = Dracula
 [merge]
 	conflictstyle = diff3
 [diff]
