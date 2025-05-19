@@ -185,8 +185,8 @@ program = "hx"
 # will always look for regular font bounds whene
 #
 # You can also set family on root to overwrite all fonts.
-# [fonts]
-# family = "cascadiamono"
+[fonts]
+family = "FiraCode Nerd Font"
 #
 # You can also specify extra fonts to load
 # [fonts]
