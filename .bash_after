@@ -32,12 +32,12 @@ export LS_COLORS
 # Options and bindings for fzf
 export FZF_DEFAULT_OPTS='--height 25% --info=inline --cycle'
 export FZF_TMUX_OPTS="-d 25%"
-# Monokai-inspired theme for fzf
+# Dracula theme for fzf (https://draculatheme.com/fzf)
 export FZF_DEFAULT_OPTS="$FZF_DEFAULT_OPTS \
-  --color='fg:-1,bg:-1,hl:#a9dc76' \
-  --color='fg+:#fcfcfa,bg+:#2d2a2e,hl+:#bcef8a' \
-  --color='info:#727072,prompt:#a9dc76,pointer:#fc9867' \
-  --color='marker:#fc9867,spinner:#bcef8a,header:#fc9867'"
+  --color='fg:#f8f8f2,bg:#282a36,hl:#bd93f9' \
+  --color='fg+:#f8f8f2,bg+:#44475a,hl+:#bd93f9' \
+  --color='info:#ffb86c,prompt:#50fa7b,pointer:#ff79c6' \
+  --color='marker:#ff79c6,spinner:#ffb86c,header:#6272a4'"
 
 # Set up Broot
 source "$HOME/.config/broot/launcher/bash/br"
