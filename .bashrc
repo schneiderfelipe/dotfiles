@@ -87,6 +87,7 @@ esac
 # Completions
 source "$HOME/.bash_completion/cargo"
 source "$HOME/.bash_completion/cog"
+source "$HOME/.bash_completion/delta"
 source "$HOME/.bash_completion/fnm"
 source "$HOME/.bash_completion/mdbook"
 source "$HOME/.bash_completion/poetry"
