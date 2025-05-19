@@ -85,6 +85,7 @@ esac
 #fi
 
 # Completions
+source "$HOME/.bash_completion/bat"
 source "$HOME/.bash_completion/cargo"
 source "$HOME/.bash_completion/cog"
 source "$HOME/.bash_completion/delta"
