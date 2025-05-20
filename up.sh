@@ -274,7 +274,7 @@ info "(might be installed automatically in the future)\n"
 code "https://docs.helix-editor.com/install.html#building-from-source\n\n"
 
 info "FiraCode:\n"
-code "https://www.nerdfonts.com/font-downloads\n"
+code "https://github.com/tonsky/FiraCode/releases/\n"
 code "https://askubuntu.com/a/3706/361183\n\n"
 
 info "Pop!_OS Shell:\n"
