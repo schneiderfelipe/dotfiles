@@ -41,6 +41,9 @@ alias tbds="xsel -b -o | mico -n 512 -T 1.0 -i 'Describe the most important rela
 # Use bat as a replacement for cat
 alias cat="bat --paging=never"
 
+# Get colorized help pages with bat too (see <https://github.com/sharkdp/bat#highlighting---help-messages>)
+alias -g -- --help='--help 2>&1 | bat --paging=never --language=help --style=plain'
+
 # I was gonna type 'lazygit', but then I got high.
 alias lg='lazygit'
 
