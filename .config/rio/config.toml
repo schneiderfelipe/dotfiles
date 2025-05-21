@@ -186,7 +186,7 @@ decorations = "disabled"
 #
 # You can also set family on root to overwrite all fonts.
 [fonts]
-family = "FiraCode Nerd Font"
+family = "Fira Code"
 #
 # You can also specify extra fonts to load
 # [fonts]
@@ -194,7 +194,18 @@ family = "FiraCode Nerd Font"
 #
 # In case you want to specify any font feature:
 # [fonts]
-# features = ["ss02", "ss03", "ss05", "ss19"]
+features = [
+  "cv21",
+  "ss09",
+  "cv25",
+  "cv26",
+  "cv32",
+  "cv27",
+  "cv28",
+  "ss06",
+  "ss07",
+  "ss10",
+]
 #
 # Note: Font features do not have support to live reload on configuration,
 # so to reflect your changes, you will need to close and reopen Rio.
