@@ -126,13 +126,13 @@ program = "hx"
 # • decorations - Set window decorations, options: "Enabled", "Disabled", "Transparent", "Buttonless"
 #
 # Example:
-# [window]
+[window]
 # width = 600
 # height = 400
 # mode = "windowed"
 # opacity = 1.0
 # blur = false
-# decorations = "enabled"
+decorations = "disabled"
 
 # Renderer
 #
