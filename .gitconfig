@@ -17,7 +17,7 @@
 	syntax-theme = Dracula
 	theme = Dracula
 [merge]
-	conflictstyle = diff3
+	conflictstyle = zdiff3
 [diff]
 	colorMoved = default
 [color]
