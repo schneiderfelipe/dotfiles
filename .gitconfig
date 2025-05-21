@@ -12,8 +12,9 @@
 [interactive]
 	diffFilter = delta --color-only
 [delta]
-	features = side-by-side line-numbers
 	navigate = true
+	side-by-side = true
+	line-numbers = true
 	syntax-theme = Dracula
 	theme = Dracula
 [merge]
