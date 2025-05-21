@@ -158,11 +158,11 @@ decorations = "disabled"
 # • filters: A list of paths to RetroArch slang shaders. Might not work with OpenGL.
 #
 # Example:
-# [renderer]
-# performance = "high"
-# backend = "automatic"
-# disable-unfocused-render = false
-# level = 1
+[renderer]
+performance = "high"
+backend = "automatic"
+disable-unfocused-render = false
+level = 1
 # filters = []
 
 # Keyboard
