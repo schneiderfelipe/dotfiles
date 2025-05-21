@@ -271,7 +271,7 @@ code "https://github.com/raphamorim/rio/releases"
 
 info "Helix editor:\n"
 info "(might be installed automatically in the future)\n"
-code "https://docs.helix-editor.com/install.html#building-from-source\n\n"
+code "https://github.com/helix-editor/helix/releases\n\n"
 
 info "FiraCode:\n"
 code "https://github.com/tonsky/FiraCode/releases/\n"
